@@ -2,16 +2,48 @@
     height: 50px;
     background-color: rgb(47, 152, 242);
 }
-.nav-item{
+
+.navbar-nav li a{
     color: white;
 }
+.navbar-nav li a:hover{
+    color: rgb(28, 77, 219);
+}
+
+.navbar-nav li a:focus{
+    color: rgb(28, 77, 219);
+}
+
+.navbar-nav li a:selection{
+    color: rgb(28, 77, 219);
+}
+
+
 #searchBar{
     width: 400px;
     height: 25px;
 }
+
 #searchBtn{
     background-color: rgb(47, 152, 242);
 }
+
 #glass{
     color: white;
 }
+
+#loginPassword, #loginUsername{
+    width: 300px;
+}
+
+.modal-body, .modal-header{
+    background-color: rgb(47, 152, 242);
+    color: white;
+}
+
+.btn{
+    background-color: rgb(28, 77, 219);
+    color: white;
+    width: 100px;
+}
+

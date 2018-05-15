@@ -17,35 +17,84 @@
 
     <!-- SCRIPT reference -->
     <script src="index.js"></script>
+
 </head>
   <body>
-    <nav class="navbar navbar-expand fixed-top responsive">
-          <div id="navItems" class="nav navbar-nav mr-auto">
-            <a href=""><img src="images/logoForHtml.png" alt="urban shelf"></a>
+
+    <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-lg sticky-top">
+          <a class="navbar-brand" href="#"><img src="images/200x50_white.png" alt="urban shelf"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Catálogo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Bibliotecas</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Registar</a>
+                </li>
+              <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Log In</a>
+                </li>  
+            </ul>
           </div>
-          <form class="form-inline mx-auto">
-              <input id="searchBar" class="form-control my-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
-              <button id="searchBtn" class="btn" type="submit"><i id="glass" class="fas fa-search"></i></button>
-            </form>
-        <div id="accountItems" class="nav navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="catalog.html">Catálogo</a>
-            <a class="nav-item nav-link" href="#">Bibliotecas</a>
-            <a class="nav-item nav-link" href="#">Registar</a>
-            <a class="nav-item nav-link" href="#">Log In</a>
+        </nav>
+        <br>
+        <!-- CONTAINER FOR TOP BOOKS AND RECENT BOOKS -->
+        <div class="jumbotron">
+          <div>
+            <h4>Top Livros</h4>
+            <div>
+
+            </div>
+          </div>
+          </div>
+          <div class="jumbotron">
+              <div>
+                  <h4>Mais Recentes</h4>
+                  <div>
+      
+                  </div>
+                </div>
+      
+              </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" align="center">
+              <img src="images/300x250.png" alt="">
+              <br>
+              <form id="loginForm">
+                <div>
+                    <label for="loginUsername">Username</label>
+                    <br>
+                    <input type="text" id="loginUsername" autofocus required>
+                </div>
+                <br>
+                <div>
+                    <label for="loginPassword">Password</label>
+                    <br>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <br>
+                <div class="modal-footer">
+              <button type="submit" class="btn">Entrar</button>
+            </div>
+              </form>
+            </div>
+          </div>
         </div>
-    </nav>
-
-    <div class="container">
-      <div>
-        <h4>Top Livros</h4>
       </div>
-      <div>
-        <h4>Mais Recentes</h4>
-      </div>
-
-    </div>
-
-
 
 
 

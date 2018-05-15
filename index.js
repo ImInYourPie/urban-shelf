@@ -1,6 +1,3 @@
-// Id array
-let ids = [];
-
 class User{
     constructor(username, password, email, userType){
     this.username = username;
