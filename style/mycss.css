@@ -1,0 +1,17 @@
+.navbar{
+    height: 50px;
+    background-color: rgb(47, 152, 242);
+}
+.nav-item{
+    color: white;
+}
+#searchBar{
+    width: 400px;
+    height: 25px;
+}
+#searchBtn{
+    background-color: rgb(47, 152, 242);
+}
+#glass{
+    color: white;
+}
