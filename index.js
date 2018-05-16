@@ -1,3 +1,4 @@
+// CLASS USER
 class User{
     constructor(username, password, email, userType){
     this.username = username;
@@ -59,13 +60,98 @@ class User{
 
 }
 
-// SUBCLASS UTILIZADOR
+// CLASS BIBLIOTECA
+class Library{
+    constructor(location, adress, coordenates, capacity){
+        this.location = location;
+        this.adress = adress;
+        this.coordenates = coordenates;
+        this.capacity = capacity;
+        this._libraryId = Library.generateId();
+    }
+
+    // LOCATION PROPERTY
+    set location(newLocation){
+        this._location = newLocation;
+    }
+    get location(){
+        return this._location;
+    }
+
+    // ADRESS PROPERTY
+    set adress(newAdress){
+        this._adress = newAdress;
+    }
+    get adress(){
+        return this._adress;
+    }
+
+    // COORDENATES PROPERTY
+    set coordenates(newCoordenates){
+        this._coordenates = newCoordenates;
+    }
+    get coordenates(){
+        return this._coordenates;
+    }
+
+    // CAPACITY PROPERTY
+    set capacity(newCapacity){
+        this._capacity = newCapacity;
+    }
+    get capacity(){
+        return this._capacity;
+    }
+
+    // ID PROPERTY
+    get libraryId(){
+        return this._libraryId;
+    }
+
+    // ID GENERATOR
+    static generateId(){
+        function rand() {
+            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
+        }
+        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    }
+
+}
+
+// CLASS CATEGORIA
+class Categoria{
+    constructor(nameCategory){
+        this.nameCategory = nameCategory;
+        this._categoryId = Categoria.generateId();
+    }
+
+    // NAMECATEGORY PROPERTY
+    set nameCategory(newCategory){
+        this._nameCategory = newCategory;
+    }
+    get nameCategory(){
+        return this._nameCategory;
+    }
+
+    // ID PROPERTY
+    get categoryId(){
+        return this._categoryId;
+    }
+
+    // ID GENERATOR
+    static generateId(){
+        function rand() {
+            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
+        }
+        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    }
 
 
+
+}
 
 window.onload = function () {
     // TEST
-     let user1 = new User("Miguel","lala", "miguel@gmail.com", 1);
+     let user1 = new User("Miguel","mutts30", "d.miguel.melo@gmail.com", 0);
      console.log(user1.userId);
      console.log(Math.floor(( Math.random() + 1) * 0x10000).toString(16));
 
