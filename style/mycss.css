@@ -1,7 +1,10 @@
 .navbar{
     background-color: rgb(47, 152, 242);
+    min-height: 50px;
 }
-
+.navbar-toggler{
+    border-color: white;
+}
 .navbar-nav li a{
     color: white;
 }
