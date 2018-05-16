@@ -38,10 +38,10 @@
                 <a class="nav-link" href="#">Bibliotecas</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Registar</a>
+                  <a id="navRegister" class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Registar</a>
                 </li>
               <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Log In</a>
+                    <a id="navLogin" class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Log In</a>
                 </li>  
             </ul>
           </div>
@@ -69,7 +69,7 @@
        </div>
 
 
-    <!-- Modal -->
+    <!-- LOGIN MODAL -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -80,13 +80,13 @@
                 <div>
                     <label for="loginUsername">Username</label>
                     <br>
-                    <input type="text" id="loginUsername" autofocus required>
+                    <input class="modalInputs" type="text" id="loginUsername" autofocus required>
                 </div>
                 <br>
                 <div>
                     <label for="loginPassword">Password</label>
                     <br>
-                    <input type="password" id="loginPassword" required>
+                    <input class="modalInputs" type="password" id="loginPassword" required>
                 </div>
                 <br>
                 <div class="modal-footer">
@@ -98,6 +98,46 @@
         </div>
       </div>
 
+      <!-- REGISTER MODAL -->
+      <div id="registerModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" align="center">
+              <img src="images/300x250.png" alt="urban shelf">
+              <br>
+              <form id="registerForm">
+                <div>
+                    <label for="inputUsername">Username</label>
+                    <br>
+                    <input class="modalInputs" type="text" id="inputUsername" autofocus required>
+                </div>
+                <br>
+                <div>
+                  <label for="inputEmail">E-mail</label>
+                  <br>
+                  <input class="modalInputs" type="email" id="inputEmail" required>
+              </div>
+                <br>
+                <div>
+                    <label for="inputPassword">Password</label>
+                    <br>
+                    <input class="modalInputs" type="password" id="inputPassword" required>
+                </div>
+                <br>
+                <div>
+                  <label for="inputPassConfirm">Confirmar password</label>
+                  <br>
+                  <input class="modalInputs" type="password" id="inputPassConfirm" required>
+              </div>
+                <br>
+                <div class="modal-footer">
+              <button type="submit" class="btn">Registar</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
     <!-- Optional JavaScript -->
