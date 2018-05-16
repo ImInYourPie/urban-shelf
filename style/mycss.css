@@ -20,7 +20,6 @@
     color: rgb(28, 77, 219);
 }
 
-
 #searchBar{
     width: 400px;
     height: 25px;
@@ -47,5 +46,10 @@
     background-color: rgb(28, 77, 219);
     color: white;
     width: 100px;
+}
+
+footer{
+    background-color: rgb(47, 152, 242);
+    color: white;
 }
 
