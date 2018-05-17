@@ -1,0 +1,68 @@
+#adminNavbar{
+    color: white !important;
+    background-color: rgb(0, 0, 0);
+    font-size: 0.9em !important;
+    min-height: 50px !important;
+}
+
+.navbar-brand{
+    padding-top:2px !important; padding-bottom: 2px !important;
+}
+
+.navbar-nav > li > a {
+    padding-top: 5px !important; padding-bottom:5px !important;
+}
+
+.navbar-toggler{
+    border-color: white;
+}
+
+.navbar-nav li a{
+    color: white;
+}
+
+.navbar-nav li a:hover{
+    color: rgb(47, 152, 242);
+}
+
+.navbar-nav li a:focus{
+    color: rgb(47, 152, 242);
+}
+
+.navbar-nav li a:selection{
+    color: rgb(47, 152, 242);
+}
+
+.btn{
+    background-color: rgb(28, 77, 219);
+    color: white;
+    width: 100px;
+}
+
+
+#searchBar{
+    width: 400px;
+    height: 25px;
+}
+
+#searchBtn{
+    background-color: rgb(47, 152, 242);
+    height: 25px;
+    width: 25px;
+    align-content: center;
+    display: block;
+    padding: 0px;
+}
+
+.dropdown-menu{
+    background-color: rgb(0, 0, 0);;
+}
+
+#userIcon{
+    padding: 3px;
+}
+
+footer{
+    background-color: rgb(0, 0, 0);;
+    color: white;
+}
