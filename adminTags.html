@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Admin- Dashboard</title>
+    <title>Admin- Tags</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
     <!-- Required meta tags -->
@@ -20,8 +20,10 @@
     <!-- SCRIPT reference -->
     <script src="script/functions.js"></script>
     <script src="script/index.js"></script>
-    <script src="script/admin.js"></script>
+    <script src="script/adminTags.js"></script>
     
+
+
 </head>
   <body>
         <!-- ADMIN NAVBAR -->
@@ -59,7 +61,7 @@
                             <i id="userIcon" class="fas fa-user-circle"></i>Username
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="adminProfilePage">Perfil</a>
+                        <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
                         <div class="dropdown-divider"></div>
                         <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
                         </div>
@@ -67,8 +69,39 @@
                 </ul>
             </div>
           </nav>
+          
 
-          <br>
+          <!-- TAGS SETTINGS-->
+          <div id="containerTags" class="container">
+            <div>
+                  <br>
+                    <h4>Adicionar Tag</h4>
+                    <br>
+                    <form id="addTag">
+                          <label id="labelInputTagName" for="inputTagName">Nome da Tag</label>
+                          <input type="text" name="" id="inputTagName">
+                          <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar</button>
+                    </form>
+                    <br>
+            </div>
+                <div>
+                  <br>
+                    <h4>Gerir Tags</h4>
+                    <br>
+                    <!-- Table -->
+                 <div class="table-responsive">
+                    <table id="tblTags" class="table table-sm">            
+                    </table>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            </div>
+          
+            
+          
+
+          
 
       <footer id="myFooter">
         <div class="container">
