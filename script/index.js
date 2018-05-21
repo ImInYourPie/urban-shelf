@@ -1,11 +1,10 @@
+
+
 // ARRAYS
 let arrayUsers = [];
 let arrayTags = [];
 let arrayCategorias = [];
 let arrayLivros = [];
-
-// GET LOCAL STORAGE
-
 
 
 // CLASS USER

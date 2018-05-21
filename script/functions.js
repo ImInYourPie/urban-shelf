@@ -1,3 +1,12 @@
+// ARRAYTAGS GET LOCAL STORAGE
+function getStoredTags() {
+    if (localStorage.tagStorage){
+        arrayTags = JSON.parse(localStorage.tagStorage);
+        refreshTableTags();
+    }
+}
+
+
 // REFRESHTABLE TAGS FUNCTION
 function refreshTableTags() {
     let strHtml = "";
@@ -10,10 +19,10 @@ function refreshTableTags() {
 
     for (var i = 0; i < arrayTags.length; i++) {
         strHtml += "<tr>" +
-        "<td>" + arrayTags[i].nameTag + "</td>" +
-        "<td>" + arrayTags[i].tagId + "</td>" +
+        "<td>" + arrayTags[i]._nameTag + "</td>" +
+        "<td>" + arrayTags[i]._tagId + "</td>" +
         "<td>" +
-            "<a id='" + arrayTags[i].tagId + "' class='removeTag'><i class='fas fa-trash-alt'></i></a> " +
+            "<a id='" + arrayTags[i]._tagId + "' class='removeTag'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
     }
@@ -30,7 +39,8 @@ function refreshTableTags() {
              // ON CLICK TARGET REMOVE FROM TABLE
              let tagId = tdRemove[i].getAttribute("id");
              removeTag(tagId);
-             refreshTableTags();
+             getStoredTags();
+             
          })        
      }
 
@@ -40,8 +50,9 @@ function refreshTableTags() {
  // REMOVE TAG
  function removeTag(id) {
      for (let i = 0; i < arrayTags.length; i++) {
-         if(arrayTags[i].tagId == id) {
+         if(arrayTags[i]._tagId == id) {
              arrayTags.splice(i, 1)
+             localStorage.tagStorage = JSON.stringify(arrayTags)
          }                  
      }
 
@@ -97,5 +108,4 @@ function refreshTableCategorias() {
      }
 
 }
-
 
