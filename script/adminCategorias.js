@@ -1,6 +1,6 @@
 window.onload = function () {
     
-    refreshTableCategorias()
+    getStoredCategorias();
     
     // VARIABLES
     let addCategory = document.getElementById("addCategory");
@@ -16,7 +16,7 @@ window.onload = function () {
 
     // 2. VALIDATE INPUTS
     for (let i = 0; i < arrayCategorias.length; i++) {
-        if(categoryName == arrayCategorias[i].nameCategory){
+        if(categoryName == arrayCategorias[i]._nameCategory){
             errorMsg = "Categoria já existe!";
         }
     }
@@ -29,10 +29,10 @@ window.onload = function () {
     if(errorMsg == ""){
         let newCategory = new Category(categoryName);
         arrayCategorias.push(newCategory);
-        refreshTableCategorias();
         inputCategoryName.value = "";
         // STORE IN LOCAL STORAGE
-        
+        localStorage.categoriaStorage = JSON.stringify(arrayCategorias);
+        getStoredCategorias();
         
     }
     else{

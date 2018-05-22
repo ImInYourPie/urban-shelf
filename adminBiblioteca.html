@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Admin- Categorias</title>
+    <title>Admin- Dashboard</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
     <!-- Required meta tags -->
@@ -20,10 +20,9 @@
     <!-- SCRIPT reference -->
     <script src="script/functions.js"></script>
     <script src="script/index.js"></script>
-    <script src="script/adminCategorias.js"></script>
+    <script src="script/adminBiblioteca.js"></script>
+    <script src="script/adminTags.js"></script>
     
-
-
 </head>
   <body>
         <!-- ADMIN NAVBAR -->
@@ -61,7 +60,7 @@
                             <i id="userIcon" class="fas fa-user-circle"></i>Username
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
+                        <a class="dropdown-item" href="adminProfilePage">Perfil</a>
                         <div class="dropdown-divider"></div>
                         <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
                         </div>
@@ -69,50 +68,83 @@
                 </ul>
             </div>
           </nav>
-          
 
-          <!-- TAGS SETTINGS-->
-          <div id="containerTags" class="container">
+          <br>
+
+          <!-- CONTENT-->
+           <!-- BIBLIOTECA SETTINGS-->
+           <div id="containerBiblioteca" class="container">
             <div>
                   <br>
-                    <h4>Adicionar Categoria</h4>
+                    <h4>Adicionar Biblioteca</h4>
                     <br>
-                    <form id="addCategory">
-                          <label id="labelInputCategoryName" for="inputCategoryName">Nome da Categoria</label>
-                          <input type="text" name="" id="inputCategoryName">
+                    <form id="addBiblioteca">
+                          <label class="labelBiblioteca" for="bibliotecaLocation">Localidade</label>
+                          <input type="text" name="" id="bibliotecaLocation" required>
+                          <label class="labelBiblioteca" for="bibliotecaAdress">Morada</label>
+                          <input type="text" name="" id="bibliotecaAdress" required>
+                          <br>
+                          <label class="labelBiblioteca" for="bibliotecaCapacity">Capadidade</label>
+                          <input type="number" name="" id="bibliotecaCapacity" required>
+                          <br>
+                          <label class="labelBiblioteca" for="bibliotecaLat">Coordenas GPS</label>
+                          <input type="number" name="" id="bibliotecaLat" placeholder="Latitude" required>
+                          <span>-</span>
+                          <input type="number" name="" id="bibliotecaLong" placeholder="Longitude" required>
+                          
                           <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar</button>
                     </form>
                     <br>
             </div>
                 <div>
                   <br>
-                    <h4>Gerir Categorias</h4>
+                    <h4>Gerir Bibliotecas</h4>
                     <br>
-                    <!-- Table -->
-                 <div class="table-responsive">
-                    <table id="tblCategorias" class="table table-sm">            
-                    </table>
-                    <br>
-                    <br>
-                </div>
-            </div>
-            </div>
-          
-            
-          
-
-          
-      <!-- FOOTER -->
+                    <div class="row">
+                      <!-- Table -->
+                      <div class="table-responsive col-6">
+                          <table id="tblBibliotecas" class="table table-sm">            
+                          </table>
+                      </div>
+                  
+                  <div class="col-6" id="myMap" style="width:500px; height:300px">
+      
+                  </div>
+                  </div>
+                    </div>
+                  </div>
+                 
+    <!-- FOOTER -->
       <footer id="myFooter">
         <div class="container">
           <h2>Footer</h2>
         </div>
       </footer>
 
+
+
+
+
+      <!-- MAP SCRIPT -->
+      <script>
+          let map
+          let myMap = document.getElementById("myMap")
+          function initMap() {
+              let mapProp= {
+                  center:new google.maps.LatLng(37.508742,-0.420850),
+                  zoom:5
+              }
+              map = new google.maps.Map(myMap, mapProp)
+          }          
+        </script>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+    <!-- MAP API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcYng9pBfj_LmDthyiydpfyy3bftchOmg&callback=initMap" async></script>  
+</body>
 </html>

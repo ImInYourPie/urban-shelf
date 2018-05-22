@@ -6,6 +6,13 @@ function getStoredTags() {
     }
 }
 
+// ARRAYCATEGORIAS GET LOCAL STORAGE
+function getStoredCategorias() {
+    if (localStorage.categoriaStorage){
+        arrayCategorias = JSON.parse(localStorage.categoriaStorage);
+        refreshTableCategorias();
+    }
+}
 
 // REFRESHTABLE TAGS FUNCTION
 function refreshTableTags() {
@@ -52,7 +59,7 @@ function refreshTableTags() {
      for (let i = 0; i < arrayTags.length; i++) {
          if(arrayTags[i]._tagId == id) {
              arrayTags.splice(i, 1)
-             localStorage.tagStorage = JSON.stringify(arrayTags)
+             localStorage.tagStorage = JSON.stringify(arrayTags);
          }                  
      }
 
@@ -72,10 +79,10 @@ function refreshTableCategorias() {
 
     for (var i = 0; i < arrayCategorias.length; i++) {
         strHtml += "<tr>" +
-        "<td>" + arrayCategorias[i].nameCategory + "</td>" +
-        "<td>" + arrayCategorias[i].categoryId + "</td>" +
+        "<td>" + arrayCategorias[i]._nameCategory + "</td>" +
+        "<td>" + arrayCategorias[i]._categoryId + "</td>" +
         "<td>" +
-            "<a id='" + arrayCategorias[i].categoryId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
+            "<a id='" + arrayCategorias[i]._categoryId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
     }
@@ -92,7 +99,7 @@ function refreshTableCategorias() {
              // ON CLICK TARGET REMOVE FROM TABLE
              let categoryId = tdRemove[i].getAttribute("id");
              removeCategoria(categoryId);
-             refreshTableCategorias();
+             getStoredCategorias();
          })        
      }
 
@@ -102,10 +109,13 @@ function refreshTableCategorias() {
  // REMOVE TAG
  function removeCategoria(id) {
      for (let i = 0; i < arrayCategorias.length; i++) {
-         if(arrayCategorias[i].categoryId == id) {
-             arrayCategorias.splice(i, 1)
+         if(arrayCategorias[i]._categoryId == id) {
+             arrayCategorias.splice(i, 1);
+             localStorage.categoriaStorage = JSON.stringify(arrayCategorias);
          }                  
      }
 
 }
+
+
 

@@ -4,34 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Web Storage Demo #03</title>
-    
-    <script>
-    window.onload= function () {        
-        let txtName = document.getElementById("txtName")
-        let txtMovie = document.getElementById("txtMovie")
-        let txtScore = document.getElementById("txtScore")
-        let btnStore = document.getElementById("btnStore")
-        btnStore.addEventListener("click", function() {
-            myMovies = []
-            if (localStorage.getItem(txtName.value)) {
-                myMovies = JSON.parse(localStorage.getItem(txtName.value))
-            }
-            myMovies.push({movie: txtMovie.value, 
-                score: txtScore.value})
-            localStorage.setItem(
-                txtName.value, 
-                JSON.stringify(myMovies))
-                console.log(myMovies[0].txtMovie)
-        })
-    
-    }
-    </script>
+    <title>DEMO #01 GMJSAPI</title>
+   
 </head>
-<body>    
-    Name: <input id="txtName" type="text"><br>
-    Movie: <input id="txtMovie" type="text"><br>
-    Score: <input id="txtScore" type="text">
-    <button id="btnStore">SUBMIT</button>
+<body>
+        <div id="myMap" style="width:500px; height:500px"></div>
+        <script>            
+            let map
+            let myMap = document.getElementById("myMap")
+            function initMap() {
+                let mapProp= {
+                    center:new google.maps.LatLng(37.508742,-0.420850),
+                    zoom:5
+                }
+                map = new google.maps.Map(myMap, mapProp)
+            }                    
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcYng9pBfj_LmDthyiydpfyy3bftchOmg&callback=initMap" async></script>  
 </body>
 </html>

@@ -1,5 +1,6 @@
 window.onload = function () {
     
+
     getStoredTags();
     
     // VARIABLES
@@ -36,7 +37,6 @@ window.onload = function () {
             // STORE IN LOCAL STORAGE
             localStorage.tagStorage = JSON.stringify(arrayTags);
             getStoredTags();
-            console.log(arrayTags);
         }
         else{
             alert(errorMsg);

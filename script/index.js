@@ -5,6 +5,7 @@ let arrayUsers = [];
 let arrayTags = [];
 let arrayCategorias = [];
 let arrayLivros = [];
+let arrayBibliotecas = [];
 
 
 // CLASS USER
@@ -14,7 +15,7 @@ class User{
     this.password = password;
     this.email = email;
     this.userType = userType;
-    this._userId = User.generateId();
+    this._userId = User.getLastId() + 1;
     }
 
     
@@ -55,16 +56,25 @@ class User{
         return this._userId;
     }
 
-    // GEAR UM NUMERO ENTRE 1 E 10 E MULTIPLICA-O POR 65536(EM HEXADECIMAL)
-    // COVERTE-O EM STRING NA BASE 16(HEXADECIMAL)
-    // CRIA UMA SUBSTRING DE FORMA A TIRAR O PRIMEIRO ELEMENTO QUE É SEMPRE 1
-    // RETORNA EM FORMA DE XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
-    // INSPIRADO NOS CÓDIGOS DE ATIVAÇAO DE PRODUTOS/ JOGOS DE COMPUTADOR E ESTUDO SOBRE O ASSUNTO
-    static generateId(){
-        function rand() {
-            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
-        }
-        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    // // GEAR UM NUMERO ENTRE 1 E 10 E MULTIPLICA-O POR 65536(EM HEXADECIMAL)
+    // // COVERTE-O EM STRING NA BASE 16(HEXADECIMAL)
+    // // CRIA UMA SUBSTRING DE FORMA A TIRAR O PRIMEIRO ELEMENTO QUE É SEMPRE 1
+    // // RETORNA EM FORMA DE XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+    // // INSPIRADO NOS CÓDIGOS DE ATIVAÇAO DE PRODUTOS/ JOGOS DE COMPUTADOR E ESTUDO SOBRE O ASSUNTO
+    // static generateId(){
+    //     function rand() {
+    //         return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
+    //     }
+    //     return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    // }
+
+    // ID GENERATOR
+    static getLastId() {
+        let lastId = 0
+        if (arrayUsers.length > 0) {
+            lastId = arrayUsers[arrayUsers.length - 1]._userId;
+        }        
+        return lastId;
     }
 
 }
@@ -76,7 +86,7 @@ class Library{
         this.adress = adress;
         this.coordenates = coordenates;
         this.capacity = capacity;
-        this._libraryId = Library.generateId();
+        this._libraryId = Library.getLastId() + 1;
     }
 
     // LOCATION PROPERTY
@@ -117,11 +127,12 @@ class Library{
     }
 
     // ID GENERATOR
-    static generateId(){
-        function rand() {
-            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
-        }
-        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    static getLastId() {
+        let lastId = 0
+        if (arrayBibliotecas.length > 0) {
+            lastId = arrayBibliotecas[arrayBibliotecas.length - 1]._libraryId;
+        }        
+        return lastId;
     }
 
 }
@@ -130,7 +141,7 @@ class Library{
 class Category{
     constructor(nameCategory){
         this.nameCategory = nameCategory;
-        this._categoryId = Category.generateId();
+        this._categoryId = Category.getLastId() + 1;
     }
 
     // NAMECATEGORY PROPERTY
@@ -147,11 +158,12 @@ class Category{
     }
 
     // ID GENERATOR
-    static generateId(){
-        function rand() {
-            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
-        }
-        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    static getLastId() {
+        let lastId = 0
+        if (arrayCategorias.length > 0) {
+            lastId = arrayCategorias[arrayCategorias.length - 1]._categoryId;
+        }        
+        return lastId;
     }
 
 
@@ -162,7 +174,7 @@ class Category{
 class Tag{
     constructor(nameTag){
         this.nameTag = nameTag;
-        this._tagId = Tag.generateId();
+        this._tagId = Tag.getLastId() + 1;
     }
 
     // NAMETAG PROPERTY
@@ -179,13 +191,13 @@ class Tag{
     }
 
     // ID GENERATOR
-    static generateId(){
-        function rand() {
-            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
-        }
-        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    static getLastId() {
+        let lastId = 0
+        if (arrayTags.length > 0) {
+            lastId = arrayTags[arrayTags.length - 1]._tagId;
+        }        
+        return lastId;
     }
-
 
 
 }
@@ -206,7 +218,7 @@ class Book{
     this.donerName = donerName;
     this.donationDate = donationDate;
     this.libraryId = libraryId;
-    this._bookId = Book.generateId();
+    this._bookId = Book.getLastId() + 1;
     }
 
     
@@ -320,11 +332,12 @@ class Book{
     }
 
     // ID GENERATOR
-    static generateId(){
-        function rand() {
-            return Math.floor(( Math.random() + 1) * 0x10000).toString(16).substring(1);
-        }
-        return rand() + rand() + '-' + rand() + '-' + rand() + '-' + rand() + '-' + rand() + rand() + rand();
+    static getLastId() {
+        let lastId = 0
+        if (arrayLivros.length > 0) {
+            lastId = arrayLivros[arrayLivros.length - 1]._bookId;
+        }        
+        return lastId;
     }
 }
 
