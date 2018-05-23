@@ -1,5 +1,3 @@
-
-
 // ARRAYS
 let arrayUsers = [];
 let arrayTags = [];
@@ -56,7 +54,7 @@ class User{
         return this._userId;
     }
 
-    // // GEAR UM NUMERO ENTRE 1 E 10 E MULTIPLICA-O POR 65536(EM HEXADECIMAL)
+    // // GERAR UM NUMERO ENTRE 1 E 10 E MULTIPLICA-O POR 65536(EM HEXADECIMAL)
     // // COVERTE-O EM STRING NA BASE 16(HEXADECIMAL)
     // // CRIA UMA SUBSTRING DE FORMA A TIRAR O PRIMEIRO ELEMENTO QUE É SEMPRE 1
     // // RETORNA EM FORMA DE XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -350,9 +348,15 @@ class Book{
     }
 }
 
+// HARD CODED ADMIN
+let firstAdmin = new User("adminMiguel","mutts30", "d.miguel.melo@gmail.com", 0 );
+arrayUsers.push(firstAdmin);
+localStorage.userStorage = JSON.stringify(arrayUsers);
+if(localStorage.userStorage){
+    arrayUsers = JSON.parse(localStorage.userStorage);
+}
 
 window.onload = function () {
-
 
 
 }

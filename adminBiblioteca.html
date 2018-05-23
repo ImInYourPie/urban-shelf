@@ -27,15 +27,15 @@
         <!-- ADMIN NAVBAR -->
         <nav id="adminNavbar" class="navbar navbar-expand-lg sticky-top">
             
-              <a class="navbar-brand" href="#admin.html"><img src="images/Icon_30x30.png" alt=""></a>
+              <a class="navbar-brand" href="admin.html"><img src="images/Icon_30x30.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#adminNavCollapse" aria-controls="adminNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
             </button>
           
             <div class="collapse navbar-collapse" id="adminNavCollapse">
                     <form class="form-inline">
-                            <input id="searchBar" class="form-control mx-sm-2" type="search" placeholder="Procurar..." aria-label="Search">
-                            <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                            <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
+                            <button id="searchBtn" class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
                           </form>
 
                 <ul class="navbar-nav ml-auto">
@@ -59,7 +59,7 @@
                             <i id="userIcon" class="fas fa-user-circle"></i>Username
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="adminProfilePage">Perfil</a>
+                        <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
                         <div class="dropdown-divider"></div>
                         <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
                         </div>
@@ -68,7 +68,6 @@
             </div>
           </nav>
 
-          <br>
 
           <!-- CONTENT-->
            <!-- BIBLIOTECA SETTINGS-->
@@ -77,23 +76,37 @@
                   <br>
                     <h4>Adicionar Biblioteca</h4>
                     <br>
-                    <form id="addBiblioteca">
-                        <div class="form-group">
-                            <label class="labelBiblioteca" for="bibliotecaLocation">Localidade</label>
-                            <input type="text" name="" id="bibliotecaLocation" required>
-                            <label class="labelBiblioteca" for="bibliotecaAdress">Morada</label>
-                            <input type="text" name="" id="bibliotecaAdress" required>
-                            <label class="labelBiblioteca" for="bibliotecaCapacity">Capadidade</label>
-                            <input type="number" name="" id="bibliotecaCapacity" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="labelBiblioteca" for="bibliotecaLat">Coordenas GPS</label>
-                                <input type="text" name="" id="bibliotecaLat" placeholder="Latitude" required>
-                                <span>-</span>
-                                <input type="text" name="" id="bibliotecaLong" placeholder="Longitude" required>
-                                <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar</button>
-                            </div>
-                    </form>
+                    <div class="row row-fluid">
+                        <div class="col-lg-6">
+                                <form id="addBiblioteca">
+                                        <div class="form-group">
+                                            <label class="labelBiblioteca" for="bibliotecaLocation">Localidade</label>
+                                            <input class="form-control" type="text" name="" id="bibliotecaLocation" required>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label class="labelBiblioteca" for="bibliotecaAdress">Morada</label>
+                                                    <input class="form-control" type="text" name="" id="bibliotecaAdress" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="labelBiblioteca" for="bibliotecaCapacity">Capadidade</label>
+                                                <input class="form-control" type="number" name="" id="bibliotecaCapacity" required>
+                                            </div>
+                                            <div class="form-group-prepend">
+                                                <label class="labelBiblioteca" for="bibliotecaLat">Coordenas GPS</label>
+                                                <input class="form-control" type="text" name="" id="bibliotecaLat" placeholder="Latitude" required>
+                                                <input class="form-control" type="text" name="" id="bibliotecaLong" placeholder="Longitude" required>
+                                            </div>
+                                            <br>
+                                            <div class="form-group">
+                                                    <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar</button>
+                                            </div>
+                                    </form>
+                        </div>
+                        <div class="col-lg-6">
+                            <div id="myMap" style="height: 450px; width: 500px"></div>
+                        </div>
+                    </div>
+                    
                     <br>
             </div>
                 <div>
@@ -102,24 +115,44 @@
                     <br>
                     <div class="row row-fluid">
                       <!-- Table -->
-                      <div class="table-responsive col-lg-6">
+                      <div class="table-responsive">
                           <table id="tblBibliotecas" class="table table-sm">            
                           </table>
                       </div>
-                  
-                  <div class="col-lg-6" id="myMap" style="width:500px; height:300px">
-      
-                  </div>
                   </div>
                     </div>
                   </div>
-                 
+                  <br>
+                  <br>
+
     <!-- FOOTER -->
-      <footer id="myFooter">
-        <div class="container">
-          <h2>Footer</h2>
-        </div>
-      </footer>
+    
+        <footer id="myFooter">
+            <br>
+          <div>
+              <div class="container-fluid text-center">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <h5 class="text-uppercase">Membros da Equipa</h5>
+                          <p>André Faria - 9170113@esmad.ipp.pt</p>
+                          <p>Gonçalo Guedes - </p>
+                          <p>Miguel Melo - iminyourpie@gmail.com</p>
+                      </div>
+                      <div class="col-md-4">
+                          <br><br><br>
+                            <img src="images/logo-ipp_edited.png" alt="" srcset="">
+                        </div>
+                      <div class="col-md-4">
+                          <h5 class="text-uppercase">Acompanhe o Projeto</h5>
+                          <p><a target="_blank" href="https://g8projectlog.wordpress.com/" style="color : white">Diário de bordo</a></p> <!--  target="_blank" SERVE PARA ABRIR NUM NOVO SEPARADOR EM VEZ DE IR PARA OUTRA PÁGINA NO MESMO SEPARADOR -->
+                          <p><a target="_blank" href="https://github.com/ImInYourPie/urban-shelf" style="color : white">Repositório GitHub</a></p>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+        </footer>
+      
 
 
 

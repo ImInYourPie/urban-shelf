@@ -51,6 +51,7 @@ function refreshTableTags() {
         "<td>" + arrayTags[i]._nameTag + "</td>" +
         "<td>" + arrayTags[i]._tagId + "</td>" +
         "<td>" +
+            "<a id='" + arrayTags[i]._tagId + "' class='edit'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayTags[i]._tagId + "' class='removeTag'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -65,11 +66,13 @@ function refreshTableTags() {
      // ADD LISTENER TO EACH ITEM
      for (let i = 0; i < tdRemove.length; i++) {
          tdRemove[i].addEventListener("click", function() {
+             let isConfirmed = confirm("Está prestes a eliminar a tag!");
              // ON CLICK TARGET REMOVE FROM TABLE
-             let tagId = tdRemove[i].getAttribute("id");
-             removeTag(tagId);
-             getStoredTags();
-             
+             if(isConfirmed){
+                let tagId = tdRemove[i].getAttribute("id");
+                removeTag(tagId);
+                getStoredTags();
+             }
          })        
      }
 
@@ -104,6 +107,7 @@ function refreshTableCategorias() {
         "<td>" + arrayCategorias[i]._nameCategory + "</td>" +
         "<td>" + arrayCategorias[i]._categoryId + "</td>" +
         "<td>" +
+            "<a id='" + arrayCategorias[i]._categoryId + "' class='edit'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayCategorias[i]._categoryId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -118,10 +122,13 @@ function refreshTableCategorias() {
      // ADD LISTENER TO EACH ITEM
      for (let i = 0; i < tdRemove.length; i++) {
          tdRemove[i].addEventListener("click", function() {
+            let isConfirmed = confirm("Está prestes a eliminar a categoria!");
              // ON CLICK TARGET REMOVE FROM TABLE
-             let categoryId = tdRemove[i].getAttribute("id");
-             removeCategoria(categoryId);
-             getStoredCategorias();
+             if(isConfirmed){
+                let categoryId = tdRemove[i].getAttribute("id");
+                removeCategoria(categoryId);
+                getStoredCategorias();
+             }
          })        
      }
 
@@ -160,6 +167,7 @@ function refreshTableBibliotecas() {
         "<td>" + arrayBibliotecas[i]._capacity + "</td>" +
         "<td>" + arrayBibliotecas[i]._libraryId + "</td>" +
         "<td>" +
+            "<a id='" + arrayBibliotecas[i]._libraryId + "' class='edit'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayBibliotecas[i]._libraryId + "' class='removeBiblioteca'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -174,11 +182,13 @@ function refreshTableBibliotecas() {
      // ADD LISTENER TO EACH ITEM
      for (let i = 0; i < tdRemove.length; i++) {
          tdRemove[i].addEventListener("click", function() {
+             let isConfirmed = confirm("Está prestes a eliminar a biblioteca!");
              // ON CLICK TARGET REMOVE FROM TABLE
-             let bibliotecaId = tdRemove[i].getAttribute("id");
-             removeBiblioteca(bibliotecaId);
-             getStoredBibliotecas();
-             
+             if(isConfirmed){
+                let bibliotecaId = tdRemove[i].getAttribute("id");
+                removeBiblioteca(bibliotecaId);
+                getStoredBibliotecas();
+             }
          })        
      }
 
