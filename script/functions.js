@@ -14,6 +14,28 @@ function getStoredCategorias() {
     }
 }
 
+// ARRAYBIBLIOTECAS GET LOCAL STORAGE
+function getStoredBibliotecas() {
+    if (localStorage.bibliotecaStorage){
+        arrayBibliotecas = JSON.parse(localStorage.bibliotecaStorage);
+        refreshTableBibliotecas();
+        addMapMarkers();
+    }
+}
+
+
+// ADDMAPMARKERS FUNCTION
+function addMapMarkers() {
+    for (let i = 0; i < arrayBibliotecas.length; i++) {
+        let marker = new google.maps.Marker({
+            position: {lat: parseInt(arrayBibliotecas[i]._coordenatesLat), lng: parseInt(arrayBibliotecas[i]._coordenatesLong)},
+            map: map,
+            title: arrayBibliotecas[i]._adress,
+        })
+        
+    }
+}
+
 // REFRESHTABLE TAGS FUNCTION
 function refreshTableTags() {
     let strHtml = "";
@@ -106,7 +128,7 @@ function refreshTableCategorias() {
      
  }
 
- // REMOVE TAG
+ // REMOVE CATEGORIA
  function removeCategoria(id) {
      for (let i = 0; i < arrayCategorias.length; i++) {
          if(arrayCategorias[i]._categoryId == id) {
@@ -116,6 +138,65 @@ function refreshTableCategorias() {
      }
 
 }
+
+// REFRESHTABLE TAGS FUNCTION
+function refreshTableBibliotecas() {
+    let strHtml = "";
+    strHtml = "<thead class='thead-dark'><tr>" +
+    "<th class='w-30'>Localização</th>" +
+    "<th class='w-30'>Morada</th>" +
+    "<th class='w-30'>Coordenadas</th>" +
+    "<th class='w-20'>Capacidade</th>" +
+    "<th class='w-20'>ID</th>" +
+    "<th class='w-20'></th>" +
+    "</tr>" + 
+    "</thead><tbody>"
+
+    for (var i = 0; i < arrayBibliotecas.length; i++) {
+        strHtml += "<tr>" +
+        "<td>" + arrayBibliotecas[i]._location + "</td>" +
+        "<td>" + arrayBibliotecas[i]._adress + "</td>" +
+        "<td>" + arrayBibliotecas[i]._coordenatesLat + "; " + arrayBibliotecas[i]._coordenatesLong + "</td>" +
+        "<td>" + arrayBibliotecas[i]._capacity + "</td>" +
+        "<td>" + arrayBibliotecas[i]._libraryId + "</td>" +
+        "<td>" +
+            "<a id='" + arrayBibliotecas[i]._libraryId + "' class='removeBiblioteca'><i class='fas fa-trash-alt'></i></a> " +
+        "</td>" + 
+        "</tr>"
+    }
+    strHtml += "</tbody>";
+
+    tblBibliotecas.innerHTML = strHtml;
+
+     // GET REMOVE LINKS FROM TABLE
+     let tdRemove = document.getElementsByClassName("removeBiblioteca");
+
+     // ADD LISTENER TO EACH ITEM
+     for (let i = 0; i < tdRemove.length; i++) {
+         tdRemove[i].addEventListener("click", function() {
+             // ON CLICK TARGET REMOVE FROM TABLE
+             let bibliotecaId = tdRemove[i].getAttribute("id");
+             removeBiblioteca(bibliotecaId);
+             getStoredBibliotecas();
+             
+         })        
+     }
+
+     
+ }
+
+ // REMOVE Biblioteca
+ function removeBiblioteca(id) {
+     for (let i = 0; i < arrayBibliotecas.length; i++) {
+         if(arrayBibliotecas[i]._libraryId == id) {
+             arrayBibliotecas.splice(i, 1)
+             localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
+         }                  
+     }
+
+}
+
+
 
 
 

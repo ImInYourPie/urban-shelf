@@ -81,10 +81,11 @@ class User{
 
 // CLASS BIBLIOTECA
 class Library{
-    constructor(location, adress, coordenates, capacity){
+    constructor(location, adress, coordenatesLat, coordenatesLong, capacity){
         this.location = location;
         this.adress = adress;
-        this.coordenates = coordenates;
+        this.coordenatesLat = coordenatesLat;
+        this.coordenatesLong = coordenatesLong;
         this.capacity = capacity;
         this._libraryId = Library.getLastId() + 1;
     }
@@ -105,12 +106,20 @@ class Library{
         return this._adress;
     }
 
-    // COORDENATES PROPERTY
-    set coordenates(newCoordenates){
-        this._coordenates = newCoordenates;
+    // COORDENATESLAT PROPERTY
+    set coordenatesLat(newCoordenatesLat){
+        this._coordenatesLat = newCoordenatesLat;
     }
-    get coordenates(){
-        return this._coordenates;
+    get coordenatesLat(){
+        return this._coordenatesLat;
+    }
+
+    // COORDENATESLONG PROPERTY
+    set coordenatesLong(newCoordenatesLong){
+        this._coordenatesLong = newCoordenatesLong;
+    }
+    get coordenatesLong(){
+        return this._coordenatesLong;
     }
 
     // CAPACITY PROPERTY
