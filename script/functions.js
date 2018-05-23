@@ -146,7 +146,7 @@ function refreshTableCategorias() {
 
 }
 
-// REFRESHTABLE TAGS FUNCTION
+// REFRESHTABLE BIBLIOTECAS FUNCTION
 function refreshTableBibliotecas() {
     let strHtml = "";
     strHtml = "<thead class='thead-dark'><tr>" +
@@ -173,37 +173,33 @@ function refreshTableBibliotecas() {
         "</tr>"
     }
     strHtml += "</tbody>";
-
     tblBibliotecas.innerHTML = strHtml;
 
-     // GET REMOVE LINKS FROM TABLE
-     let tdRemove = document.getElementsByClassName("removeBiblioteca");
+    // GET REMOVE LINKS FROM TABLE
+    let tdRemove = document.getElementsByClassName("removeBiblioteca");
 
-     // ADD LISTENER TO EACH ITEM
-     for (let i = 0; i < tdRemove.length; i++) {
-         tdRemove[i].addEventListener("click", function() {
-             let isConfirmed = confirm("Está prestes a eliminar a biblioteca!");
-             // ON CLICK TARGET REMOVE FROM TABLE
-             if(isConfirmed){
+    // ADD LISTENER TO EACH ITEM
+    for (let i = 0; i < tdRemove.length; i++) {
+        tdRemove[i].addEventListener("click", function() {
+            let isConfirmed = confirm("Está prestes a eliminar a biblioteca!");
+            // ON CLICK TARGET REMOVE FROM TABLE
+            if(isConfirmed){
                 let bibliotecaId = tdRemove[i].getAttribute("id");
                 removeBiblioteca(bibliotecaId);
                 getStoredBibliotecas();
-             }
-         })        
-     }
+            }
+        })        
+    }
+}
 
-     
- }
-
- // REMOVE Biblioteca
- function removeBiblioteca(id) {
-     for (let i = 0; i < arrayBibliotecas.length; i++) {
-         if(arrayBibliotecas[i]._libraryId == id) {
-             arrayBibliotecas.splice(i, 1)
-             localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
-         }                  
-     }
-
+// REMOVE Biblioteca
+function removeBiblioteca(id) {
+    for (let i = 0; i < arrayBibliotecas.length; i++) {
+        if(arrayBibliotecas[i]._libraryId == id) {
+            arrayBibliotecas.splice(i, 1)
+            localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
+        }                  
+    }
 }
 
 
