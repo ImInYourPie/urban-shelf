@@ -28,9 +28,9 @@ function getStoredBibliotecas() {
 function addMapMarkers() {
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         let marker = new google.maps.Marker({
-            position: {lat: parseInt(arrayBibliotecas[i]._coordenatesLat), lng: parseInt(arrayBibliotecas[i]._coordenatesLong)},
-            map: map,
-            title: arrayBibliotecas[i]._adress,
+           position: {lat: parseInt(arrayBibliotecas[i]._coordenatesLat), lng: parseInt(arrayBibliotecas[i]._coordenatesLong)},
+           map: map,
+           title: arrayBibliotecas[i]._adress
         })
         
     }
@@ -201,6 +201,8 @@ function removeBiblioteca(id) {
         }                  
     }
 }
+
+
 
 
 
