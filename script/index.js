@@ -18,11 +18,11 @@ class User{
 
     
     // name property
-    set name(newName){
-        this._name = newName;
+    set username(newName){
+        this._username = newName;
     }
-    get name(){
-        return this._name;
+    get username(){
+        return this._username;
     }
 
     // password property
@@ -348,13 +348,14 @@ class Book{
     }
 }
 
-// HARD CODED ADMIN
-let firstAdmin = new User("adminMiguel","mutts30", "d.miguel.melo@gmail.com", 0 );
-arrayUsers.push(firstAdmin);
-localStorage.userStorage = JSON.stringify(arrayUsers);
-if(localStorage.userStorage){
-    arrayUsers = JSON.parse(localStorage.userStorage);
-}
+// // HARD CODED ADMIN
+// let firstAdmin = new User("adminMiguel","mutts30", "d.miguel.melo@gmail.com", 0 );
+// arrayUsers.push(firstAdmin);
+// localStorage.userStorage = JSON.stringify(arrayUsers);
+// if(localStorage.userStorage){
+//     arrayUsers = JSON.parse(localStorage.userStorage);
+// }
+
 
 window.onload = function () {
 

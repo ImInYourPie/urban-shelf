@@ -50,7 +50,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
                      <div class="dropdown-divider"></div>
                      <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
@@ -80,6 +80,27 @@
             <br>
          </div>
       </div>
+      <!-- MODAL EDIT -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body" align="center">
+                  <h4 id="editHeader">Editar Tag</h4>
+                  <br>
+                  <form id="editTagForm">
+                    <div>
+                        <label for="editTagName">Tag</label>
+                        <input class="modalInputs" type="text" id="editTagName" autofocus required>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                  <button type="submit" class="btn">Submeter</button>
+                </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
       <!-- FOOTER -->
       <footer id="myFooter">
          <br>

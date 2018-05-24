@@ -23,6 +23,20 @@ function getStoredBibliotecas() {
     }
 }
 
+// ARRAYUSERS GET LOCAL STORAGE
+function getStoredUsers(){
+    if (localStorage.userStorage){
+        arrayUsers = JSON.parse(localStorage.userStorage);
+        refreshTableUsers();
+    }
+}
+
+function displayMapMarkes() {
+    if (localStorage.bibliotecaStorage){
+        arrayBibliotecas = JSON.parse(localStorage.bibliotecaStorage);
+        addMapMarkers();
+    }
+}
 
 // ADDMAPMARKERS FUNCTION
 function addMapMarkers() {
@@ -51,7 +65,7 @@ function refreshTableTags() {
         "<td>" + arrayTags[i]._nameTag + "</td>" +
         "<td>" + arrayTags[i]._tagId + "</td>" +
         "<td>" +
-            "<a id='" + arrayTags[i]._tagId + "' class='edit'><i class='fas fa-edit'></i></a> " +
+            "<a id='" + arrayTags[i]._tagId + "' class='editBtn' data-toggle='modal' data-target='#editModal'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayTags[i]._tagId + "' class='removeTag'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -62,8 +76,9 @@ function refreshTableTags() {
 
      // GET REMOVE LINKS FROM TABLE
      let tdRemove = document.getElementsByClassName("removeTag");
+     let editBtn = document.getElementsByClassName("editBtn");
 
-     // ADD LISTENER TO EACH ITEM
+     // ADD LISTENER TO EACH REMOVE ITEM
      for (let i = 0; i < tdRemove.length; i++) {
          tdRemove[i].addEventListener("click", function() {
              let isConfirmed = confirm("Está prestes a eliminar a tag!");
@@ -76,6 +91,17 @@ function refreshTableTags() {
          })        
      }
 
+     // ADD LISTENER TO EACH EDIT ITEM
+     for (let i = 0; i < editBtn.length; i++) {
+        editBtn[i].addEventListener("click", function() {
+            // ON CLICK TARGET FILL MODAL WITH VALUES
+            let tagId = editBtn[i].getAttribute("id");
+            document.getElementById("editTagName").value = arrayTags[i]._nameTag;
+            document.getElementById("editTagName").focus();
+            editTag(tagId);
+            getStoredTags();
+        })        
+    }
      
  }
 
@@ -87,7 +113,23 @@ function refreshTableTags() {
              localStorage.tagStorage = JSON.stringify(arrayTags);
          }                  
      }
+}
 
+// EDIT TAG
+function editTag(id) {
+    let editTagForm = document.getElementById("editTagForm");
+    editTagForm.addEventListener("submit", function (event){
+        // GET VALUE FROM MODAL
+        let tagName = document.getElementById("editTagName");
+
+        // CHANGE VALUE
+        for (let i = 0; i < arrayTags.length; i++) {
+            if(arrayTags[i]._tagId == id){
+                arrayTags[i]._nameTag = tagName.value;
+                localStorage.tagStorage = JSON.stringify(arrayTags);
+            }
+        }
+    })
 }
 
 
@@ -192,7 +234,7 @@ function refreshTableBibliotecas() {
     }
 }
 
-// REMOVE Biblioteca
+// REMOVE BIBLIOTECA
 function removeBiblioteca(id) {
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         if(arrayBibliotecas[i]._libraryId == id) {
@@ -202,6 +244,61 @@ function removeBiblioteca(id) {
     }
 }
 
+
+// REFRESHTABLE USERS FUNCTION
+function refreshTableUsers() {
+    let strHtml = "";
+    strHtml = "<thead class='thead-dark'><tr>" +
+    "<th class='w-30'>Username</th>" +
+    "<th class='w-30'>Email</th>" +
+    "<th class='w-20'>Tipo de Utilizador</th>" +
+    "<th class='w-30'>ID</th>" +
+    "<th class='w-20'></th>" +
+    "</tr>" + 
+    "</thead><tbody>"
+
+    for (var i = 0; i < arrayUsers.length; i++) {
+        strHtml += "<tr>" +
+        "<td>" + arrayUsers[i]._username + "</td>" +
+        "<td>" + arrayUsers[i]._email + "</td>" +
+        "<td>" + arrayUsers[i]._userType + "</td>" +
+        "<td>" + arrayUsers[i]._userId + "</td>" +
+        "<td>" +
+            "<a id='" + arrayUsers[i]._userId + "' class='edit'><i class='fas fa-edit'></i></a> " +
+            "<a id='" + arrayUsers[i]._userId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
+        "</td>" + 
+        "</tr>"
+    }
+    strHtml += "</tbody>";
+
+    tblUsers.innerHTML = strHtml;
+
+     // GET REMOVE LINKS FROM TABLE
+     let tdRemove = document.getElementsByClassName("removeCategoria");
+
+     // ADD LISTENER TO EACH ITEM
+     for (let i = 0; i < tdRemove.length; i++) {
+         tdRemove[i].addEventListener("click", function() {
+            let isConfirmed = confirm("Está prestes a eliminar o utilizador!");
+             // ON CLICK TARGET REMOVE FROM TABLE
+             if(isConfirmed){
+                let userId = tdRemove[i].getAttribute("id");
+                removeUser(userId);
+                getStoredUsers();
+             }
+         })        
+     }
+ }
+
+ // REMOVE USER
+function removeUser(id) {
+    for (let i = 0; i < arrayUsers.length; i++) {
+        if(arrayUsers[i]._userId == id) {
+            arrayUsers.splice(i, 1)
+            localStorage.userStorage = JSON.stringify(arrayUsers);
+        }                  
+    }
+}
 
 
 

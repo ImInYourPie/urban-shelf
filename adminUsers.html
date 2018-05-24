@@ -1,4 +1,3 @@
-ormatted HTML:
 <!doctype html>
 <html lang="en">
    <head>
@@ -17,6 +16,7 @@ ormatted HTML:
       <!-- SCRIPT reference -->
       <script src="script/functions.js"></script>
       <script src="script/index.js"></script>
+      <script src="script/adminUsers.js"></script>
    </head>
    <body>
       <!-- ADMIN NAVBAR -->
@@ -50,7 +50,7 @@ ormatted HTML:
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
                      <div class="dropdown-divider"></div>
                      <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
@@ -65,6 +65,7 @@ ormatted HTML:
                <br>
                <h4>Adicionar Utilizador</h4>
                <br>
+               <div class="row row-fluid">
                <div class="col-lg-4">
                   <div>
                      <form id="addUser">
@@ -84,7 +85,7 @@ ormatted HTML:
                         <div class="form-group">
                            <label for="adminUserType">Tipo de Utilizador</label>
                            <select class="form-control" name="" id="adminUserType">
-                              <option value="0">Administrador</option>
+                              <option selected value="0">Administrador</option>
                               <option value="1">Operador</option>
                               <option value="2">Utilizador Padrão</option>
                            </select>
@@ -96,22 +97,25 @@ ormatted HTML:
                   </div>
                   </form>
                   <br>
-               </div>
+               
             </div>
-         </div>
-         <div class="col-lg-8">
-            <div class="table-responsive">
-                  <table id="tblUsers" class="table table-sm">            
-                  </table>
-                  <br>
-                  <br>
-               </div>
+            <div class="col-lg-8">
+                        <div class="table-responsive">
+                              <table id="tblUsers" class="table table-sm">            
+                              </table>
+                              <br>
+                              <br>
+                           </div>
+                     </div>
          </div>
       </div>
+</div>
+      </div>
+
       <!-- FOOTER -->
       <footer id="myFooter">
-         <br>
          <div>
+               <br>
             <div class="container-fluid text-center">
                <div class="row">
                   <div class="col-md-4">

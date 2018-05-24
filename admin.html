@@ -16,6 +16,7 @@
       <!-- SCRIPT reference -->
       <script src="script/functions.js"></script>
       <script src="script/index.js"></script>
+      <script src="script/adminIndex.js"></script>
    </head>
    <body>
       <!-- ADMIN NAVBAR -->
@@ -49,7 +50,7 @@
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
                      <div class="dropdown-divider"></div>
                      <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
@@ -58,11 +59,13 @@
             </ul>
          </div>
       </nav>
-      <br>
       <!-- CONTENT -->
-      <div class="ml-1" id="myMap" style="height: 500px; width: 500px;"></div>
-      <br>
-      <br>
+      <div class="jumbotron">
+          <div class="text-right">
+               <h4>Mapa de Bibliotecas</h4>
+            </div>
+                <div class="ml-auto" id="myMap" style="height: 500px; width: 700px;"></div>
+      </div>
       <!-- FOOTER -->
       <footer id="myFooter">
          <br>

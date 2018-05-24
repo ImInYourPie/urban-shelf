@@ -1,6 +1,6 @@
 window.onload = function () {
     
-
+    // INITIATE FUNCTIONS
     getStoredTags();
     
     // VARIABLES

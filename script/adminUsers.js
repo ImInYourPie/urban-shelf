@@ -1,5 +1,10 @@
 window.onload = function(){
+
+    // INITIATE FUNCTIONS
+    getStoredUsers();
+
     // VARIABLES
+    let tblUsers = document.getElementById("tblUsers");
     let addUser = document.getElementById("addUser");
 
     // ADD USER ECENT
@@ -10,9 +15,9 @@ window.onload = function(){
         let adminPassConfirm = document.getElementById("adminPassConfirm");
         let adminUserEmail = document.getElementById("adminUserEmail");
         let adminUserType = document.getElementById("adminUserType");
-        let erroMsg = "";
+        let errorMsg = "";
 
-        // 2. CHECK IF USER Exists BY EMAIL
+        // // 2. CHECK IF USER Exists BY EMAIL
         for (let i = 0; i < arrayUsers.length; i++) {
             if(adminUserEmail.value == arrayUsers[i]._email){
                 errorMsg = "Esse e-mail já se encontra registado!";
@@ -24,7 +29,26 @@ window.onload = function(){
             errorMsg += "As passwords não coincidem!";
         }
 
-        // 4. VALIDATE IF NO ERRORS; ELSE DISPLAY ERRORMSG
+        // 4. CHECK IF THERE IS A USER WITH THE SAME USERNAME
+
+
+        console.log("ola")
+        // 5. VALIDATE IF NO ERRORS, CREATE NEW USER AND PUSH TO ARRAYUSERS, ELSE DISPLAY ERRORMSG
+        if(errorMsg == ""){
+            let newUser = new User(adminUsername.value, adminPassword.value, adminUserEmail.value, adminUserType.value);
+            arrayUsers.push(newUser);
+            adminUsername.value = "";
+            adminPassword.value = "";
+            adminPassConfirm.value = "";
+            adminUserEmail.value = "";
+            // STORE IN USERSTORAGE, AND GET TO DISPLAY TABLE
+            localStorage.userStorage = JSON.stringify(arrayUsers);
+            getStoredUsers();
+        }
+        else{
+            alert(errorMsg);
+        }
+        event.preventDefault();
     })
 
 }
