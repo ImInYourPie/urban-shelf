@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    getStoredBibliotecas();
+    refreshStoredBibliotecas();
 
     // VARIABLES
     let  addBiblioteca = document.getElementById("addBiblioteca");
@@ -55,7 +55,7 @@ window.onload = function () {
             bibliotecaLong.value = "";
             // STORE NEWBIBLIOTECA
             localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
-            getStoredBibliotecas();
+            refreshStoredBibliotecas();
             
         }
         else{

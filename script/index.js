@@ -356,7 +356,8 @@ class Book{
 //     arrayUsers = JSON.parse(localStorage.userStorage);
 // }
 getStoredTags();
-
+getStoredCategorias();
+getStoredUsers();
 
 window.onload = function () {
 

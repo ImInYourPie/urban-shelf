@@ -1,7 +1,7 @@
 window.onload = function(){
 
     // INITIATE FUNCTIONS
-    getStoredUsers();
+    refreshStoredUsers();
 
     // VARIABLES
     let tblUsers = document.getElementById("tblUsers");
@@ -43,7 +43,7 @@ window.onload = function(){
             adminUserEmail.value = "";
             // STORE IN USERSTORAGE, AND GET TO DISPLAY TABLE
             localStorage.userStorage = JSON.stringify(arrayUsers);
-            getStoredUsers();
+            refreshStoredUsers();
         }
         else{
             alert(errorMsg);

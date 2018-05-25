@@ -36,7 +36,7 @@ window.onload = function () {
 
             // STORE IN LOCAL STORAGE
             localStorage.tagStorage = JSON.stringify(arrayTags);
-            getStoredTags();
+            refreshStoredTags();
         }
         else{
             alert(errorMsg);

@@ -1,6 +1,6 @@
 window.onload = function () {
     
-    getStoredCategorias();
+    refreshStoredCategorias();
     
     // VARIABLES
     let addCategory = document.getElementById("addCategory");
@@ -32,7 +32,7 @@ window.onload = function () {
         inputCategoryName.value = "";
         // STORE IN LOCAL STORAGE
         localStorage.categoriaStorage = JSON.stringify(arrayCategorias);
-        getStoredCategorias();
+        refreshStoredCategorias();
         
     }
     else{

@@ -14,10 +14,14 @@ function getStoredTags() {
 
 
 // ARRAYCATEGORIAS GET LOCAL STORAGE
+function refreshStoredCategorias() {
+    getStoredCategorias();
+    refreshTableCategorias();
+}
+
 function getStoredCategorias() {
     if (localStorage.categoriaStorage){
         arrayCategorias = JSON.parse(localStorage.categoriaStorage);
-        refreshTableCategorias();
     }
 }
 
@@ -25,11 +29,15 @@ function getStoredCategorias() {
 
 
 // ARRAYBIBLIOTECAS GET LOCAL STORAGE
+function refreshStoredBibliotecas() {
+    getStoredBibliotecas();
+    refreshTableBibliotecas();
+    addMapMarkers();
+
+}
 function getStoredBibliotecas() {
     if (localStorage.bibliotecaStorage){
         arrayBibliotecas = JSON.parse(localStorage.bibliotecaStorage);
-        refreshTableBibliotecas();
-        addMapMarkers();
     }
 }
 
@@ -37,10 +45,14 @@ function getStoredBibliotecas() {
 
 
 // ARRAYUSERS GET LOCAL STORAGE
+function refreshStoredUsers() {
+    getStoredUsers();
+    refreshTableUsers();
+}
+
 function getStoredUsers(){
     if (localStorage.userStorage){
         arrayUsers = JSON.parse(localStorage.userStorage);
-        refreshTableUsers();
     }
 }
 
@@ -221,7 +233,7 @@ function refreshTableCategorias() {
              if(isConfirmed){
                 let categoryId = tdRemove[i].getAttribute("id");
                 removeCategoria(categoryId);
-                getStoredCategorias();
+                refreshStoredCategorias();
              }
          })        
      }
@@ -234,7 +246,7 @@ function refreshTableCategorias() {
             document.getElementById("editCategoriaName").value = arrayCategorias[i]._nameCategory;
             document.getElementById("editCategoriaName").focus();
             editCategory(categoryId);
-            getStoredCategorias();
+            refreshStoredCategorias();
         })        
     }
      
@@ -321,7 +333,7 @@ function refreshTableBibliotecas() {
             if(isConfirmed){
                 let bibliotecaId = tdRemove[i].getAttribute("id");
                 removeBiblioteca(bibliotecaId);
-                getStoredBibliotecas();
+                refreshStoredBibliotecas();
             }
         })        
     }
@@ -337,7 +349,7 @@ function refreshTableBibliotecas() {
             document.getElementById("editLat").value = arrayBibliotecas[i]._coordenatesLat;
             document.getElementById("editLong").value = arrayBibliotecas[i]._coordenatesLong;
             editBiblioteca(bibliotecaId);
-            getStoredBibliotecas();
+            refreshStoredBibliotecas();
         })        
     }
 }
@@ -429,7 +441,7 @@ function refreshTableUsers() {
              if(isConfirmed){
                 let userId = tdRemove[i].getAttribute("id");
                 removeUser(userId);
-                getStoredUsers();
+                refreshStoredUsers();
              }
          })        
      }
