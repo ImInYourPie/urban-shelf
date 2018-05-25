@@ -74,7 +74,7 @@ function displayMapMarkes() {
 function addMapMarkers() {
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         let marker = new google.maps.Marker({
-           position: {lat: parseInt(arrayBibliotecas[i]._coordenatesLat), lng: parseInt(arrayBibliotecas[i]._coordenatesLong)},
+           position: {lat: parseFloat(arrayBibliotecas[i]._coordenatesLat), lng: parseFloat(arrayBibliotecas[i]._coordenatesLong)},
            map: map,
            title: arrayBibliotecas[i]._adress
         })
