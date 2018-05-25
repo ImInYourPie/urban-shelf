@@ -1,7 +1,7 @@
 window.onload = function () {
     
     // INITIATE FUNCTIONS
-    getStoredTags();
+    refreshStoredTags();
     
     // VARIABLES
     let tblTags = document.getElementById("tblTags");

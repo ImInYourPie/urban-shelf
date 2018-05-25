@@ -1,10 +1,17 @@
 // ARRAYTAGS GET LOCAL STORAGE
+function refreshStoredTags() {
+    getStoredTags();
+    refreshTableTags();
+}
+
 function getStoredTags() {
     if (localStorage.tagStorage){
         arrayTags = JSON.parse(localStorage.tagStorage);
-        refreshTableTags();
     }
 }
+
+
+
 
 // ARRAYCATEGORIAS GET LOCAL STORAGE
 function getStoredCategorias() {
@@ -13,6 +20,9 @@ function getStoredCategorias() {
         refreshTableCategorias();
     }
 }
+
+
+
 
 // ARRAYBIBLIOTECAS GET LOCAL STORAGE
 function getStoredBibliotecas() {
@@ -23,6 +33,9 @@ function getStoredBibliotecas() {
     }
 }
 
+
+
+
 // ARRAYUSERS GET LOCAL STORAGE
 function getStoredUsers(){
     if (localStorage.userStorage){
@@ -31,6 +44,13 @@ function getStoredUsers(){
     }
 }
 
+
+
+
+
+
+
+// DISPLAY MAP MARKERS ONLY
 function displayMapMarkes() {
     if (localStorage.bibliotecaStorage){
         arrayBibliotecas = JSON.parse(localStorage.bibliotecaStorage);
@@ -49,6 +69,22 @@ function addMapMarkers() {
         
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // REFRESHTABLE TAGS FUNCTION
 function refreshTableTags() {
@@ -86,7 +122,7 @@ function refreshTableTags() {
              if(isConfirmed){
                 let tagId = tdRemove[i].getAttribute("id");
                 removeTag(tagId);
-                getStoredTags();
+                refreshStoredTags();
              }
          })        
      }
@@ -99,7 +135,7 @@ function refreshTableTags() {
             document.getElementById("editTagName").value = arrayTags[i]._nameTag;
             document.getElementById("editTagName").focus();
             editTag(tagId);
-            getStoredTags();
+            refreshStoredTags();
         })        
     }
      
@@ -134,6 +170,21 @@ function editTag(id) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // REFRESHTABLE CATEGORIAS FUNCTION
 function refreshTableCategorias() {
     let strHtml = "";
@@ -149,7 +200,7 @@ function refreshTableCategorias() {
         "<td>" + arrayCategorias[i]._nameCategory + "</td>" +
         "<td>" + arrayCategorias[i]._categoryId + "</td>" +
         "<td>" +
-            "<a id='" + arrayCategorias[i]._categoryId + "' class='edit'><i class='fas fa-edit'></i></a> " +
+            "<a id='" + arrayCategorias[i]._categoryId + "' class='editBtn' data-toggle='modal' data-target='#editModal'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayCategorias[i]._categoryId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -160,8 +211,9 @@ function refreshTableCategorias() {
 
      // GET REMOVE LINKS FROM TABLE
      let tdRemove = document.getElementsByClassName("removeCategoria");
+     let editBtn = document.getElementsByClassName("editBtn");
 
-     // ADD LISTENER TO EACH ITEM
+     // ADD LISTENER TO EACH REMOVE ITEM
      for (let i = 0; i < tdRemove.length; i++) {
          tdRemove[i].addEventListener("click", function() {
             let isConfirmed = confirm("Está prestes a eliminar a categoria!");
@@ -174,6 +226,17 @@ function refreshTableCategorias() {
          })        
      }
 
+     // TOGGLE EDIT MODAL CATEGORIAS
+     for (let i = 0; i < editBtn.length; i++) {
+        editBtn[i].addEventListener("click", function() {
+            // ON CLICK TARGET FILL MODAL WITH VALUES
+            let categoryId = editBtn[i].getAttribute("id");
+            document.getElementById("editCategoriaName").value = arrayCategorias[i]._nameCategory;
+            document.getElementById("editCategoriaName").focus();
+            editCategory(categoryId);
+            getStoredCategorias();
+        })        
+    }
      
  }
 
@@ -187,6 +250,35 @@ function refreshTableCategorias() {
      }
 
 }
+
+// EDIT CATEGORIA
+function editCategoria(id) {
+    let editCategoriaForm = document.getElementById("editCategoriaForm");
+    editCategoriaForm.addEventListener("submit", function (event){
+        // GET VALUE FROM MODAL
+        let editCategoriaName = document.getElementById("editCategoriaName");
+
+        // CHANGE VALUE
+        for (let i = 0; i < arrayCategorias.length; i++) {
+            if(arrayCategorias[i]._categoryId == id){
+                arrayCategorias[i]._nameCategory = editCategoriaName.value;
+                localStorage.categoriaStorage = JSON.stringify(arrayCategorias);
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // REFRESHTABLE BIBLIOTECAS FUNCTION
 function refreshTableBibliotecas() {
@@ -209,7 +301,7 @@ function refreshTableBibliotecas() {
         "<td>" + arrayBibliotecas[i]._capacity + "</td>" +
         "<td>" + arrayBibliotecas[i]._libraryId + "</td>" +
         "<td>" +
-            "<a id='" + arrayBibliotecas[i]._libraryId + "' class='edit'><i class='fas fa-edit'></i></a> " +
+            "<a id='" + arrayBibliotecas[i]._libraryId + "' class='editBtn' data-toggle='modal' data-target='#editModal'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayBibliotecas[i]._libraryId + "' class='removeBiblioteca'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -219,8 +311,9 @@ function refreshTableBibliotecas() {
 
     // GET REMOVE LINKS FROM TABLE
     let tdRemove = document.getElementsByClassName("removeBiblioteca");
+    let editBtn = document.getElementsByClassName("editBtn");
 
-    // ADD LISTENER TO EACH ITEM
+    // ADD LISTENER TO EACH REMOVE ITEM
     for (let i = 0; i < tdRemove.length; i++) {
         tdRemove[i].addEventListener("click", function() {
             let isConfirmed = confirm("Está prestes a eliminar a biblioteca!");
@@ -230,6 +323,21 @@ function refreshTableBibliotecas() {
                 removeBiblioteca(bibliotecaId);
                 getStoredBibliotecas();
             }
+        })        
+    }
+
+    // ADD LISTENER TO EACH EDIT ITEM
+    for (let i = 0; i < editBtn.length; i++) {
+        editBtn[i].addEventListener("click", function() {
+            // ON CLICK TARGET FILL MODAL WITH VALUES
+            let bibliotecaId = editBtn[i].getAttribute("id");
+            document.getElementById("editLocation").value = arrayBibliotecas[i]._location;
+            document.getElementById("editAdress").value = arrayBibliotecas[i]._adress;
+            document.getElementById("editCapacity").value = arrayBibliotecas[i]._capacity;
+            document.getElementById("editLat").value = arrayBibliotecas[i]._coordenatesLat;
+            document.getElementById("editLong").value = arrayBibliotecas[i]._coordenatesLong;
+            editBiblioteca(bibliotecaId);
+            getStoredBibliotecas();
         })        
     }
 }
@@ -243,6 +351,44 @@ function removeBiblioteca(id) {
         }                  
     }
 }
+
+// EDIT BIBLIOTECA
+function editBiblioteca(id) {
+    let editBibliotecaForm = document.getElementById("editBibliotecaForm");
+    editBibliotecaForm.addEventListener("submit", function (event){
+        // GET VALUE FROM MODAL
+        let editLocation = document.getElementById("editLocation");
+        let editAdress = document.getElementById("editAdress");
+        let editCapacity = document.getElementById("editCapacity");
+        let editLat = document.getElementById("editLat");
+        let editLong = document.getElementById("editLong");
+
+        // CHANGE VALUE
+        for (let i = 0; i < arrayBibliotecas.length; i++) {
+            if(arrayBibliotecas[i]._libraryId == id){
+                arrayBibliotecas[i]._location = editLocation.value;
+                arrayBibliotecas[i]._adress = editAdress.value;
+                arrayBibliotecas[i]._capacity = editCapacity.value;
+                arrayBibliotecas[i]._coordenatesLat = editLat.value;
+                arrayBibliotecas[i]._coordenatesLong = editLong.value;
+                localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
+            }
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // REFRESHTABLE USERS FUNCTION
@@ -264,7 +410,6 @@ function refreshTableUsers() {
         "<td>" + arrayUsers[i]._userType + "</td>" +
         "<td>" + arrayUsers[i]._userId + "</td>" +
         "<td>" +
-            "<a id='" + arrayUsers[i]._userId + "' class='edit'><i class='fas fa-edit'></i></a> " +
             "<a id='" + arrayUsers[i]._userId + "' class='removeCategoria'><i class='fas fa-trash-alt'></i></a> " +
         "</td>" + 
         "</tr>"
@@ -299,6 +444,7 @@ function removeUser(id) {
         }                  
     }
 }
+
 
 
 
