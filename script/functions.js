@@ -101,7 +101,7 @@ function addMapMarkers() {
 // REFRESHTABLE TAGS FUNCTION
 function refreshTableTags() {
     let strHtml = "";
-    strHtml = "<thead class='thead-dark'><tr>" +
+    strHtml = "<thead class='thead'><tr>" +
     "<th class='w-30'>Tag</th>" +
     "<th class='w-50'>ID</th>" +
     "<th class='w-20'></th>" +
@@ -200,7 +200,7 @@ function editTag(id) {
 // REFRESHTABLE CATEGORIAS FUNCTION
 function refreshTableCategorias() {
     let strHtml = "";
-    strHtml = "<thead class='thead-dark'><tr>" +
+    strHtml = "<thead class='thead'><tr>" +
     "<th class='w-30'>Categoria</th>" +
     "<th class='w-50'>ID</th>" +
     "<th class='w-20'></th>" +
@@ -295,7 +295,7 @@ function editCategoria(id) {
 // REFRESHTABLE BIBLIOTECAS FUNCTION
 function refreshTableBibliotecas() {
     let strHtml = "";
-    strHtml = "<thead class='thead-dark'><tr>" +
+    strHtml = "<thead class='thead'><tr>" +
     "<th class='w-30'>Localização</th>" +
     "<th class='w-30'>Morada</th>" +
     "<th class='w-30'>Coordenadas</th>" +
@@ -406,7 +406,7 @@ function editBiblioteca(id) {
 // REFRESHTABLE USERS FUNCTION
 function refreshTableUsers() {
     let strHtml = "";
-    strHtml = "<thead class='thead-dark'><tr>" +
+    strHtml = "<thead class='thead'><tr>" +
     "<th class='w-30'>Username</th>" +
     "<th class='w-30'>Email</th>" +
     "<th class='w-20'>Tipo de Utilizador</th>" +
