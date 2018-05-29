@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
    <head>
-      <title>Admin- Categorias</title>
+      <title>Operador- Dashboard</title>
       <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
       <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
       <!-- Required meta tags -->
@@ -10,100 +10,47 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <!-- My CSS if needed -->
-      <link rel="stylesheet" type="text/css" href="style/adminCSS.css">
+      <link rel="stylesheet" type="text/css" href="style/userCSS.css">
       <!-- FONT AWESOME reference -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
       <!-- SCRIPT reference -->
       <script src="script/functions.js"></script>
       <script src="script/index.js"></script>
-      <script src="script/adminCategorias.js"></script>
+      <script src="script/operador.js"></script>
    </head>
    <body>
-      <!-- ADMIN NAVBAR -->
-      <nav id="adminNavbar" class="navbar navbar-expand-lg sticky-top">
-         <a class="navbar-brand" href="admin.html"><img src="images/icon_alternate40x40white.png" alt=""></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#adminNavCollapse" aria-controls="adminNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- OPERADOR NAVBAR -->
+      <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
+         <a class="navbar-brand" href="operador.html"><img src="images/icon_alternate40x40white.png" alt=""></a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#operadorNavCollapse" aria-controls="operadorNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
          <i class="fas fa-bars"></i>
          </button>
-         <div class="collapse navbar-collapse" id="adminNavCollapse">
+         <div class="collapse navbar-collapse" id="operadorNavCollapse">
             <form class="form-inline">
                <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
                <button id="searchBtn" class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <ul class="navbar-nav ml-auto">
                <li class="nav-item">
-                  <a class="nav-link" href="admin.html">Dashboard</a>
+                  <a class="nav-link" href="operadorDoar.html">Doar Livro</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="adminBiblioteca.html">Bibliotecas</a>
-               </li>
-               <li class="nav-item active">
-                  <a class="nav-link" href="adminCategorias.html">Categorias</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="adminTags.html">Tags</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="adminUsers.html">Utilizadores</a>
+                <a class="nav-link" href="operadorCatalog.html">Catálogo</a>
                </li>
                <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="adminProfilePage.html">Perfil</a>
+                     <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
                      <div class="dropdown-divider"></div>
-                     <a id="adminLogoutBtn" class="dropdown-item" href="#">Log Out</a>
+                     <a id="operadorLogoutBtn" class="dropdown-item" href="#">Log Out</a>
                   </div>
                </li>
             </ul>
          </div>
       </nav>
-      <!-- TAGS SETTINGS-->
-      <div id="containerTags" class="container">
-         <div class="col-lg-4">
-            <br>
-            <h4>Adicionar Categoria</h4>
-            <form id="addCategory">
-               <label id="labelInputCategoryName" for="inputCategoryName">Nome da Categoria</label>
-               <input class="form-control" type="text" name="" id="inputCategoryName">
-               <br>
-               <button type="submit" class="btn btn-outline-primary btn-sm">Adicionar</button>
-            </form>
-            <br>
-         </div>
-         <div>
-            <!-- Table -->
-            <div class="table-responsive">
-               <table id="tblCategorias" class="table table-sm">            
-               </table>
-               <br>
-               <br>
-            </div>
-         </div>
-      </div>
-       <!-- MODAL EDIT -->
-       <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body" align="center">
-              <h4 id="editHeader">Editar Categoria</h4>
-              <br>
-              <form id="editCategoriaForm">
-                <div>
-                    <label for="editCategoriaName">Categoria</label>
-                    <input class="modalInputs" type="text" id="editCategoriaName" autofocus required>
-                </div>
-                <br>
-                <div class="modal-footer">
-              <button type="submit" class="btn">Submeter</button>
-            </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
- 
+      <br>
       <!-- FOOTER -->
       <footer id="myFooter">
          <br>

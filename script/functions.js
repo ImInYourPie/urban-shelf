@@ -1,3 +1,15 @@
+// GET STORED BOOKS
+function getStoredBooks() {
+    if(localStorage.bookStorage){
+        arrayLivros = JSON.parse(localStorage.bookStorage);
+    }
+}
+
+
+
+
+
+
 // ARRAYTAGS GET LOCAL STORAGE
 function refreshStoredTags() {
     getStoredTags();
@@ -463,3 +475,6 @@ function removeUser(id) {
 
 
 
+// REFRESH TOP BOOKS
+function refreshTop() {
+}

@@ -1,76 +1,145 @@
-.navbar{
-    background-color: rgb(47, 152, 242);
-    min-height:50px;
-}
-
-.navbar-brand{
-    padding-top:0px !important; padding-bottom: 0px !important;
-}
-
-.navbar-nav > li > a {
-    padding-top:5px !important; padding-bottom:5px !important;
-}
-
-#adminNavbar{
-        color: white !important;
-        background-color: black;
-        font-size: 0.8em !important;
-
+/* NAVBAR AND NAV ITEMS CSS */
+#userNavbar{
+    color: white;
+    background-color: rgb(0, 84, 255);
 }
 
 .navbar-toggler{
-    border-color: white;
+    background-color: white;
+}
+
+
+/* .navbar-brand{
+    padding-top:4px !important; padding-bottom: 8px !important;
+} */
+
+.fa-bars{
+    color: rgb(0, 84, 255);
 }
 
 .navbar-nav li a{
     color: white;
 }
 
-.navbar-nav li a:hover{
-    color: rgb(28, 77, 219);
-}
-
+.navbar-nav li a:hover,
 .navbar-nav li a:focus{
-    color: rgb(28, 77, 219);
+    color: rgb(0, 21, 64);
 }
 
-.navbar-nav li a:selection{
-    color: rgb(28, 77, 219);
+.navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
+    color: rgb(0, 21, 64);
+    display: block;
 }
 
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* DROPDOWN MENUS CSS */
+.dropdown-menu{
+    text-align: right; 
+}
+
+.dropdown-menu,
+.dropdown-menu a:hover,
+.dropdown-menu a:focus{
+    background-color: rgb(0, 84, 255);
+    border: 0px;
+}
+
+/* ICONS CSS */
+#userIcon{
+    padding-right: 5px;
+}
+
+#profileImage{
+    background-color: lightgrey;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* SEARCHBAR CSS */
 #searchBar{
     width: 400px;
-    height: 25px;
+    height: 30px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    margin-right: 0px;
 }
 
+
 #searchBtn{
-    background-color: rgb(47, 152, 242);
+    background-color: rgb(0, 21, 64);
+    border-color: rgb(0, 21, 64);
+    height: 30px;
+    width: 50px;
+    margin-left: 0px;
+    align-content: center;
+    display: block;
+    padding: 0px;
+    color: white;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
 
 #glass{
     color: white;
 }
 
-.jumbotron{
-    background-color: rgb(188, 204, 244);
+/* CONTAINERS CSS */
+#doarLivroContainer{
+    background-color: lightgrey;
+    margin-bottom: 0px;
 }
 
+
+/* JUMBOTRONS CSS */
+.jumbotron{
+    margin-bottom: 0px;
+}
+
+#infoJumbotron{
+    color: white;
+    background-color: rgb(0, 21, 64);
+}
+
+#jumbotronBooks{
+    background-color: white;
+    color: black;
+}
+
+/* MODALS CSS */
 .modalInputs{
     width: 300px;
 }
 
 .modal-body, .modal-header{
-    background-color: rgb(47, 152, 242);
+    background-color: rgb(0, 84, 255);
     color: white;
 }
 
+/* BUTTONS CSS */
 .btn{
-    background-color: rgb(28, 77, 219);
+    background-color: rgb(0, 21, 64);
     color: white;
     width: 100px;
 }
 
+.btn:hover,
+.btn:focus{
+    background-color: rgb(0, 84, 255);
+}
+
+/* FORM INPUTS CSS */
+.form-control{
+    border-color: rgb(0, 21, 64);
+}
+
+/* FOOTER CSS */
 footer{
-    background-color: rgb(47, 152, 242);
+    background-color: rgb(0, 84, 255);
     color: white;
 }

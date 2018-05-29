@@ -18,21 +18,25 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
     <!-- SCRIPT reference -->
-    <script src="index.js"></script>
+    <script src="script/functions.js"></script>
+    <script src="script/index.js"></script>
+    <script src="script/home.js"></script>
 
 </head>
   <body>
 
     <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-lg sticky-top">
-          <div class="container">
-            <a class="navbar-brand" href="#"><img src="images/Icon_50x50.png" alt="urban shelf"></a>
+      <nav id="userNavbar" class="navbar navbar-expand-lg fixed-top">
+            <a class="navbar-brand" href="index.html"><img src="images/icon_alternate40x40white.png" alt="urban shelf"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-bars"></i>
           </button>
         
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+            <form class="form-inline">
+              <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
+              <button id="searchBtn" class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+           </form>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link" href="#">Catálogo</a>
@@ -57,29 +61,63 @@
               
             </ul>
           </div>
-          </div>
         </nav>
+        
+        <!-- JUMBOTRON FOR INFO-->
+        <div id="infoJumbotron" class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <div class="row row-fluid">
+                <div class="col-sm-6"> 
+                  <br>
+                  <br>
+                  <h4>O que é a <span id="infoNameSpan">urban shelf</span>?</h4>
+                  <p>A urban shelf é uma uma plataforma onde vóce pode encontrar os mais diversos livros
+                     nas várias bibliotecas urbanas perto de si!
+                  </p>
+                  <br>
+                  <h4>O que posso fazer?</h4>
+                  <p>
+                    Requesitar, comentar, e pontuar livros são apenas algumas das coisas que pode fazer!
+                    A plataforma oferece também a possibilidade de localizar qualquer biblioteca e as mais próximas de si.
+                    Tudo é possivel na urban shelf!
+                  </p>
+                  <br>
+                  <h4>Que livros posso encontrar?</h4>
+                  <p>Pode encontrar uma grande seleção de livros, Romances, Aventura, Infantis, entre outros.
+                    A urban shelf funciona com livros doados, pois acreditamos que todos os livros merecem uma segunda opurtunidade
+                    e que o seu valor é infinito para alguém.
+                  </p>
+                </div>
+              </div>
   
-
-        <!-- JUMBOTRON FOR TOP BOOKS AND RECENT BOOKS -->
-
-       <div class="container">
-        <div class="jumbotron">
-          <div>
-            <h4>Top Livros</h4>
-            <div id="jumboTop">
-
             </div>
           </div>
-          <br>
-          <div>
-                <h4>Mais Recentes</h4>
-                <div id="jumboRecent">
-      
-                </div>
+
+          <!-- JUMBOTRON FOR TOP BOOKS AND RECENT BOOKS -->
+
+        <div id="jumbotronBooks" class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h4>Top Livros</h4>
+              <div id="jumboTop" class="row row-fluid">
+  
+              </div>
+            </div>
+            <br>
+            <div class="container" class="row row-fluid">
+                  <h4>Mais Recentes</h4>
+                  <div id="jumboRecent">
+        
+                  </div>
+            </div>
+  
           </div>
+
+         <!-- JUMBOTRON FOR SOMETHING-->
+        <div id="welcomeJumbotron" class="jumbotron jumbotron-fluid">
+
         </div>
-       </div>
+
+  
 
 
     <!-- LOGIN MODAL -->
@@ -154,6 +192,7 @@
 
       
         <footer id="myFooter">
+          <br>
           <div>
               <div class="container-fluid text-center">
                   <div class="row">
@@ -161,7 +200,7 @@
                           <h5 class="text-uppercase">Membros da Equipa</h5>
                           <p>André Faria - 9170113@esmad.ipp.pt</p>
                           <p>Gonçalo Guedes - </p>
-                          <p>Miguel Melo - iminyourpie@gmail.com</p>
+                          <p>Miguel Melo - 9150176@esmad.ipp.pt/ <br> iminyourpie@gmail.com</p>
                       </div>
                       <div class="col-md-4">
                           <br><br><br>

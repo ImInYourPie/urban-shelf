@@ -211,7 +211,7 @@ class Tag{
 
 // CLASS BOOK
 class Book{
-    constructor(title, cover, autor, synopsis, releaseDate, category, tags, publisher, numberPages, condition, donerName, donationDate, libraryId){
+    constructor(title, cover, autor, synopsis, releaseDate, category, tags, publisher, numberPages, condition, donerName, donationDate, libraryId, score, comment){
     this.title = title;
     this.cover = cover;
     this.autor = autor;
@@ -226,6 +226,8 @@ class Book{
     this.donationDate = donationDate;
     this.libraryId = libraryId;
     this._bookId = Book.getLastId() + 1;
+    this.score = score;
+    this.comment = comment;
     }
 
     
@@ -247,7 +249,7 @@ class Book{
 
     // AUTOR PROPERTY
     set autor(newAutor){
-        this._autor = autor;
+        this._autor = newAutor;
     }
     get autor(){
         return this._autor;
@@ -333,6 +335,22 @@ class Book{
         return this._libraryId;
     }
 
+    // AUTOR PROPERTY
+    set score(newScore){
+        this._score = newScore;
+    }
+    get score(){
+        return this._score;
+    }
+
+    // AUTOR PROPERTY
+    set comment(newComment){
+        this._comment = newComment;
+    }
+    get comment(){
+        return this._comment;
+    }
+
     // ID PROPERTY
     get bookId(){
         return this._bookId;
@@ -358,6 +376,7 @@ class Book{
 getStoredTags();
 getStoredCategorias();
 getStoredUsers();
+getStoredBibliotecas();
 
 window.onload = function () {
 
