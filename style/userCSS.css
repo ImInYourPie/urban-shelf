@@ -1,7 +1,7 @@
 /* NAVBAR AND NAV ITEMS CSS */
 #userNavbar{
     color: white;
-    background-color: rgb(0, 84, 255);
+    background-color: rgb(0, 21, 64);
 }
 
 .navbar-toggler{
@@ -14,7 +14,7 @@
 } */
 
 .fa-bars{
-    color: rgb(0, 84, 255);
+    color: rgb(0, 21, 64);
 }
 
 .navbar-nav li a{
@@ -23,7 +23,7 @@
 
 .navbar-nav li a:hover,
 .navbar-nav li a:focus{
-    color: rgb(0, 21, 64);
+    color: rgb(0, 84, 255);
 }
 
 .navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
@@ -44,7 +44,7 @@ ul{
 .dropdown-menu,
 .dropdown-menu a:hover,
 .dropdown-menu a:focus{
-    background-color: rgb(0, 84, 255);
+    background-color: rgb(0, 21, 64);
     border: 0px;
 }
 
@@ -68,12 +68,17 @@ ul{
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
     margin-right: 0px;
+    border-color:  rgb(0, 84, 255);
 }
 
+/* FONT AWESOME I CSS */
+.fas-edit{
+    color: rgb(0, 21, 64);
+}
 
 #searchBtn{
-    background-color: rgb(0, 21, 64);
-    border-color: rgb(0, 21, 64);
+    background-color: rgb(0, 84, 255);
+    border-color: rgb(0, 84, 255);
     height: 30px;
     width: 50px;
     margin-left: 0px;
@@ -101,9 +106,33 @@ ul{
     margin-bottom: 0px;
 }
 
-#infoJumbotron{
+#welcomeJumbotron{
+    background: url("banner4.jpg") no-repeat;
+    background-size: cover;
+    background-position: top center;
+    height: auto;
+    width:100%;
+    height: auto;
     color: white;
-    background-color: rgb(0, 21, 64);
+}
+
+#whereJumbotron{
+        background-color: white;
+        background-size: cover;
+        background-position: top center;
+        height: auto;
+        width:100%;
+        color: rgb(0, 21, 64);
+    }
+
+
+#infoJumbotron{
+    background-color: white;
+    background-size: cover;
+    background-position: top center;
+    height: auto;
+    width:100%;
+    color: rgb(0, 21, 64);
 }
 
 #jumbotronBooks{
@@ -117,20 +146,20 @@ ul{
 }
 
 .modal-body, .modal-header{
-    background-color: rgb(0, 84, 255);
+    background-color: rgb(0, 21, 64);
     color: white;
 }
 
 /* BUTTONS CSS */
 .btn{
-    background-color: rgb(0, 21, 64);
+    background-color: rgb(0, 84, 255);
     color: white;
     width: 100px;
 }
 
 .btn:hover,
 .btn:focus{
-    background-color: rgb(0, 84, 255);
+    background-color: rgb(0, 63, 191);
 }
 
 /* FORM INPUTS CSS */
@@ -138,8 +167,28 @@ ul{
     border-color: rgb(0, 21, 64);
 }
 
+/* TABLE CSS */
+.thead{
+    color: white;
+    background-color: rgb(0, 21, 64);
+}
+
+/* H1 PHRASE CSS */
+#findYourShelf{
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: bolder;
+    font-size: 60px;
+    display: block;
+}
+
 /* FOOTER CSS */
 footer{
-    background-color: rgb(0, 84, 255);
+    background-color: rgb(0, 21, 64);
     color: white;
+}
+
+
+.img-responive{
+    max-width: 100%;
 }

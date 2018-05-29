@@ -1,10 +1,11 @@
 window.onload = function(){
-    getStoredBooks();
+    refreshStoredBooks();
 
     //1. CRIAR REFERÊNCIAS AOS VARIOS ELEMENTOS
     
     
-    let formDoarLivro = document.getElementById("formDoarLivro")
+    let formDoarLivro = document.getElementById("formDoarLivro");
+    let tblBooks = document.getElementById("tblBooks");
    
     //2. DEFINIR DATA MAXIMA  DE LANÇAMENTO E DOAÇÃO POSSIVEL 
     let dataAtual = new Date()

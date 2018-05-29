@@ -27,7 +27,7 @@
 
     <!-- NAVBAR -->
       <nav id="userNavbar" class="navbar navbar-expand-lg fixed-top">
-            <a class="navbar-brand" href="index.html"><img src="images/icon_alternate40x40white.png" alt="urban shelf"></a>
+            <a class="navbar-brand" href="index.html"><img src="images/urbanShelf200x40white.png" alt="urban shelf"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
@@ -62,12 +62,27 @@
             </ul>
           </div>
         </nav>
+
+        <!-- JUMBOTRON FOR SOMETHING-->
+        <div id="welcomeJumbotron" class="jumbotron">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <h1 id="findYourShelf">FIND YOUR SHELF</h1>
+        </div>
         
         <!-- JUMBOTRON FOR INFO-->
         <div id="infoJumbotron" class="jumbotron jumbotron-fluid">
-            <div class="container">
+            <div class="container container-fluid">
               <div class="row row-fluid">
-                <div class="col-sm-6"> 
+                <div id="firstInfoDiv" class="col-md-6"> 
                   <br>
                   <br>
                   <h4>O que é a <span id="infoNameSpan">urban shelf</span>?</h4>
@@ -88,6 +103,43 @@
                     e que o seu valor é infinito para alguém.
                   </p>
                 </div>
+
+                <div class="col-md-6">
+                  <img class="img-responsive" src="images/book.png" alt="">
+                </div>
+              </div>
+  
+            </div>
+          </div>
+
+           <!-- JUMBOTRON FOR WHERE-->
+        <div id="whereJumbotron" class="jumbotron jumbotron-fluid">
+            <div class="container container-fluid">
+              <div class="row row-fluid">
+                <div class="col-md-6"> 
+                  <img class="img-responsive" src="images/devicesJPEG.jpg" alt="">
+                </div>
+                <div id="secondInfoDiv" class="col-md-6">
+                    <br>
+                    <br>
+                    <br>
+                    <h4>É grátis! </h4>
+                    <p>Todos os livros estão á sua disposição para que os possa ler durante todo o seu periodo de requesição.
+                      É mesmo só leitura!
+                    </p>
+                    <br>
+                    <h4>Onde, quando, e como quiser!</h4>
+                    <p>A urban shelf está disponivel para qualquer tipo de dispositivo.
+                      O seu layout responsivo adapta-se a qualquer formato para que possa
+                       dedicar mais tempo à leitura e menos ás complicações. 
+                    </p>
+                    <br>
+                    <h4>Fácil de usar.</h4>
+                    <p>
+                      Acabou de ver um livro de que gostou e que que seja seu? Feito!
+                      Com um simples toque de um botão pode requsitar qualquer livro á sua disposição nas nossas bibliotecas.
+                    </p>
+                </div>
               </div>
   
             </div>
@@ -96,7 +148,7 @@
           <!-- JUMBOTRON FOR TOP BOOKS AND RECENT BOOKS -->
 
         <div id="jumbotronBooks" class="jumbotron jumbotron-fluid">
-            <div class="container">
+            <div class="container container-fluid">
               <h4>Top Livros</h4>
               <div id="jumboTop" class="row row-fluid">
   
@@ -112,10 +164,6 @@
   
           </div>
 
-         <!-- JUMBOTRON FOR SOMETHING-->
-        <div id="welcomeJumbotron" class="jumbotron jumbotron-fluid">
-
-        </div>
 
   
 
@@ -125,7 +173,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body" align="center">
-              <img src="images/300x250.png" alt="urban shelf">
+              <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
               <form id="loginForm">
                 <div>
@@ -154,7 +202,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body" align="center">
-              <img src="images/300x250.png" alt="urban shelf">
+              <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
               <form id="registerForm">
                 <div>
@@ -167,7 +215,18 @@
                   <label for="inputEmail">E-mail</label>
                   <br>
                   <input class="modalInputs" type="email" id="inputEmail" required>
+                  <p id="errorEmail"></p>
               </div>
+              <br>
+              <div>
+                  <label for="inputAdress">Morada</label>
+                  <br>
+                  <input class="modalInputs" type="text" id="inputAdress" placeholder="Morada" required>
+              </div>
+              <br>
+              <div>
+                <input class="modalInputs" type="text" id="inputDoor" placeholder="Nº de porta" required>
+            </div>
                 <br>
                 <div>
                     <label for="inputPassword">Password</label>
@@ -179,6 +238,7 @@
                   <label for="inputPassConfirm">Confirmar password</label>
                   <br>
                   <input class="modalInputs" type="password" id="inputPassConfirm" required>
+                  <p id="errorPassword"></p>
               </div>
                 <br>
                 <div class="modal-footer">
@@ -194,7 +254,7 @@
         <footer id="myFooter">
           <br>
           <div>
-              <div class="container-fluid text-center">
+              <div class="container container-fluid text-center">
                   <div class="row">
                       <div class="col-md-4">
                           <h5 class="text-uppercase">Membros da Equipa</h5>

@@ -1,4 +1,9 @@
 // GET STORED BOOKS
+function refreshStoredBooks() {
+    getStoredBooks();
+    refreshTableBooks();
+}
+
 function getStoredBooks() {
     if(localStorage.bookStorage){
         arrayLivros = JSON.parse(localStorage.bookStorage);
@@ -96,6 +101,102 @@ function addMapMarkers() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// REFRESHTABLE TAGS FUNCTION
+function refreshTableBooks() {
+    let strHtml = "";
+    strHtml = "<thead class='thead'><tr>" +
+    "<th class='w-30'>Capa</th>" +
+    "<th class='w-50'>Título</th>" +
+    "<th class='w-20'>ID Biblioteca</th>" +
+    "<th class='w-20'>ID Livro</th>" +
+    "<th class='w-20'></th>" +
+    "</tr>" + 
+    "</thead><tbody>"
+
+    for (var i = 0; i < arrayLivros.length; i++) {
+        strHtml += "<tr>" +
+        "<td><img class='bookCover' src='" + arrayLivros[i]._cover + "' alt='capa'></td>" +
+        "<td>" + arrayLivros[i]._title + "</td>" +
+        "<td>" + arrayLivros[i]._libraryId + "</td>" +
+        "<td>" + arrayLivros[i]._bookId + "</td>" +
+        "<td>" +
+            "<a id='" + arrayLivros[i]._bookId + "' class='editBtn' data-toggle='modal' data-target='#editModal'><i class='fas fa-edit'></i></a> " +
+            "<a id='" + arrayLivros[i]._bookId + "' class='removeBook'><i class='fas fa-trash-alt'></i></a> " +
+        "</td>" + 
+        "</tr>"
+    }
+    strHtml += "</tbody>";
+
+    tblBooks.innerHTML = strHtml;
+
+     // GET REMOVE LINKS FROM TABLE
+     let tdRemove = document.getElementsByClassName("removeBook");
+     let editBtn = document.getElementsByClassName("editBtn");
+
+     // ADD LISTENER TO EACH REMOVE ITEM
+     for (let i = 0; i < tdRemove.length; i++) {
+         tdRemove[i].addEventListener("click", function() {
+             let isConfirmed = confirm("Está prestes a eliminar o livro!");
+             // ON CLICK TARGET REMOVE FROM TABLE
+             if(isConfirmed){
+                let bookId = tdRemove[i].getAttribute("id");
+                removeBook(bookId);
+                refreshStoredBooks();
+             }
+         })        
+     }
+
+     // ADD LISTENER TO EACH EDIT ITEM
+     for (let i = 0; i < editBtn.length; i++) {
+        editBtn[i].addEventListener("click", function() {
+            // ON CLICK TARGET FILL MODAL WITH VALUES
+            let bookId = editBtn[i].getAttribute("id");
+            document.getElementById("editBookCondition").value = arrayLivros[i]._condition;
+            document.getElementById("editBookCondition").focus();
+            editBook(bookId);
+            refreshStoredBooks();
+        })        
+    }
+     
+ }
+
+ // REMOVE BOOK
+ function removeBook(id) {
+     for (let i = 0; i < arrayLivros.length; i++) {
+         if(arrayLivros[i]._bookId == id) {
+             arrayLivros.splice(i, 1)
+             localStorage.bookStorage = JSON.stringify(arrayLivros);
+         }                  
+     }
+}
+
+// EDIT BOOK
+function editBook(id) {
+    let editBookForm = document.getElementById("editBookForm");
+    editBookForm.addEventListener("submit", function (event){
+        // GET VALUE FROM MODAL
+        let bookCondition = document.getElementById("editBookCondition");
+
+        // CHANGE VALUE
+        for (let i = 0; i < arrayLivros.length; i++) {
+            if(arrayLivros[i]._bookId == id){
+                arrayLivros[i]._condition = bookCondition.value;
+                localStorage.bookStorage = JSON.stringify(arrayLivros);
+            }
+        }
+    })
+}
 
 
 

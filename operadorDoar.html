@@ -52,89 +52,105 @@
       </nav>
       <!-- FORMULARIO DE DOAÇÃO -->
       <div id="doarLivroContainer" class="container container-fluid">
-          <br>
-          <h1>Formulário de Doação</h1>
-         <form id="formDoarLivro">
-            <!-- TITULO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroTitulo">Título do livro</label>
-               <input type="text" class="form-control" id="doarLivroTitulo" maxlength="50" required>
-            </div>
-            <!-- URL CAPA LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroCapa">Capa</label>
-               <input type="url" class="form-control" id="doarLivroCapa" placeholder="http://abc123.com/350x150" maxlength="50" required>
-            </div>
-            <!-- BREVE DESCRIÇAO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroDescription">Descrição do livro</label>
-               <input type="text" class="form-control" id="doarLivroDescription" maxlength="120" required>
-            </div>
-            <!-- LISTA DOS AUTORES DO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroAutores">Autores</label>
-               <input type="text" class="form-control" id="doarLivroAutores" maxlength="50" required>
-            </div>
-            <!-- DATA LANÇAMENTO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroDataLançamento">Data de lançamento</label>
-               <input type="date" class="form-control" id="doarLivroDataLançamento" maxlength="10" required>
-            </div>
-            <!-- GÉNERO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroGenero">Género</label>
-               <select class="form-control" id="doarLivroGenero" required>
-               </select>
-            </div>
-            <!-- TAGS LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroTags">Tags</label>
-               <select class="form-control" id="doarLivroTags" required>
-               </select>
-            </div>
-            <!-- EDITORA DO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroEditora">Editora</label>
-               <input type="text" class="form-control" id="doarLivroEditora" maxlength="50" required>
-            </div>
-            <!-- Nº DE PAGINAS DO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroPaginas">Nº de páginas</label>
-               <input type="number" class="form-control" id="doarLivroPaginas" max="9999" required>
-            </div>
-            <!-- ESTADO DO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroEstado">Estado</label>
-               <select class="form-control" id="doarLivroEstado" required>
-                  <option>Bom</option>
-                  <option>Médio</option>
-                  <option>Fraco</option>
-               </select>
-            </div>
-            <!-- NOME DO DOADOR -->
-            <div class="form-group">
-               <label for="doarLivroDoador">Nome do doador (Opcional)</label>
-               <input type="text" class="form-control" id="doarLivroDoador" maxlength="50">
-            </div>
-            <!-- DATA DOAÇAO LIVRO -->
-            <div class="form-group">
-               <label for="doarLivroDataDonation">Data de doação</label>
-               <input type="date" class="form-control" id="doarLivroDataDonation" maxlength="10" required>
-            </div>
-            <!-- CODIGO BIBLIOTECA (PEDE A LOCALIDADE DA BIBLIOTECA MAS RECEB O ID) -->
-            <div class="form-group">
-               <label for="doarLivroBiblioteca">Biblioteca</label>
-               <select class="form-control" id="doarLivroBiblioteca" required>
-               </select>
-            </div>
-            <!-- BOTAO SUBMETER FORM -->
-            <div class="form-group">
-               <button type="submit" class="btn">Doar</button>
-               </select>
-            </div>
-         </form>
-         <br>
-      </div>
+          <div class="row row-fluid">
+                <div class="col-sm-4">
+                        <br>
+                        <h1>Formulário de Doação</h1>
+                       <form id="formDoarLivro">
+                          <!-- TITULO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroTitulo">Título do livro</label>
+                             <input type="text" class="form-control" id="doarLivroTitulo" maxlength="50" required>
+                          </div>
+                          <!-- URL CAPA LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroCapa">Capa</label>
+                             <input type="url" class="form-control" id="doarLivroCapa" placeholder="http://abc123.com/350x150" maxlength="50" required>
+                          </div>
+                          <!-- BREVE DESCRIÇAO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroDescription">Descrição do livro</label>
+                             <input type="text" class="form-control" id="doarLivroDescription" maxlength="120" required>
+                          </div>
+                          <!-- LISTA DOS AUTORES DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroAutores">Autores</label>
+                             <input type="text" class="form-control" id="doarLivroAutores" maxlength="50" required>
+                          </div>
+                          <!-- DATA LANÇAMENTO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroDataLançamento">Data de lançamento</label>
+                             <input type="date" class="form-control" id="doarLivroDataLançamento" maxlength="10" required>
+                          </div>
+                          <!-- GÉNERO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroGenero">Género</label>
+                             <select class="form-control" id="doarLivroGenero" required>
+                             </select>
+                          </div>
+                          <!-- TAGS LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroTags">Tags</label>
+                             <select class="form-control" id="doarLivroTags" required>
+                             </select>
+                          </div>
+                          <!-- EDITORA DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroEditora">Editora</label>
+                             <input type="text" class="form-control" id="doarLivroEditora" maxlength="50" required>
+                          </div>
+                          <!-- Nº DE PAGINAS DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroPaginas">Nº de páginas</label>
+                             <input type="number" class="form-control" id="doarLivroPaginas" max="9999" required>
+                          </div>
+                          <!-- ESTADO DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroEstado">Estado</label>
+                             <select class="form-control" id="doarLivroEstado" required>
+                                <option>Bom</option>
+                                <option>Médio</option>
+                                <option>Fraco</option>
+                             </select>
+                          </div>
+                          <!-- NOME DO DOADOR -->
+                          <div class="form-group">
+                             <label for="doarLivroDoador">Nome do doador (Opcional)</label>
+                             <input type="text" class="form-control" id="doarLivroDoador" maxlength="50">
+                          </div>
+                          <!-- DATA DOAÇAO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroDataDonation">Data de doação</label>
+                             <input type="date" class="form-control" id="doarLivroDataDonation" maxlength="10" required>
+                          </div>
+                          <!-- CODIGO BIBLIOTECA (PEDE A LOCALIDADE DA BIBLIOTECA MAS RECEB O ID) -->
+                          <div class="form-group">
+                             <label for="doarLivroBiblioteca">Biblioteca</label>
+                             <select class="form-control" id="doarLivroBiblioteca" required>
+                             </select>
+                          </div>
+                          <!-- BOTAO SUBMETER FORM -->
+                          <div class="form-group">
+                             <button type="submit" class="btn">Doar</button>
+                             </select>
+                          </div>
+                       </form>
+                       <br>
+                    </div>
+                    <!-- TABLE BOOKS -->
+                    <div class="col-sm-8">
+                        <br>
+                            <div class="table-responsive">
+                                    <table id="tblBooks" class="table table-sm">            
+                                    </table>
+                                    <br>
+                                    <br>
+                                 </div>
+                    </div>
+
+          </div>
+          </div>
+          
       <!-- FOOTER -->
       <footer id="myFooter">
          <br>
@@ -167,5 +183,6 @@
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   </body>
+      
+    </body>
 </html>
