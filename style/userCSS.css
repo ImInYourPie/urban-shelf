@@ -114,19 +114,20 @@ ul{
     width:100%;
     height: auto;
     color: white;
+    height: 500px;
 }
 
-#whereJumbotron{
-        background-color: white;
+#whereDiv{
+        background-color: rgb(0, 21, 64);
         background-size: cover;
         background-position: top center;
         height: auto;
         width:100%;
-        color: rgb(0, 21, 64);
+        color: white;
     }
 
 
-#infoJumbotron{
+#infoDiv{
     background-color: white;
     background-size: cover;
     background-position: top center;
@@ -176,9 +177,9 @@ ul{
 /* H1 PHRASE CSS */
 #findYourShelf{
     text-align: center;
-    font-family: Helvetica;
     font-weight: bolder;
     font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
     display: block;
 }
 
@@ -188,7 +189,10 @@ footer{
     color: white;
 }
 
-
-.img-responive{
-    max-width: 100%;
+#ippLogo{
+    width: 200px;
+    height: 50px;
 }
+
+
+

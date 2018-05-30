@@ -579,3 +579,37 @@ function removeUser(id) {
 // REFRESH TOP BOOKS
 function refreshTop() {
 }
+
+
+
+
+
+
+
+// LOAD USERTYPES HTML PAGES 
+
+function loadUserPage() {
+    
+    
+    // ALTERAR NAVBAR
+    navLogin.style.display = "none";
+    navRegister.style.display = "none";
+    navDropdownUser.style.display = "block";
+    navDropdownUser.innerHTML = userName;
+}
+
+function loadAdminPage() {
+    window.location.href = "admin.html";
+
+}
+
+function loadOperatorPage() {
+    window.location.href = "operadorDoar.html";
+}
+
+
+
+
+
+
+// CHECK SESSION STORAGE FOR LOGIN

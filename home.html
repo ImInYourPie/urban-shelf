@@ -26,7 +26,7 @@
   <body>
 
     <!-- NAVBAR -->
-      <nav id="userNavbar" class="navbar navbar-expand-lg fixed-top">
+      <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
             <a class="navbar-brand" href="index.html"><img src="images/urbanShelf200x40white.png" alt="urban shelf"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
@@ -39,23 +39,27 @@
            </form>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" href="#">Catálogo</a>
+                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Catálogo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Bibliotecas</a>
+                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Bibliotecas</a>
               </li>
               <li class="nav-item">
                   <a id="navRegister" class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Registar</a>
                 </li>
               <li class="nav-item">
                     <a id="navLogin" class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Log In</a>
-                </li>
-              <li class="nav-item">
-                  <a id="navLogout" class="nav-link" href="#">Logout</a>
-              </li>
-              <li class="nav-item">
-                  <a id="navHi" class="nav-link" href="#">abc</a>
-              </li>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a id="navDropdownUser" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i id="userIcon" class="fas fa-user-circle"></i>Username
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                       <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
+                       <div class="dropdown-divider"></div>
+                       <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                 </li>
               
               
               
@@ -64,87 +68,85 @@
         </nav>
 
         <!-- JUMBOTRON FOR SOMETHING-->
-        <div id="welcomeJumbotron" class="jumbotron">
+        <div id="welcomeJumbotron" class="jumbotron jumbotron-fluid">
           <br>
           <br>
           <br>
           <br>
           <br>
           <br>
-          <br>
-          <br>
-          <br>
-          <br>
+          
           <h1 id="findYourShelf">FIND YOUR SHELF</h1>
         </div>
         
         <!-- JUMBOTRON FOR INFO-->
-        <div id="infoJumbotron" class="jumbotron jumbotron-fluid">
+        <div id="infoDiv">
             <div class="container container-fluid">
-              <div class="row row-fluid">
-                <div id="firstInfoDiv" class="col-md-6"> 
-                  <br>
-                  <br>
-                  <h4>O que é a <span id="infoNameSpan">urban shelf</span>?</h4>
-                  <p>A urban shelf é uma uma plataforma onde vóce pode encontrar os mais diversos livros
-                     nas várias bibliotecas urbanas perto de si!
-                  </p>
-                  <br>
-                  <h4>O que posso fazer?</h4>
-                  <p>
-                    Requesitar, comentar, e pontuar livros são apenas algumas das coisas que pode fazer!
-                    A plataforma oferece também a possibilidade de localizar qualquer biblioteca e as mais próximas de si.
-                    Tudo é possivel na urban shelf!
-                  </p>
-                  <br>
-                  <h4>Que livros posso encontrar?</h4>
-                  <p>Pode encontrar uma grande seleção de livros, Romances, Aventura, Infantis, entre outros.
-                    A urban shelf funciona com livros doados, pois acreditamos que todos os livros merecem uma segunda opurtunidade
-                    e que o seu valor é infinito para alguém.
-                  </p>
-                </div>
-
-                <div class="col-md-6">
-                  <img class="img-responsive" src="images/book.png" alt="">
-                </div>
-              </div>
+                <div class="row row-fluid">
+                  <div class="col-md-6"> 
+                    <br>
+                    <br>
+                    <h4>O que é a <span id="infoNameSpan">urban shelf</span>?</h4>
+                    <p>A urban shelf é uma uma plataforma onde vóce pode encontrar os mais diversos livros
+                       nas várias bibliotecas urbanas perto de si!
+                    </p>
+                    <br>
+                    <h4>O que posso fazer?</h4>
+                    <p>
+                      Requesitar, comentar, e pontuar livros são apenas algumas das coisas que pode fazer!
+                      A plataforma oferece também a possibilidade de localizar qualquer biblioteca e as mais próximas de si.
+                      Tudo é possivel na urban shelf!
+                    </p>
+                    <br>
+                    <h4>Que livros posso encontrar?</h4>
+                    <p>Pode encontrar uma grande seleção de livros, Romances, Aventura, Infantis, entre outros.
+                      A urban shelf funciona com livros doados, pois acreditamos que todos os livros merecem uma segunda opurtunidade
+                      e que o seu valor é infinito para alguém.
+                    </p>
+                  </div>
   
-            </div>
-          </div>
+                  <div class="col-md-6">
+                    <img class="img-fluid" src="images/bookDARKBLUE.png" alt="">
+                  </div>
+                </div>
+                <br>
+              </div>
+        </div>
 
            <!-- JUMBOTRON FOR WHERE-->
-        <div id="whereJumbotron" class="jumbotron jumbotron-fluid">
-            <div class="container container-fluid">
-              <div class="row row-fluid">
-                <div class="col-md-6"> 
-                  <img class="img-responsive" src="images/devicesJPEG.jpg" alt="">
+           <div id="whereDiv">
+              <div class="container container-fluid">
+                  <div class="row row-fluid">
+                    <div class="col-md-6"> 
+                      <img class="img-fluid" src="images/devicesWHITE.png" alt="">
+                    </div>
+                    <div id="secondInfoDiv" class="col-md-6">
+                        <br>
+                        <br>
+                        <br>
+                        <h4>É grátis! </h4>
+                        <p>Todos os livros estão á sua disposição para que os possa ler durante todo o seu periodo de requesição.
+                          É mesmo só leitura!
+                        </p>
+                        <br>
+                        <h4>Onde, quando, e como quiser!</h4>
+                        <p>A urban shelf está disponivel para qualquer tipo de dispositivo.
+                          O seu layout responsivo adapta-se a qualquer formato para que possa
+                           dedicar mais tempo à leitura e menos ás complicações. 
+                        </p>
+                        <br>
+                        <h4>Fácil de usar.</h4>
+                        <p>
+                          Acabou de ver um livro de que gostou e que que seja seu? Feito!
+                          Com um simples toque de um botão pode requsitar qualquer livro á sua disposição nas nossas bibliotecas.
+                        </p>
+                    </div>
+                  </div>
+                  <br>
                 </div>
-                <div id="secondInfoDiv" class="col-md-6">
-                    <br>
-                    <br>
-                    <br>
-                    <h4>É grátis! </h4>
-                    <p>Todos os livros estão á sua disposição para que os possa ler durante todo o seu periodo de requesição.
-                      É mesmo só leitura!
-                    </p>
-                    <br>
-                    <h4>Onde, quando, e como quiser!</h4>
-                    <p>A urban shelf está disponivel para qualquer tipo de dispositivo.
-                      O seu layout responsivo adapta-se a qualquer formato para que possa
-                       dedicar mais tempo à leitura e menos ás complicações. 
-                    </p>
-                    <br>
-                    <h4>Fácil de usar.</h4>
-                    <p>
-                      Acabou de ver um livro de que gostou e que que seja seu? Feito!
-                      Com um simples toque de um botão pode requsitar qualquer livro á sua disposição nas nossas bibliotecas.
-                    </p>
-                </div>
-              </div>
-  
-            </div>
-          </div>
-
+    
+           </div>
+          
           <!-- JUMBOTRON FOR TOP BOOKS AND RECENT BOOKS -->
 
         <div id="jumbotronBooks" class="jumbotron jumbotron-fluid">
@@ -164,7 +166,6 @@
   
           </div>
 
-
   
 
 
@@ -175,11 +176,11 @@
             <div class="modal-body" align="center">
               <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
-              <form id="loginForm">
+              <form id="formLogin">
                 <div>
-                    <label for="loginUsername">Username</label>
+                    <label for="loginEmail">E-mail</label>
                     <br>
-                    <input class="modalInputs" type="text" id="loginUsername" autofocus required>
+                    <input class="modalInputs" type="email" id="loginEmail" autofocus required>
                 </div>
                 <br>
                 <div>
@@ -204,7 +205,7 @@
             <div class="modal-body" align="center">
               <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
-              <form id="registerForm">
+              <form id="formRegister">
                 <div>
                     <label for="inputUsername">Username</label>
                     <br>
@@ -264,7 +265,8 @@
                       </div>
                       <div class="col-md-4">
                           <br><br><br>
-                            <img src="images/logo-ipp_edited.png" alt="" srcset="">
+                            <img id="ippLogo" src="images/logo-ipp_edited.png" alt="" srcset="">
+                            <br><br><br>
                         </div>
                       <div class="col-md-4">
                           <h5 class="text-uppercase">Acompanhe o Projeto</h5>
@@ -284,5 +286,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </body>
 </html>
