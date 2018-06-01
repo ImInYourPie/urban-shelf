@@ -39,10 +39,10 @@
            </form>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Catálogo</a>
+                <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Catálogo</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Bibliotecas</a>
+                <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Bibliotecas</a>
               </li>
               <li class="nav-item">
                   <a id="navRegister" class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Registar</a>
@@ -177,22 +177,27 @@
               <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
               <form id="formLogin">
-                <div>
+                <div class="form-group">
                     <label for="loginEmail">E-mail</label>
                     <br>
-                    <input class="modalInputs" type="email" id="loginEmail" autofocus required>
+                    <input class="form-control col-md-12" type="email" id="loginEmail" autofocus required>
                 </div>
                 <br>
-                <div>
+                <div class="form-group">
                     <label for="loginPassword">Password</label>
                     <br>
-                    <input class="modalInputs" type="password" id="loginPassword" required>
+                    <input class="form-control col-md-12" type="password" id="loginPassword" required>
                 </div>
                 <br>
                 <div class="modal-footer">
-              <button type="submit" class="btn">Entrar</button>
-            </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn">Entrar</button>
+                    </div>
+                  </div>
               </form>
+              <br>
+              <!-- LINK PARA CRIAÇÂO DE CONTA -->
+              <small>Não tem conta?<a href="" data-dismiss="modal" data-toggle="modal" data-target="#registerModal" > Registe-se já!</a> </small>
             </div>
           </div>
         </div>
@@ -206,42 +211,53 @@
               <img src="images/verticalLogo_white300x200.png" alt="urban shelf">
               <br>
               <form id="formRegister">
-                <div>
-                    <label for="inputUsername">Username</label>
-                    <br>
-                    <input class="modalInputs" type="text" id="inputUsername" autofocus required>
+                <div class="form-row">
+                  <!-- USERNAME REGISTO -->
+                  <div class="form-group col-md-12">
+                      <label for="inputUsername">Username</label>
+                      <input class="form-control col-md-12" type="text" id="inputUsername" autofocus required>
+                  </div>
                 </div>
                 <br>
-                <div>
-                  <label for="inputEmail">E-mail</label>
-                  <br>
-                  <input class="modalInputs" type="email" id="inputEmail" required>
-                  <p id="errorEmail"></p>
-              </div>
-              <br>
-              <div>
-                  <label for="inputAdress">Morada</label>
-                  <br>
-                  <input class="modalInputs" type="text" id="inputAdress" placeholder="Morada" required>
-              </div>
-              <br>
-              <div>
-                <input class="modalInputs" type="text" id="inputDoor" placeholder="Nº de porta" required>
-            </div>
-                <br>
-                <div>
-                    <label for="inputPassword">Password</label>
-                    <br>
-                    <input class="modalInputs" type="password" id="inputPassword" required>
+                <!-- PASSWORDS REGISTO-->
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword">Password</label>
+                        <input class="form-control" type="password" id="inputPassword" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputPassConfirm">Confirmar password</label>
+                      <input class="form-control" type="password" id="inputPassConfirm" required>
+                  </div>
                 </div>
                 <br>
-                <div>
-                  <label for="inputPassConfirm">Confirmar password</label>
-                  <br>
-                  <input class="modalInputs" type="password" id="inputPassConfirm" required>
-                  <p id="errorPassword"></p>
+                <!-- EMAIL REGISTO-->
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                      <label for="inputEmail">E-mail</label>
+                      <input class="form-control" type="email" id="inputEmail" placeholder="something@example.com" required>
+                  </div>
               </div>
-                <br>
+              <br>
+              <!-- URL DE FOTO -->
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="urlPhoto">Link de foto</label>
+                  <input class="form-control" type="url" id="urlPhoto" placeholder="example.com/somewhere/image" required>
+                </div>
+
+              </div>
+              <!-- <div class="row">
+                  <div class="form-group col-md-8">
+                      <label for="inputAdress">Morada</label>
+                      <input class="form-control" type="text" id="inputAdress" placeholder="Morada" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputDoor">Nº Porta</label>
+                    <input class="form-control" type="text" id="inputDoor" placeholder="Nº de porta" required>
+                </div>
+              </div> -->
+
                 <div class="modal-footer">
               <button type="submit" class="btn">Registar</button>
             </div>
@@ -251,7 +267,7 @@
         </div>
       </div>
 
-      
+      <!-- FOOTER -->
         <footer id="myFooter">
           <br>
           <div>

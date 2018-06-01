@@ -8,10 +8,11 @@ let arrayBibliotecas = [];
 
 // CLASS USER
 class User{
-    constructor(username, password, email, userType){
+    constructor(username, password, email, adress,userType){
     this.username = username;
     this.password = password;
     this.email = email;
+    this.adress = adress;
     this.userType = userType;
     this._userId = User.getLastId() + 1;
     }
@@ -39,6 +40,14 @@ class User{
     }
     get email(){
         return this._email;
+    }
+
+    // adress property
+    set adress(newAdress){
+        this._adress = newAdress;
+    }
+    get adress(){
+        return this._adress;
     }
 
     // userType property

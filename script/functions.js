@@ -89,11 +89,16 @@ function displayMapMarkes() {
 
 // ADDMAPMARKERS FUNCTION
 function addMapMarkers() {
+    var icon = {
+        url: "images/map-marker-alt.png", // url
+        scaledSize: new google.maps.Size(70, 50), // scaled size
+    };
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         let marker = new google.maps.Marker({
            position: {lat: parseFloat(arrayBibliotecas[i]._coordenatesLat), lng: parseFloat(arrayBibliotecas[i]._coordenatesLong)},
            map: map,
-           title: arrayBibliotecas[i]._adress
+           title: arrayBibliotecas[i]._adress,
+           icon: icon
         })
         
     }

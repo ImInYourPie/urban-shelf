@@ -1,6 +1,9 @@
 
 window.onload = function (){
 
+    // ADD BOOKS TO TOP AND RECENT
+    
+
     // VARIABLES
     let navLogin = document.getElementById("navLogin");
     let navRegister = document.getElementById("navRegister");
