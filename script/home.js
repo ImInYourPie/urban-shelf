@@ -1,6 +1,7 @@
-
 window.onload = function (){
-
+    // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
+    loginUser();
+    console.log(login)
 
     // ADD BOOKS TO TOP AND RECENT
     // loadTopBooks();
@@ -21,7 +22,8 @@ window.onload = function (){
     
     
     // TEST
-    
+
+    // let newBook1 = ()
     
     
     
@@ -42,44 +44,43 @@ window.onload = function (){
         // 2.VERIFICAR SE UTILIZADOR EXISTE
         let userExists = false;
         let userName = "";
-        let id = "";
-        let typeUser = 0;
+        let id;
+        let typeUser;
+        let photo;
         for (let i = 0; i < arrayUsers.length; i++) {
             if (arrayUsers[i]._email == inputEmailLogin.value && arrayUsers[i]._password == inputPasswordLogin.value) {
                 userExists = true;
                 id = arrayUsers[i]._userId;
                 userName = arrayUsers[i]._username;
                 typeUser = arrayUsers[i]._userType;
+                photo = arrayUsers[i]._photo;
             }
+        }
+
+        let logedUser = {id: id,
+                        userName: userName,
+                        typeUser: typeUser,
+                        photo: photo
         }
 
         // 3.SE EXISTE; AUTENTICAR UTILIZADOR
         if(userExists){
-            // CHECK USERTYPE 
-            if (typeUser == 0) {
-                loadAdminPage(userName);
-            }
-            if (typeUser == 1) {
-                loadOperatorPage(userName);
-            }
-            if (typeUser == 2) {
-                loadUserPage(userName);
-            }
+            localStorage.loginStorage = JSON.stringify(logedUser);
+            loginUser(); 
+            // checkLogginStorage();
+            $('#loginModal').modal('hide');
 
-            // STORE LOGGED IN ID
-            // let loggedUser = [];
-            // loggedUser.push(userId: id,)
-            // localStorage.loggedStorage = JSON.stringify
-
-        // } else{
-        //     inputEmailLogin.setAttribute("class", "form-control col-md-12 is-invalid");
-        //     inputPasswordLogin.setAttribute("class", "form-control col-md-12 is-invalid");
-        //     let loginError = document.getElementById("loginError");
-        //     loginError.style.color = "red";
-        //     loginError.innerHTML = "Credenciais incorretas! Verifique o e-mail ou password.";
-        // } 
-        }
+        } else{
+            inputEmailLogin.setAttribute("class", "form-control col-md-12 is-invalid");
+            inputPasswordLogin.setAttribute("class", "form-control col-md-12 is-invalid");
+            let loginError = document.getElementById("loginError");
+            loginError.style.color = "red";
+            loginError.innerHTML = "Credenciais incorretas! Verifique o e-mail ou password.";
+        } 
     })
+
+
+
 
     // REGISTER SUBMIT
     formRegister.addEventListener("submit", function (event) {
@@ -137,6 +138,7 @@ window.onload = function (){
             localStorage.userStorage = JSON.stringify(arrayUsers);
             $("#sucessModal").modal("show");
             $("#registerModal").modal("hide");
+            $("#loginModal").modal("show");
         }
 
 

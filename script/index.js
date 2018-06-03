@@ -4,6 +4,8 @@ let arrayTags = [];
 let arrayCategorias = [];
 let arrayLivros = [];
 let arrayBibliotecas = [];
+let arrayRequisitions = [];
+let login;
 
 
 // CLASS USER
@@ -379,6 +381,55 @@ class Book{
         let lastId = 0
         if (arrayLivros.length > 0) {
             lastId = arrayLivros[arrayLivros.length - 1]._bookId;
+        }        
+        return lastId;
+    }
+}
+
+
+// CLASS REQUISITION
+class Requisition{
+    constructor(quantity, books, userId, requisitionId){
+        this.quantity = quantity;
+        this.books = books;
+        this.userId = userId;
+        this.requisitionId = Requisition.getLastId() + 1;
+    }
+
+    // QUANTITY PROPERTY
+    set quantity(newQuantity){
+        this._quantity = newQuantity;
+    }
+    get quantity(){
+        return this._quantity;
+    }
+
+    // BOOKS PROPERTY
+    set books(newBooks){
+        this._books = newBooks;
+    }
+    get books(){
+        return this._books;
+    }
+
+    // USERID PROPERTY
+    set userId(newUserId){
+        this._userId = newUserId;
+    }
+    get userId(){
+        return this._userId;
+    }
+
+     // ID PROPERTY
+     get requisitionId(){
+        return this._requistionId;
+    }
+
+    // ID GENERATOR
+    static getLastId() {
+        let lastId = 0
+        if (arrayRequisitions.length > 0) {
+            lastId = arrayRequisitions[arrayRequisitions.length - 1]._requistionId;
         }        
         return lastId;
     }

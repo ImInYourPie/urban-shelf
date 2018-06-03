@@ -587,59 +587,115 @@ function refreshTop() {
 
 
 
+// LOGIN USER
+
+// CHECK STORAGE FOR USER
+function checkLoginStorage() {
+    if (localStorage.loginStorage) {
+        login = JSON.parse(localStorage.loginStorage);
+    }
+}
+
+function loginUser() {
+    checkLoginStorage();
+    console.log("d")
+    if(login != undefined){
+        if (login.typeUser == 0) {
+            console.log("s")
+            loadAdminPage();
+        }
+        if (login.typeUser == 1) {
+            loadOperatorPage();
+        }
+        if (login.typeUser == 2) {
+            loadUserPage();
+        }
+    }
+}
+
+
+// LOGOUT FUNCTION
+
+
+
+
+
+
 
 
 
 
 // LOAD USERTYPES HTML PAGES 
 
-function loadUserPage(user) {
+function loadUserPage() {
     // ALTERAR NAVBAR
-    navLogin.style.display = "none";
-    navRegister.style.display = "none";
+    if (document.getElementById("navLogin")) {
+        document.getElementById("navLogin").style.display = "none";
+    }
+    if (document.getElementById("navRegister")) {
+        document.getElementById("navRegister").style.display = "none";
+    }
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
     adminDropdownPanel.style.display = "none";
-    navCatalog.removeAttribute("data-toggle", "data-target");
-    navBibliotecas.removeAttribute("data-toggle", "data-target");
-    navCatalog.setAttribute("href",  "catalog.html");
-    navBibliotecas.setAttribute("href",  "bibliotecas.html");
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
-    $('#loginModal').modal('hide');
+    if (navCatalog.hasAttribute("data-toggle")) {
+        navCatalog.removeAttribute("data-toggle", "data-target");
+        navCatalog.setAttribute("href",  "catalog.html");
+    }
+    if (navBibliotecas.hasAttribute("data-toggle")) {
+        navBibliotecas.removeAttribute("data-toggle", "data-target");
+        navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    }
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
 
 }
 
-function loadAdminPage(user) {
-    navLogin.style.display = "none";
-    navRegister.style.display = "none";
+function loadAdminPage() {
+    console.log("ls")
+    if (document.getElementById("navLogin")) {
+        document.getElementById("navLogin").style.display = "none";
+    }
+    if (document.getElementById("navRegister")) {
+        document.getElementById("navRegister").style.display = "none";
+    }
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
-    navCatalog.removeAttribute("data-toggle", "data-target");
-    navBibliotecas.removeAttribute("data-toggle", "data-target");
-    navCatalog.setAttribute("href",  "catalog.html");
-    navBibliotecas.setAttribute("href",  "bibliotecas.html");
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
-    $('#loginModal').modal('hide');
-
+    adminDropdownPanel.style.display = "block";
+    if (navCatalog.hasAttribute("data-toggle")) {
+        navCatalog.removeAttribute("data-toggle", "data-target");
+        navCatalog.setAttribute("href",  "catalog.html");
+    }
+    if (navBibliotecas.hasAttribute("data-toggle")){
+        navBibliotecas.removeAttribute("data-toggle", "data-target");
+        navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    }
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    console.log("ssssss")
 
 }
 
-function loadOperatorPage(user) {
+function loadOperatorPage() {
     // ALTERAR NAVBAR
-    navLogin.style.display = "none";
-    navRegister.style.display = "none";
+    if (document.getElementById("navLogin")) {
+        document.getElementById("navLogin").style.display = "none";
+    }
+    if (document.getElementById("navRegister")) {
+        document.getElementById("navRegister").style.display = "none";
+    }
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.display = "block";
     adminDropdownPanel.display = "none";
-    navCatalog.removeAttribute("data-toggle", "data-target");
-    navBibliotecas.removeAttribute("data-toggle", "data-target");
-    navCatalog.setAttribute("href",  "catalog.html");
-    navBibliotecas.setAttribute("href",  "bibliotecas.html");
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
+    if (navCatalog.hasAttribute("data-toggle")) {
+        navCatalog.removeAttribute("data-toggle", "data-target");
+        navCatalog.setAttribute("href",  "catalog.html");
+    }
+    if (navBibliotecas.hasAttribute("data-toggle")) {
+        navBibliotecas.removeAttribute("data-toggle", "data-target");
+        navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    }
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+
 }
-
-// CHECK SESSION STORAGE FOR LOGIN
-
 
 
 
@@ -652,4 +708,4 @@ function loadOperatorPage(user) {
 //     arrayLivros.sort(a,b => {
         
 //     });
-// }
+// 
