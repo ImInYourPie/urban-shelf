@@ -4,13 +4,13 @@ function refreshStoredBooks() {
     refreshTableBooks();
 }
 
+
+
 function getStoredBooks() {
     if(localStorage.bookStorage){
         arrayLivros = JSON.parse(localStorage.bookStorage);
     }
 }
-
-
 
 
 
@@ -593,28 +593,63 @@ function refreshTop() {
 
 // LOAD USERTYPES HTML PAGES 
 
-function loadUserPage() {
-    
-    
+function loadUserPage(user) {
     // ALTERAR NAVBAR
     navLogin.style.display = "none";
     navRegister.style.display = "none";
     navDropdownUser.style.display = "block";
-    navDropdownUser.innerHTML = userName;
+    operadorDropdownPanel.style.display = "none";
+    adminDropdownPanel.style.display = "none";
+    navCatalog.removeAttribute("data-toggle", "data-target");
+    navBibliotecas.removeAttribute("data-toggle", "data-target");
+    navCatalog.setAttribute("href",  "catalog.html");
+    navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
+    $('#loginModal').modal('hide');
+
 }
 
-function loadAdminPage() {
-    window.location.href = "admin.html";
+function loadAdminPage(user) {
+    navLogin.style.display = "none";
+    navRegister.style.display = "none";
+    navDropdownUser.style.display = "block";
+    operadorDropdownPanel.style.display = "none";
+    navCatalog.removeAttribute("data-toggle", "data-target");
+    navBibliotecas.removeAttribute("data-toggle", "data-target");
+    navCatalog.setAttribute("href",  "catalog.html");
+    navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
+    $('#loginModal').modal('hide');
+
 
 }
 
-function loadOperatorPage() {
-    window.location.href = "operadorDoar.html";
+function loadOperatorPage(user) {
+    // ALTERAR NAVBAR
+    navLogin.style.display = "none";
+    navRegister.style.display = "none";
+    navDropdownUser.style.display = "block";
+    operadorDropdownPanel.display = "block";
+    adminDropdownPanel.display = "none";
+    navCatalog.removeAttribute("data-toggle", "data-target");
+    navBibliotecas.removeAttribute("data-toggle", "data-target");
+    navCatalog.setAttribute("href",  "catalog.html");
+    navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + user;
 }
-
-
-
-
-
 
 // CHECK SESSION STORAGE FOR LOGIN
+
+
+
+
+
+
+// LOAD BOOKS
+// LOAD TOP
+// function loadTopBooks() {
+//     let topLivros = [];
+//     arrayLivros.sort(a,b => {
+        
+//     });
+// }

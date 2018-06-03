@@ -35,7 +35,7 @@ window.onload = function(){
         console.log("ola")
         // 5. VALIDATE IF NO ERRORS, CREATE NEW USER AND PUSH TO ARRAYUSERS, ELSE DISPLAY ERRORMSG
         if(errorMsg == ""){
-            let newUser = new User(adminUsername.value, adminPassword.value, adminUserEmail.value, adminUserType.value);
+            let newUser = new User(adminUsername.value, adminPassword.value, adminUserEmail.value,"","", adminUserType.value);
             arrayUsers.push(newUser);
             adminUsername.value = "";
             adminPassword.value = "";

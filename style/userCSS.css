@@ -27,7 +27,7 @@
 }
 
 .navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
-    color: rgb(0, 21, 64);
+    color: rgb(0, 84, 255);
     display: block;
 }
 
@@ -143,8 +143,8 @@ ul{
 
 /* MODALS CSS */
 .modal-body, .modal-header{
-    background-color: rgb(0, 21, 64);
-    color: white;
+    background-color: white;
+    color: rgb(0, 21, 64);
 }
 
 

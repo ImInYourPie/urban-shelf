@@ -21,7 +21,7 @@
    <body>
       <!-- OPERADOR NAVBAR -->
       <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
-         <a class="navbar-brand" href="operador.html"><img src="images/icon_alternate40x40white.png" alt=""></a>
+         <a class="navbar-brand" href="catalog.html"><img src="images/icon_alternate40x40white.png" alt=""></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#operadorNavCollapse" aria-controls="operadorNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
          <i class="fas fa-bars"></i>
          </button>
@@ -42,7 +42,7 @@
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                     <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
+                     <a class="dropdown-item" href="profilePage.html">Perfil</a>
                      <div class="dropdown-divider"></div>
                      <a id="operadorLogoutBtn" class="dropdown-item" href="#">Log Out</a>
                   </div>
@@ -52,145 +52,103 @@
       </nav>
       <!-- FORMULARIO DE DOAÇÃO -->
       <div id="doarLivroContainer" class="container container-fluid">
-            <br>
-            <h1>Formulário de Doação</h1>
           <div class="row row-fluid">
                 <div class="col-sm-4">
-                        
+                        <br>
+                        <h1>Formulário de Doação</h1>
                        <form id="formDoarLivro">
                           <!-- TITULO LIVRO -->
                           <div class="form-group">
                              <label for="doarLivroTitulo">Título do livro</label>
                              <input type="text" class="form-control" id="doarLivroTitulo" maxlength="50" required>
                           </div>
-                          <!-- EDITORA DO LIVRO -->
-                        <div class="form-group">
-                                <label for="doarLivroEditora">Editora</label>
-                                <input type="text" class="form-control" id="doarLivroEditora" maxlength="50" required>
-                             </div>     
-                          <!-- CODIGO BIBLIOTECA (PEDE A LOCALIDADE DA BIBLIOTECA MAS RECEB O ID) -->
-                         <div class="form-group">
-                                <label for="doarLivroBiblioteca">Biblioteca</label>
-                                <select class="form-control" id="doarLivroBiblioteca" required>
-                                </select>
-                             </div>
-                          <!-- NOME DO DOADOR -->
+                          <!-- URL CAPA LIVRO -->
                           <div class="form-group">
-                                <label for="doarLivroDoador">Nome do doador (Opcional)</label>
-                                <input type="text" class="form-control col-8" id="doarLivroDoador" maxlength="50">
-                             </div>    
-                        
-
-                          
-                          
-                         
-                          <div class="row row-fluid"> 
-                               <!-- DATA LANÇAMENTO LIVRO -->
-                          <div class="form-group col-md-7">
-                                <label for="doarLivroDataLançamento">Data de lançamento</label>
-                                <input type="date" class="form-control" id="doarLivroDataLançamento" maxlength="10" required>
-                             </div>
-                             <!-- ESTADO DO LIVRO -->
-                           <div class="form-group col-md-5">
-                                   <label for="doarLivroEstado">Estado</label>
-                                   <select class="form-control" id="doarLivroEstado" required>
-                                      <option>Bom</option>
-                                      <option>Médio</option>
-                                      <option>Fraco</option>
-                                   </select>
-                           </div>
+                             <label for="doarLivroCapa">Capa</label>
+                             <input type="url" class="form-control" id="doarLivroCapa" placeholder="http://abc123.com/350x150" maxlength="50" required>
                           </div>
-                             
-                              
-                          
-                          
-                          <div class="row row-fluid">
-                                <!-- GÉNERO LIVRO -->
-                                
-                                        <div class="form-group col-md">
-                                                <label for="doarLivroGenero">Género</label>
-                                                <select class="form-control" id="doarLivroGenero" required>
-                                                </select>
-                                             </div>
-                               
-                                <!-- Nº DE PAGINAS DO LIVRO -->
-                                
-                                        <div class="form-group col-md-5">
-                                                <label for="doarLivroPaginas">Nº de páginas</label>
-                                                <input type="number" class="form-control" id="doarLivroPaginas" max="9999" required>
-                                             </div>
-                                
-                          </div>
-                        
-                          
-                          <!-- TAGS LIVRO -->
+                          <!-- BREVE DESCRIÇAO LIVRO -->
                           <div class="form-group">
-                             <label for="doarLivroTags">Tags (CTRL+Click para adicionar múltiplas tags)</label>
-                             <select multiple class="form-control" id="doarLivroTags" required>
+                             <label for="doarLivroDescription">Descrição do livro</label>
+                             <input type="text" class="form-control" id="doarLivroDescription" maxlength="120" required>
+                          </div>
+                          <!-- LISTA DOS AUTORES DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroAutores">Autores</label>
+                             <input type="text" class="form-control" id="doarLivroAutores" maxlength="50" required>
+                          </div>
+                          <!-- DATA LANÇAMENTO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroDataLançamento">Data de lançamento</label>
+                             <input type="date" class="form-control" id="doarLivroDataLançamento" maxlength="10" required>
+                          </div>
+                          <!-- GÉNERO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroGenero">Género</label>
+                             <select class="form-control" id="doarLivroGenero" required>
                              </select>
                           </div>
-                          
-                        </div>
-                        <div class="col-sm-1"></div>
-                        <div class="col-sm-4">
-                        <!-- LISTA DOS AUTORES DO LIVRO -->
-                        <div class="form-group">
-                                <label for="doarLivroAutores">Autores</label>
-                                <input type="text" class="form-control" id="doarLivroAutores" maxlength="50" required>
-                             </div>    
-                               
-                         
-                         
-                        <!-- BREVE DESCRIÇAO LIVRO -->
-                        <div class="form-group">
-                                <label for="doarLivroDescription">Descrição do livro</label>
-                                <textarea class="form-control" id="doarLivroDescription" maxlength="120" rows="4" style="resize:none;" required></textarea>
-                              </div>
-        
-                       
-                               
-                         <!-- URL CAPA LIVRO -->
-                         <div class="form-group">
-                                <label for="doarLivroCapa">Capa</label>
-                                <div class="row">
-                                        <input type="url" class="form-control col-md-8" id="doarLivroCapa" placeholder="http://abc123.com/350x150" maxlength="50" required>
-                                        <div class="col-md-1"></div>
-                                       <button class="btn col-md-3" id="btnPreviewCapa"> Preview</button>
-                                </div>
-                                
-                             </div>
-                         
-                         <!-- PREVIEW DA CAPA -->
-                         
-                        </div>
-                       
-                            <!-- BOTAO SUBMETER FORM -->
-                            <div class="form-group col-md-8">
-                                <button type="submit" class="btn">Doar</button>
-                                </select>
-                             </div>  
-                             
-                        
+                          <!-- TAGS LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroTags">Tags</label>
+                             <select class="form-control" id="doarLivroTags" required>
+                             </select>
+                          </div>
+                          <!-- EDITORA DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroEditora">Editora</label>
+                             <input type="text" class="form-control" id="doarLivroEditora" maxlength="50" required>
+                          </div>
+                          <!-- Nº DE PAGINAS DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroPaginas">Nº de páginas</label>
+                             <input type="number" class="form-control" id="doarLivroPaginas" max="9999" required>
+                          </div>
+                          <!-- ESTADO DO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroEstado">Estado</label>
+                             <select class="form-control" id="doarLivroEstado" required>
+                                <option>Bom</option>
+                                <option>Médio</option>
+                                <option>Fraco</option>
+                             </select>
+                          </div>
+                          <!-- NOME DO DOADOR -->
+                          <div class="form-group">
+                             <label for="doarLivroDoador">Nome do doador (Opcional)</label>
+                             <input type="text" class="form-control" id="doarLivroDoador" maxlength="50">
+                          </div>
+                          <!-- DATA DOAÇAO LIVRO -->
+                          <div class="form-group">
+                             <label for="doarLivroDataDonation">Data de doação</label>
+                             <input type="date" class="form-control" id="doarLivroDataDonation" maxlength="10" required>
+                          </div>
+                          <!-- CODIGO BIBLIOTECA (PEDE A LOCALIDADE DA BIBLIOTECA MAS RECEB O ID) -->
+                          <div class="form-group">
+                             <label for="doarLivroBiblioteca">Biblioteca</label>
+                             <select class="form-control" id="doarLivroBiblioteca" required>
+                             </select>
+                          </div>
+                          <!-- BOTAO SUBMETER FORM -->
+                          <div class="form-group">
+                             <button type="submit" class="btn">Doar</button>
+                             </select>
+                          </div>
                        </form>
                        <br>
                     </div>
-                    
-               
-                <div class="row row-fluid">
                     <!-- TABLE BOOKS -->
-                   
+                    <div class="col-sm-8">
                         <br>
                             <div class="table-responsive">
-                                    <table id="tblBooks" class="table table-sm">            
+                                    <table id="tblBooks" class="table table-sm table-dark">            
                                     </table>
                                     <br>
                                     <br>
                                  </div>
-                                
-                </div>
-                    
+                    </div>
 
-            
+          </div>
           </div>
           
       <!-- FOOTER -->
