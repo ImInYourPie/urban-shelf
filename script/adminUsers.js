@@ -29,11 +29,9 @@ window.onload = function(){
             errorMsg += "As passwords não coincidem!";
         }
 
-        // 4. CHECK IF THERE IS A USER WITH THE SAME USERNAME
 
-
-        console.log("ola")
-        // 5. VALIDATE IF NO ERRORS, CREATE NEW USER AND PUSH TO ARRAYUSERS, ELSE DISPLAY ERRORMSG
+        
+        // 4. VALIDATE IF NO ERRORS, CREATE NEW USER AND PUSH TO ARRAYUSERS, ELSE DISPLAY ERRORMSG
         if(errorMsg == ""){
             let newUser = new User(adminUsername.value, adminPassword.value, adminUserEmail.value,"","", adminUserType.value);
             arrayUsers.push(newUser);

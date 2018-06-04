@@ -1,6 +1,14 @@
 window.onload = function (){
+    // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
+    let navDropdownUser = document.getElementById("navDropdownUser");
+    if(localStorage.loginStorage != true){
+        navDropdownUser.style.display = "none";
+    }
+
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
+
+    // CALL LOGOUT FUNCTION
     logoutUser();
     console.log(login)
 
@@ -9,30 +17,15 @@ window.onload = function (){
     // loadRecentBooks();
 
     // VARIABLES
-    let navLogin = document.getElementById("navLogin");
-    let navRegister = document.getElementById("navRegister");
-    let navLogout = document.getElementById("navLogout");
     let formLogin = document.getElementById("formLogin");
     let formRegister = document.getElementById("formRegister");
-    let navDropdownUserPage = document.getElementById("dropdownUserPage");
-    let adminDropdownPanel = document.getElementById("adminDropdownPanel");
-    let operadorDropdownPanel = document.getElementById("operadorDropdownPanel");
-    let navCatalog = document.getElementById("navCatalog");
-    let navBibliotecas = document.getElementById("navBibliotecas");
-    let navbarDropdown = document.getElementById("navbarDropdown");
     
     
     // TEST
 
     // let newBook1 = ()
+
     
-    
-    
-    // LOCAL STORAGE
-    
-    
-    // // ESCONDER OPÇOES AUTENTICAÇAO
-    navDropdownUser.style.display = "none";
     
     // LOGIN SUBMIT
     formLogin.addEventListener("submit", function(event){

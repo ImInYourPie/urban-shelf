@@ -635,14 +635,25 @@ function logoutUser() {
 
 // LOAD USERTYPES HTML PAGES 
 
-function loadUserPage() {
-    // ALTERAR NAVBAR
-    if (document.getElementById("navLogin")) {
-        document.getElementById("navLogin").style.display = "none";
+function loadUserPage() {    
+    // VARS
+    let navLogin = document.getElementById("navLogin");
+    let navRegister = document.getElementById("navRegister");
+    let navLogout = document.getElementById("navLogout");
+    let navDropdownUserPage = document.getElementById("dropdownUserPage");
+    let adminDropdownPanel = document.getElementById("adminDropdownPanel");
+    let operadorDropdownPanel = document.getElementById("operadorDropdownPanel");
+    let navCatalog = document.getElementById("navCatalog");
+    let navBibliotecas = document.getElementById("navBibliotecas");
+    let navbarDropdown = document.getElementById("navbarDropdown");
+
+    if (navLogin) {
+        navLogin.style.display = "none";
     }
-    if (document.getElementById("navRegister")) {
-        document.getElementById("navRegister").style.display = "none";
+    if (navRegister) {
+        navRegister.style.display = "none";
     }
+
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
     adminDropdownPanel.style.display = "none";
@@ -659,12 +670,22 @@ function loadUserPage() {
 }
 
 function loadAdminPage() {
-    console.log("ls")
-    if (document.getElementById("navLogin")) {
-        document.getElementById("navLogin").style.display = "none";
+    // VARS
+    let navLogin = document.getElementById("navLogin");
+    let navRegister = document.getElementById("navRegister");
+    let navLogout = document.getElementById("navLogout");
+    let navDropdownUserPage = document.getElementById("dropdownUserPage");
+    let adminDropdownPanel = document.getElementById("adminDropdownPanel");
+    let operadorDropdownPanel = document.getElementById("operadorDropdownPanel");
+    let navCatalog = document.getElementById("navCatalog");
+    let navBibliotecas = document.getElementById("navBibliotecas");
+    let navbarDropdown = document.getElementById("navbarDropdown");
+
+    if (navLogin) {
+        navLogin.style.display = "none";
     }
-    if (document.getElementById("navRegister")) {
-        document.getElementById("navRegister").style.display = "none";
+    if (navRegister) {
+        navRegister.style.display = "none";
     }
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
@@ -683,13 +704,24 @@ function loadAdminPage() {
 }
 
 function loadOperatorPage() {
-    // ALTERAR NAVBAR
-    if (document.getElementById("navLogin")) {
-        document.getElementById("navLogin").style.display = "none";
+    // VARS
+    let navLogin = document.getElementById("navLogin");
+    let navRegister = document.getElementById("navRegister");
+    let navLogout = document.getElementById("navLogout");
+    let navDropdownUserPage = document.getElementById("dropdownUserPage");
+    let adminDropdownPanel = document.getElementById("adminDropdownPanel");
+    let operadorDropdownPanel = document.getElementById("operadorDropdownPanel");
+    let navCatalog = document.getElementById("navCatalog");
+    let navBibliotecas = document.getElementById("navBibliotecas");
+    let navbarDropdown = document.getElementById("navbarDropdown");
+
+    if (navLogin) {
+        navLogin.style.display = "none";
     }
-    if (document.getElementById("navRegister")) {
-        document.getElementById("navRegister").style.display = "none";
+    if (navRegister) {
+        navRegister.style.display = "none";
     }
+
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.display = "block";
     adminDropdownPanel.display = "none";
@@ -701,11 +733,25 @@ function loadOperatorPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img-circle'></img>" + login.userName;
 
 }
 
 
+
+
+
+
+
+
+
+
+// CHANGE DEFAULT PHOTO IN PROFILE PAGE
+function changeDefaultPhoto() {
+    if (login.photo) {
+        document.getElementById("profileImage").src = login.photo;
+    }
+}
 
 
 
