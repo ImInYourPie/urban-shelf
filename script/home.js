@@ -1,6 +1,7 @@
 window.onload = function (){
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
+    logoutUser();
     console.log(login)
 
     // ADD BOOKS TO TOP AND RECENT

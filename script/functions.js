@@ -615,7 +615,15 @@ function loginUser() {
 
 
 // LOGOUT FUNCTION
-
+function logoutUser() {
+    document.getElementById("logoutButton").addEventListener("click", function (event) {
+        event.preventDefault();
+        if (localStorage.loginStorage) {
+            localStorage.removeItem("loginStorage");
+            window.location = "home.html"; 
+        }
+    })
+}
 
 
 
@@ -646,7 +654,7 @@ function loadUserPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
 
 }
 
@@ -669,7 +677,7 @@ function loadAdminPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img-circle'></img>" + login.userName;
     console.log("ssssss")
 
 }
