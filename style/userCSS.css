@@ -50,7 +50,7 @@ ul{
 
 /* ICONS CSS */
 #userIcon{
-    padding-right: 5px;
+    margin-right: 8px;
 }
 
 #profileImage{
@@ -110,7 +110,6 @@ ul{
     background: url("banner4.jpg") no-repeat;
     background-size: cover;
     background-position: top center;
-    height: auto;
     width:100%;
     height: auto;
     color: white;
@@ -208,7 +207,15 @@ footer{
     margin-top: 0px;
 }
 
+.bookCover{
+    height: 120px;
+    width: 80px;
+}
 
 
-
+/* SIDEBAR CSS */
+#wrapper{
+    background-color: rgb(0, 21, 64);
+    color: white;
+}
 

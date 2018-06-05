@@ -55,6 +55,7 @@
             <br>
             <h1>Formulário de Doação</h1>
           <div class="row row-fluid">
+            
                 <div class="col-sm-4">
                         
                        <form id="formDoarLivro">
@@ -94,9 +95,9 @@
                            <div class="form-group col-md-5">
                                    <label for="doarLivroEstado">Estado</label>
                                    <select class="form-control" id="doarLivroEstado" required>
-                                      <option>Bom</option>
-                                      <option>Médio</option>
-                                      <option>Fraco</option>
+                                      <option value="Bom">Bom</option>
+                                      <option value="Médio">Médio</option>
+                                      <option value="Fraco">Fraco</option>
                                    </select>
                            </div>
                           </div>
@@ -131,7 +132,7 @@
                           </div>
                           
                         </div>
-                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2"></div>
                         <div class="col-sm-4">
                         <!-- LISTA DOS AUTORES DO LIVRO -->
                         <div class="form-group">
@@ -150,23 +151,24 @@
                        
                                
                          <!-- URL CAPA LIVRO -->
-                         <div class="form-group">
-                                <label for="doarLivroCapa">Capa</label>
-                                <div class="row">
-                                        <input type="url" class="form-control col-md-8" id="doarLivroCapa" placeholder="http://abc123.com/350x150" maxlength="50" required>
-                                        <div class="col-md-1"></div>
-                                       <button class="btn col-md-3" id="btnPreviewCapa"> Preview</button>
-                                </div>
+                         <label for="doarLivroCapa">Capa</label>
+                         <div class="input-group mb-3">
                                 
-                             </div>
+                                <input type="url" id="doarLivroCapa" class="form-control" placeholder="http://abc123.com/350x150" required>
+                                <div class="input-group-append">
+                                  <button class="btn btn-outline-secondary" id="btnCapaPreview" type="button">Preview</button>
+                                </div>
+                              </div>
+                              
                          
-                         <!-- PREVIEW DA CAPA -->
+                         <!-- PREVIEW DA CAPA -->       
+                         <img src="https://about.canva.com/wp-content/uploads/sites/3/2015/01/children_bookcover.png" id="urlCapaPreview" style="width:208px;height:312px;display: block;margin-left: auto;margin-right: auto;">
                          
                         </div>
                        
                             <!-- BOTAO SUBMETER FORM -->
                             <div class="form-group col-md-8">
-                                <button type="submit" class="btn">Doar</button>
+                                <button type="submit" class="btn btn-primary">Doar</button>
                                 </select>
                              </div>  
                              
@@ -192,6 +194,32 @@
 
             
           </div>
+
+          <!-- MODAL EDIT -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body" align="center">
+              <h4 id="editHeader">Editar Tag</h4>
+              <br>
+              <form id="editBookForm">
+                <div class="form-group">
+                    <label for="editTagName">Estado</label>
+                    <select class="form-control" id="editEstado" required>
+                        <option value="Bom" >Bom</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Fraco">Fraco</option>
+                     </select>
+                </div>
+                <br>
+                <div class="modal-footer">
+              <button type="submit" class="btn">Submeter</button>
+            </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
           
       <!-- FOOTER -->
       <footer id="myFooter">

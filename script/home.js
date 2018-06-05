@@ -1,4 +1,6 @@
 window.onload = function (){
+   
+
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
     if(localStorage.loginStorage != true){

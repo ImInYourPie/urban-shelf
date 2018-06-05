@@ -28,7 +28,7 @@ window.onload = function(){
     }
 
     doarLivroDataLançamento.setAttribute("max", new_dataAtual)
-    doarLivroDataDonation.setAttribute("max", new_dataAtual)
+    let doarLivroDataDonation = new_dataAtual
 
     //3. ALIMENTAR OPÇOES DE GENERO
     for (var i = 0; i < arrayCategorias.length; i++) {
@@ -49,11 +49,17 @@ window.onload = function(){
         
     }
 
+    //5. PREVIEW DA CAPA
+    let btnCapaPreview = document.getElementById("btnCapaPreview")
+    let urlCapaPreview = document.getElementById("urlCapaPreview")
+    btnCapaPreview.addEventListener("click", function(){
+        urlCapaPreview.setAttribute("src", document.getElementById("doarLivroCapa").value)
 
-    //5. VERIFICAÇOES
+    })
+    //6. VERIFICAÇOES
     formDoarLivro.addEventListener("submit", function(event){
         event.preventDefault();
-        // VARIABEIS
+        // VARIAVEIS
         let doarLivroTitulo = document.getElementById("doarLivroTitulo")
         let doarLivroCapa = document.getElementById("doarLivroCapa")
         let doarLivroDescription = document.getElementById("doarLivroDescription")
@@ -65,7 +71,6 @@ window.onload = function(){
         let doarLivroPaginas = document.getElementById("doarLivroPaginas")
         let doarLivroEstado = document.getElementById("doarLivroEstado")
         let doarLivroDoador = document.getElementById("doarLivroDoador")
-        let doarLivroDataDonation = document.getElementById("doarLivroDataDonation")
         let doarLivroBiblioteca = document.getElementById("doarLivroBiblioteca")
 
         let errorMsg = "";
@@ -95,7 +100,7 @@ window.onload = function(){
         
 
 
-        //6. CRIAR NOVO OBJETO "LIVRO" E ADICIONAR AO ARRAY
+        //7. CRIAR NOVO OBJETO "LIVRO" E ADICIONAR AO ARRAY
         if(errorMsg == ""){
                 let newBook = new Book(doarLivroTitulo.value,
                     doarLivroCapa.value,
@@ -108,16 +113,16 @@ window.onload = function(){
                     doarLivroPaginas.value,
                     doarLivroEstado.value,
                     donerName,
-                    doarLivroDataDonation.value,
+                    doarLivroDataDonation,
                     doarLivroBiblioteca.value,
                     0,
-                    "")
+                    [])
 
             arrayLivros.push(newBook);
 
             // STORE IN LOCAL STORAGE
             localStorage.bookStorage = JSON.stringify(arrayLivros);
-            getStoredBooks();
+            refreshStoredBooks();
         }
         else{
             alert(errorMsg);

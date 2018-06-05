@@ -123,6 +123,7 @@ function refreshTableBooks() {
     strHtml = "<thead class='thead'><tr>" +
     "<th class='w-30'>Capa</th>" +
     "<th class='w-50'>Título</th>" +
+    "<th class='w-20'>Estado</th>" +
     "<th class='w-20'>ID Biblioteca</th>" +
     "<th class='w-20'>ID Livro</th>" +
     "<th class='w-20'></th>" +
@@ -133,6 +134,7 @@ function refreshTableBooks() {
         strHtml += "<tr>" +
         "<td><img class='bookCover' src='" + arrayLivros[i]._cover + "' alt='capa'></td>" +
         "<td>" + arrayLivros[i]._title + "</td>" +
+        "<td>" + arrayLivros[i]._condition + "</td>" +
         "<td>" + arrayLivros[i]._libraryId + "</td>" +
         "<td>" + arrayLivros[i]._bookId + "</td>" +
         "<td>" +
@@ -167,8 +169,8 @@ function refreshTableBooks() {
         editBtn[i].addEventListener("click", function() {
             // ON CLICK TARGET FILL MODAL WITH VALUES
             let bookId = editBtn[i].getAttribute("id");
-            document.getElementById("editBookCondition").value = arrayLivros[i]._condition;
-            document.getElementById("editBookCondition").focus();
+            document.getElementById("editEstado").value = arrayLivros[i]._condition;
+            document.getElementById("editEstado").focus();
             editBook(bookId);
             refreshStoredBooks();
         })        
@@ -191,7 +193,7 @@ function editBook(id) {
     let editBookForm = document.getElementById("editBookForm");
     editBookForm.addEventListener("submit", function (event){
         // GET VALUE FROM MODAL
-        let bookCondition = document.getElementById("editBookCondition");
+        let bookCondition = document.getElementById("editEstado");
 
         // CHANGE VALUE
         for (let i = 0; i < arrayLivros.length; i++) {
@@ -646,6 +648,9 @@ function loadUserPage() {
     let navCatalog = document.getElementById("navCatalog");
     let navBibliotecas = document.getElementById("navBibliotecas");
     let navbarDropdown = document.getElementById("navbarDropdown");
+    let infoDiv = document.getElementById("infoDiv");
+    let welcomeJumbotron = document.getElementById("welcomeJumbotron");
+    let whereDiv = document.getElementById("whereDiv");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -665,7 +670,22 @@ function loadUserPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+    if (login.photo) {
+        navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+    }
+    else{
+        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    }
+    if(welcomeJumbotron){
+        welcomeJumbotron.style.display = "none";
+    }
+    if(infoDiv){
+        infoDiv.style.display = "none";
+    }
+    if(whereDiv){
+        whereDiv.style.display = "none";
+    }
+
 
 }
 
@@ -698,8 +718,21 @@ function loadAdminPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img-circle'></img>" + login.userName;
-    console.log("ssssss")
+    if (login.photo) {
+        navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+    }
+    else{
+        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    }
+    if(welcomeJumbotron){
+        welcomeJumbotron.style.display = "none";
+    }
+    if(infoDiv){
+        infoDiv.style.display = "none";
+    }
+    if(whereDiv){
+        whereDiv.style.display = "none";
+    }
 
 }
 
@@ -723,8 +756,8 @@ function loadOperatorPage() {
     }
 
     navDropdownUser.style.display = "block";
-    operadorDropdownPanel.display = "block";
-    adminDropdownPanel.display = "none";
+    operadorDropdownPanel.style.display = "block";
+    adminDropdownPanel.style.display = "none";
     if (navCatalog.hasAttribute("data-toggle")) {
         navCatalog.removeAttribute("data-toggle", "data-target");
         navCatalog.setAttribute("href",  "catalog.html");
@@ -733,33 +766,62 @@ function loadOperatorPage() {
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
-    navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img-circle'></img>" + login.userName;
-
-}
-
-
-
-
-
-
-
-
-
-
-// CHANGE DEFAULT PHOTO IN PROFILE PAGE
-function changeDefaultPhoto() {
     if (login.photo) {
-        document.getElementById("profileImage").src = login.photo;
+        navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
+    else{
+        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+    }
+    if(welcomeJumbotron){
+        welcomeJumbotron.style.display = "none";
+    }
+    if(infoDiv){
+        infoDiv.style.display = "none";
+    }
+    if(whereDiv){
+        whereDiv.style.display = "none";
+    }
+
 }
 
 
 
-// LOAD BOOKS
-// LOAD TOP
-// function loadTopBooks() {
-//     let topLivros = [];
-//     arrayLivros.sort(a,b => {
-        
-//     });
-// 
+
+
+
+
+
+// SORT BOOKS
+// SORT BY SCORE BY MOST SCORED
+function sortByScoreDown() {
+    arrayLivros.sort((a, b) => b._score - a._score);
+    console.log(arrayLivros);
+}
+
+// SORT BY RELEASE DATE BY MOST RECENT
+function sortByReleaseDateDown(){
+    arrayLivros.sort((a, b) => b._releaseDate - a._releaseDate);
+}
+
+// SORT BY SCORE BY LEAST SCORED
+function sortByScoreUp() {
+    arrayLivros.sort((a, b) => a._score - b._score);
+}
+
+// SORT BY RELEASE DATE BY OLDEST
+function sortByReleaseDateUp(){
+    arrayLivros.sort((a, b) => a._releaseDate - b._releaseDate);
+}
+
+// SORT BY DONATION DATE BY MOST RECENT
+function sortByDonationDateDown(){
+    arrayLivros.sort((a, b) => b._donationDate - a._donationDate);
+}
+
+// SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
+function sortByDonationDateUp(){
+    arrayLivros.sort((a, b) => a._donationDate - b._donationDate);
+}
+
+
+

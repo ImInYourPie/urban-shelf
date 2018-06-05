@@ -1,4 +1,4 @@
 window.onload = function () {
-    loginUser();
-    logoutUser();
+    // loginUser();
+    // logoutUser();
 }
