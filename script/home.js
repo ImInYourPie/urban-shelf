@@ -1,5 +1,5 @@
 window.onload = function (){
-   
+    getStoredBooks();
 
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
@@ -15,8 +15,9 @@ window.onload = function (){
     console.log(login)
 
     // ADD BOOKS TO TOP AND RECENT
-    // loadTopBooks();
-    // loadRecentBooks();
+    loadTopBooks();
+    loadRecentBooks();
+    console.log(arrayLivros)
 
     // VARIABLES
     let formLogin = document.getElementById("formLogin");

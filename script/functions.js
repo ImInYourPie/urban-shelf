@@ -802,6 +802,63 @@ function loadOperatorPage() {
 
 
 
+// LOAD TOP BOOKS
+function loadTopBooks() {
+    sortByScoreDown();
+    let strHtmlCard = "";
+    strHtmlCard += `<div class="row row-fluid">` 
+    let count = 0;
+    for (var i = 0; i < 6; i++) {
+
+        
+
+            strHtmlCard += "<div class='bookItem col-md-2'>" +
+                "<div class=''>" +
+                    "<br>" +
+                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
+                    "<div class='bookItemText'>" +
+                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
+                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
+                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
+                        "</div>" +
+                "</div>" +      
+            "</div>" 
+
+    }
+    strHtmlCard += "</div>"
+    let topBooksDiv = document.getElementById("topBooksDiv");
+    topBooksDiv.innerHTML = strHtmlCard;
+}
+
+
+
+// LOAD RECENT BOOKS
+function loadRecentBooks() {
+    sortByDonationDateDown();
+    let strHtmlCard = "";
+    strHtmlCard += `<div class="row row-fluid">` 
+    let count = 0;
+    for (var i = 0; i < 6; i++) {
+
+        
+
+            strHtmlCard += "<div class='bookItem col-md-2'>" +
+                "<div class=''>" +
+                    "<br>" +
+                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
+                    "<div class='bookItemText'>" +
+                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
+                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
+                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
+                        "</div>" +
+                "</div>" +      
+            "</div>" 
+
+    }
+    strHtmlCard += "</div>"
+    let recentBooksDiv = document.getElementById("recentBooksDiv");
+    recentBooksDiv.innerHTML = strHtmlCard;
+}
 
 
 
@@ -852,7 +909,7 @@ function feedBooks() {
 
         
 
-            strHtmlCard += "<div class='bookItem col-md-2 mb-5 ml-5 mr-5 mt-5'>" +
+            strHtmlCard += "<div class='bookItem col-md-2'>" +
                 "<div class=''>" +
                     "<br>" +
                     "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
