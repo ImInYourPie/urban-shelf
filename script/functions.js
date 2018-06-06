@@ -91,7 +91,7 @@ function displayMapMarkes() {
 function addMapMarkers() {
     var icon = {
         url: "images/map-marker-alt.png", // url
-        scaledSize: new google.maps.Size(70, 50), // scaled size
+        scaledSize: new google.maps.Size(70, 55), // scaled size
     };
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         let marker = new google.maps.Marker({
@@ -700,6 +700,9 @@ function loadAdminPage() {
     let navCatalog = document.getElementById("navCatalog");
     let navBibliotecas = document.getElementById("navBibliotecas");
     let navbarDropdown = document.getElementById("navbarDropdown");
+    let infoDiv = document.getElementById("infoDiv");
+    let welcomeJumbotron = document.getElementById("welcomeJumbotron");
+    let whereDiv = document.getElementById("whereDiv");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -710,14 +713,18 @@ function loadAdminPage() {
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
     adminDropdownPanel.style.display = "block";
+    if (navCatalog) {
     if (navCatalog.hasAttribute("data-toggle")) {
         navCatalog.removeAttribute("data-toggle", "data-target");
         navCatalog.setAttribute("href",  "catalog.html");
     }
+}
+if (navBibliotecas) {
     if (navBibliotecas.hasAttribute("data-toggle")){
         navBibliotecas.removeAttribute("data-toggle", "data-target");
         navBibliotecas.setAttribute("href",  "bibliotecas.html");
     }
+}
     if (login.photo) {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
@@ -747,6 +754,9 @@ function loadOperatorPage() {
     let navCatalog = document.getElementById("navCatalog");
     let navBibliotecas = document.getElementById("navBibliotecas");
     let navbarDropdown = document.getElementById("navbarDropdown");
+    let infoDiv = document.getElementById("infoDiv");
+    let welcomeJumbotron = document.getElementById("welcomeJumbotron");
+    let whereDiv = document.getElementById("whereDiv");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -758,13 +768,18 @@ function loadOperatorPage() {
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "block";
     adminDropdownPanel.style.display = "none";
-    if (navCatalog.hasAttribute("data-toggle")) {
-        navCatalog.removeAttribute("data-toggle", "data-target");
-        navCatalog.setAttribute("href",  "catalog.html");
+    if(navCatalog){
+        if (navCatalog.hasAttribute("data-toggle")) {
+            navCatalog.removeAttribute("data-toggle", "data-target");
+            navCatalog.setAttribute("href",  "catalog.html");
+        }
     }
-    if (navBibliotecas.hasAttribute("data-toggle")) {
-        navBibliotecas.removeAttribute("data-toggle", "data-target");
-        navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    
+    if(navBibliotecas){
+        if (navBibliotecas.hasAttribute("data-toggle")) {
+            navBibliotecas.removeAttribute("data-toggle", "data-target");
+            navBibliotecas.setAttribute("href",  "bibliotecas.html");
+        }
     }
     if (login.photo) {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
@@ -823,5 +838,88 @@ function sortByDonationDateUp(){
     arrayLivros.sort((a, b) => a._donationDate - b._donationDate);
 }
 
+
+
+
+
+
+// FEED BOOKS TO CATALOG CONTAINER
+function feedBooks() {
+    let strHtmlCard = "";
+    strHtmlCard += `<div class="row row-fluid">` 
+    let count = 0;
+    for (var i = 0; i < arrayLivros.length; i++) {
+
+        
+
+            strHtmlCard += "<div class='bookItem col-md-2 mb-5 ml-5 mr-5 mt-5'>" +
+                "<div class=''>" +
+                    "<br>" +
+                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
+                    "<div class='bookItemText'>" +
+                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
+                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
+                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
+                        "</div>" +
+                "</div>" +      
+            "</div>" 
+
+    }
+    strHtmlCard += "</div>"
+           
+
+    let contentBooks = document.getElementById("contentBooks");
+    contentBooks.innerHTML = strHtmlCard;
+}
+
+
+// STAR RATING
+function starRating(score) {
+    let strScore = "";
+    if(score >= 80){
+        strScore += "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>"
+    }
+    if((score >= 60) && (score < 80)){
+        strScore += "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star'></span>"
+    }
+    if((score >= 40) && (score < 60)){
+        strScore += "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>"
+    }
+    if((score >= 20) && (score < 40)){
+        strScore += "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>"
+    }
+    if((score < 20) && (score != 0)){
+        strScore += "<span class='fa fa-star checked'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>"
+    }
+    if(score == 0){
+        strScore += "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>" +
+        "<span class='fa fa-star'></span>"
+    }
+
+    return strScore;
+}
 
 

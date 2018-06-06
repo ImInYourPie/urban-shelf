@@ -1,5 +1,7 @@
 window.onload = function(){
-
+    loginUser();
+    logoutUser();
+    
     // INITIATE FUNCTIONS
     refreshStoredUsers();
 

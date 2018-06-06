@@ -1,4 +1,7 @@
 window.onload = function(){
+    loginUser();
+    logoutUser();
+    
     refreshStoredBooks();
 
     //1. CRIAR REFERÊNCIAS AOS VARIOS ELEMENTOS
@@ -123,6 +126,7 @@ window.onload = function(){
             // STORE IN LOCAL STORAGE
             localStorage.bookStorage = JSON.stringify(arrayLivros);
             refreshStoredBooks();
+            event.preventDefault();
         }
         else{
             alert(errorMsg);

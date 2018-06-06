@@ -35,16 +35,19 @@
                   <a class="nav-link" href="operadorDoar.html">Doar Livro</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="operadorCatalog.html">Catálogo</a>
+                  <a class="nav-link" href="catalog.html">Catálogo</a>
                </li>
-               <li class="nav-item dropdown">
+               <li id="navDropdownUser" class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i id="userIcon" class="fas fa-user-circle"></i>Username
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
+                     <a id="adminDropdownPanel" class="dropdown-item" href="admin.html">Painel de Administrador</a>
+                       <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
+                       <a id="homeDropdwonPanel" class="dropdown-item" href="home.html">Ínicio</a>
                      <div class="dropdown-divider"></div>
-                     <a id="operadorLogoutBtn" class="dropdown-item" href="#">Log Out</a>
+                     <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
                   </div>
                </li>
             </ul>
@@ -145,7 +148,7 @@
                         <!-- BREVE DESCRIÇAO LIVRO -->
                         <div class="form-group">
                                 <label for="doarLivroDescription">Descrição do livro</label>
-                                <textarea class="form-control" id="doarLivroDescription" maxlength="120" rows="4" style="resize:none;" required></textarea>
+                                <textarea class="form-control" id="doarLivroDescription" maxlength="1000" rows="8" style="resize:none;" required></textarea>
                               </div>
         
                        

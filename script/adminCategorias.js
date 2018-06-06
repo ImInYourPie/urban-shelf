@@ -1,5 +1,6 @@
 window.onload = function () {
-    
+    loginUser();
+    logoutUser();
     refreshStoredCategorias();
     
     // VARIABLES
