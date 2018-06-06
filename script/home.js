@@ -17,7 +17,7 @@ window.onload = function (){
     // ADD BOOKS TO TOP AND RECENT
     loadTopBooks();
     loadRecentBooks();
-    console.log(arrayLivros)
+    
 
     // VARIABLES
     let formLogin = document.getElementById("formLogin");

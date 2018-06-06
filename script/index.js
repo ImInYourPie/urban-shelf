@@ -5,6 +5,7 @@ let arrayCategorias = [];
 let arrayLivros = [];
 let arrayBibliotecas = [];
 let arrayRequisitions = [];
+let arrayComments = [];
 let login;
 
 
@@ -435,6 +436,61 @@ class Requisition{
     }
 }
 
+
+class Comment{
+    constructor(user, txtComment, userId){
+        this.user = user;
+        this.txtComment = txtComment;
+        this.userId = userId;
+        this.user = Comment.getLastId() + 1;
+
+    }
+
+     // USER PROPERTY
+     set user(newUser){
+        this._user = newUser;
+    }
+
+    get user(){
+        return this._user;
+    }
+
+     // TXTCOMMENT PROPERTY
+     set txtComment(newTxtComment){
+        this._txtComment = newTxtComment;
+    }
+
+    get txtComment(){
+        return this._txtComment;
+    }
+
+     // USERID PROPERTY
+     set userId(newUserId){
+        this._userId = newUserId;
+    }
+
+    get userId(){
+        return this._userId;
+    }
+
+    // COMMENTID PROPERTY
+    get commentId(){
+        return this._commentId;
+    }
+
+    // ID GENERATOR
+    static getLastId() {
+        let lastId = 0
+        if (arrayComments.length > 0) {
+            lastId = arrayComments[arrayComments.length - 1]._commentId;
+        }        
+        return lastId;
+    }
+
+
+    
+}
+
 // // HARD CODED ADMIN
 // let firstAdmin = new User("adminMiguel","mutts30", "d.miguel.melo@gmail.com", 0 );
 // arrayUsers.push(firstAdmin);
@@ -446,6 +502,7 @@ getStoredTags();
 getStoredCategorias();
 getStoredUsers();
 getStoredBibliotecas();
+getStoredBooks();
 
 window.onload = function () {
 

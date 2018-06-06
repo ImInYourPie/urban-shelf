@@ -583,9 +583,6 @@ function removeUser(id) {
 
 
 
-// REFRESH TOP BOOKS
-function refreshTop() {
-}
 
 
 
@@ -810,9 +807,7 @@ function loadTopBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
-        
-
-            strHtmlCard += "<div class='bookItem col-md-2'>" +
+            strHtmlCard += "<div class='bookItem col-sm-2'>" +
                 "<div class=''>" +
                     "<br>" +
                     "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
@@ -842,7 +837,7 @@ function loadRecentBooks() {
 
         
 
-            strHtmlCard += "<div class='bookItem col-md-2'>" +
+            strHtmlCard += "<div class='bookItem col-sm-2'>" +
                 "<div class=''>" +
                     "<br>" +
                     "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +

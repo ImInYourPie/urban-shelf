@@ -279,14 +279,15 @@ footer{
 
 
 
-.img{
-    height: 250px;
-    width: 100%
+/* #bookPageBookCover{
+    height: 80%;
+    width: 100%;
+} */
+
+#bookScore{
+    text-align: center;
 }
 
-/* .bookItemText{
-
-} */
 
 
 
@@ -294,4 +295,22 @@ footer{
 /* STAR COLR CSS */
 .checked{
     color: rgb(0, 84, 255);
+}
+
+
+
+
+/* REQUISITION BUTTON CSS */
+#requisitionButton{
+    width: 100%;
+}
+
+
+#inputComment{
+    width: 100%;
+}
+
+#commentButton{
+    width: 100%;
+    height: 100%;
 }
