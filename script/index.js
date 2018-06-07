@@ -6,6 +6,7 @@ let arrayLivros = [];
 let arrayBibliotecas = [];
 let arrayRequisitions = [];
 let arrayComments = [];
+let pageBookValues;
 let login;
 
 
@@ -247,8 +248,9 @@ class Book{
     this.donationDate = donationDate;
     this.libraryId = libraryId;
     this._bookId = Book.getLastId() + 1;
-    this.score = score;
+    this.scores = scores;
     this.comment = comment;
+    this.fullScore = Book.calculateFullScore();
     }
 
     
@@ -357,11 +359,11 @@ class Book{
     }
 
     // AUTOR PROPERTY
-    set score(newScore){
-        this._score = newScore;
+    set scores(newScore){
+        this._scores = newScore;
     }
-    get score(){
-        return this._score;
+    get scores(){
+        return this._scores;
     }
 
     // AUTOR PROPERTY
@@ -384,6 +386,15 @@ class Book{
             lastId = arrayLivros[arrayLivros.length - 1]._bookId;
         }        
         return lastId;
+    }
+
+    // CALCULATE SCORE
+    static calculateFullScore(){
+        let summedScore = 0;
+        for (let i = 0; i < this.scores.length; i++) {
+            summedScore += this.scores[i];
+        }
+        return summedScore / this.scores.length;
     }
 }
 
@@ -438,21 +449,13 @@ class Requisition{
 
 
 class Comment{
-    constructor(user, txtComment, userId){
-        this.user = user;
+    constructor(txtComment, userId, bookId, score){
         this.txtComment = txtComment;
         this.userId = userId;
+        this.bookId = bookId;
+        this.score = score;
         this.user = Comment.getLastId() + 1;
 
-    }
-
-     // USER PROPERTY
-     set user(newUser){
-        this._user = newUser;
-    }
-
-    get user(){
-        return this._user;
     }
 
      // TXTCOMMENT PROPERTY
@@ -471,6 +474,24 @@ class Comment{
 
     get userId(){
         return this._userId;
+    }
+
+    // USER PROPERTY
+    set bookId(newBookId){
+        this._bookId = newBookId;
+    }
+
+    get bookId(){
+        return this._bookId;
+    }
+
+    // USER PROPERTY
+    set score(newScore){
+        this._score = newScore;
+    }
+
+    get score(){
+        return this._score;
     }
 
     // COMMENTID PROPERTY

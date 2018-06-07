@@ -614,7 +614,7 @@ function loginUser() {
 
 
 // LOGOUT FUNCTION
-function logoutUser() {
+function allowLogout() {
     document.getElementById("logoutButton").addEventListener("click", function (event) {
         event.preventDefault();
         if (localStorage.loginStorage) {
@@ -807,8 +807,8 @@ function loadTopBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
-            strHtmlCard += "<div class='bookItem col-sm-2'>" +
-                "<div class=''>" +
+            strHtmlCard += "<div class='col-sm-2'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
                     "<br>" +
                     "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
                     "<div class='bookItemText'>" +
@@ -823,6 +823,9 @@ function loadTopBooks() {
     strHtmlCard += "</div>"
     let topBooksDiv = document.getElementById("topBooksDiv");
     topBooksDiv.innerHTML = strHtmlCard;
+
+    
+
 }
 
 
@@ -837,8 +840,8 @@ function loadRecentBooks() {
 
         
 
-            strHtmlCard += "<div class='bookItem col-sm-2'>" +
-                "<div class=''>" +
+            strHtmlCard += "<div class='col-sm-2'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
                     "<br>" +
                     "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
                     "<div class='bookItemText'>" +
@@ -853,6 +856,38 @@ function loadRecentBooks() {
     strHtmlCard += "</div>"
     let recentBooksDiv = document.getElementById("recentBooksDiv");
     recentBooksDiv.innerHTML = strHtmlCard;
+
+    // ADD EVENT LISTENER TO TRIGGER BOOK PAGE WITH TARGET BOOK CONTENT
+    let bookItem = document.getElementsByClassName("bookItem");
+    for (let i = 0; i < bookItem.length; i++) {
+        bookItem[i].addEventListener("click", function() {
+            // GET ID VALUE
+            let bookItemId = bookItem[i].getAttribute("id");
+            
+            setStorageValuesBook(bookItemId);
+            getBookPageValues();
+            window.location = "bookPage.html"
+            
+        })        
+    }
+    
+}
+
+
+// SOME FUNCTION
+function setStorageValuesBook(id) {
+    
+    for (let i = 0; i < arrayLivros.length; i++) {
+        if (id == arrayLivros[i]._bookId) {
+            localStorage.bookPageValues = JSON.stringify(arrayLivros[i]);
+        }
+    }
+}
+
+function getBookPageValues() {
+    if (localStorage.bookPageValues) {
+        pageBookValues = JSON.parse(localStorage.bookPageValues);
+    }
 }
 
 
@@ -882,12 +917,12 @@ function sortByReleaseDateUp(){
 
 // SORT BY DONATION DATE BY MOST RECENT
 function sortByDonationDateDown(){
-    arrayLivros.sort((a, b) => b._donationDate - a._donationDate);
+    arrayLivros.sort((a, b) => b._donationDate > a._donationDate);
 }
 
 // SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
 function sortByDonationDateUp(){
-    arrayLivros.sort((a, b) => a._donationDate - b._donationDate);
+    arrayLivros.sort((a, b) => a._donationDate > b._donationDate);
 }
 
 
@@ -898,16 +933,18 @@ function sortByDonationDateUp(){
 // FEED BOOKS TO CATALOG CONTAINER
 function feedBooks() {
     let strHtmlCard = "";
-    strHtmlCard += `<div class="row row-fluid">` 
     let count = 0;
+
     for (var i = 0; i < arrayLivros.length; i++) {
 
-        
+        if (count == 0) {
+            strHtmlCard += `<div class="row row-fluid">`   
+        }
 
-            strHtmlCard += "<div class='bookItem col-md-2'>" +
-                "<div class=''>" +
+            strHtmlCard += "<div class='col-md-2'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
                     "<br>" +
-                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
+                    "<img id='bookCoverCatalog' class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
                     "<div class='bookItemText'>" +
                         "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
                         "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
@@ -916,8 +953,12 @@ function feedBooks() {
                 "</div>" +      
             "</div>" 
 
+            count++;
+            if (count == 6 ) {
+                strHtmlCard += "</div>";
+                count = 0;
+            }
     }
-    strHtmlCard += "</div>"
            
 
     let contentBooks = document.getElementById("contentBooks");
@@ -928,43 +969,43 @@ function feedBooks() {
 // STAR RATING
 function starRating(score) {
     let strScore = "";
-    if(score >= 80){
-        strScore += "<span class='fa fa-star checked'></span>" +
+    if(score >= 85){
+        strScore = "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>"
     }
-    if((score >= 60) && (score < 80)){
-        strScore += "<span class='fa fa-star checked'></span>" +
+    if((score >= 70) && (score < 85)){
+        strScore = "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star'></span>"
     }
-    if((score >= 40) && (score < 60)){
-        strScore += "<span class='fa fa-star checked'></span>" +
+    if((score >= 40) && (score < 70)){
+        strScore = "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>"
     }
     if((score >= 20) && (score < 40)){
-        strScore += "<span class='fa fa-star checked'></span>" +
+        strScore = "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>"
     }
     if((score < 20) && (score != 0)){
-        strScore += "<span class='fa fa-star checked'></span>" +
+        strScore = "<span class='fa fa-star checked'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>"
     }
     if(score == 0){
-        strScore += "<span class='fa fa-star'></span>" +
+        strScore = "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +
         "<span class='fa fa-star'></span>" +

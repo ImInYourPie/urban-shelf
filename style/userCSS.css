@@ -312,5 +312,11 @@ footer{
 
 #commentButton{
     width: 100%;
-    height: 100%;
+}
+
+
+
+/* BOOK ITEM CSS */
+.bookItem:hover, .bookItem:focus{
+    cursor: pointer;
 }

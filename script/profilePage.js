@@ -1,6 +1,6 @@
 window.onload = function(){
     // CALL FUNCTIONS
     loginUser();
-    logoutUser();
+    allowLogout();
     changeDefaultPhoto();
 }

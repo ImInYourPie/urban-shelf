@@ -1,6 +1,6 @@
 window.onload = function () {
     loginUser();
-    logoutUser();
+    allowLogout();
     
     // INITIATE FUNCTIONS
     refreshStoredTags();

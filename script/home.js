@@ -11,7 +11,7 @@ window.onload = function (){
     loginUser();
 
     // CALL LOGOUT FUNCTION
-    logoutUser();
+    allowLogout();
     console.log(login)
 
     // ADD BOOKS TO TOP AND RECENT

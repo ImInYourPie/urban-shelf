@@ -20,7 +20,7 @@
     <!-- SCRIPT reference -->
     <script src="script/functions.js"></script>
     <script src="script/index.js"></script>
-    
+    <script src="script/bookPage.js"></script>
 
 </head>
   <body>
@@ -72,13 +72,13 @@
                     <div class="col-md-12">
                         <div class="row row-fluid">
                             <div class="col-md-4">
-                                <img id="bookPageBookCover" class="img img-fluid" src="https://img.wook.pt/images/a-arte-subtil-de-saber-dizer-que-se-fda-mark-manson/MXwyMTI2MDIxNXwxNzEzMDkyNnwxNTEzNTU1MjAwMDAw/502x" alt="">
+                                <img id="bookPageBookCover" class="img img-fluid" src="images/bookCoverNotAvailable.jpg" alt="">
                                 <h3 id="bookScore" class="mt-2">
-                                        <span class='fa fa-star checked'></span>
-                                        <span class='fa fa-star checked'></span>
-                                        <span class='fa fa-star checked'></span>
-                                        <span class='fa fa-star '></span>
-                                        <span class='fa fa-star '></span>
+                                    <span class='fa fa-star'></span>
+                                    <span class='fa fa-star'></span>
+                                    <span class='fa fa-star'></span>
+                                    <span class='fa fa-star'></span>
+                                    <span class='fa fa-star'></span>
                                 </h3>
                             </div>
                             <div class="col-md-8">
@@ -91,46 +91,55 @@
                                     <div class="col-md-2">
                                     </div>
                                     <div class="col-md-2">
-                                        <h5 id="bookCondition">
-                                            Estado
-                                        </h5>
                                     </div>
                                 </div>
                                 <div class="row row-fluid">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <h5 id="bookAuthors">
                                             por Autores
                                         </h5>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-6">
                                         <h5 id="bookReleaseDate">
                                             em: data
                                         </h5>
                                     </div>
                                     <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-2">
-                                    </div>
                                 </div>
+                                <br>
                                 <div class="row row-fluid">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <h5 id="bookPublisher">
                                             Editora
                                         </h5>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-4">
                                         <h5 id="bookPagesNumber">
                                             Páginas
                                         </h5>
                                     </div>
-                                    <div class="col-md-2">
-                                    </div>
-                                    <div class="col-md-2">
+                                    
+                                    <div class="col-md-4">
                                         <h5 id="bookDonationDate">
                                             Doado em:
                                         </h5>
                                     </div>
                                 </div>
+                                <br>
+                                <div class="row row-fluid">
+                                    <div class="col-md-4">
+                                        <h5 id="bookCategory">
+                                            Categoria
+                                        </h5>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h5 id="bookTags">
+                                            Tags
+                                        </h5>
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="row row-fluid">
                                     <div class="col-md-12">
                                         <h3>
@@ -141,6 +150,7 @@
                                         </p>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row row-fluid">
                                     <div class="col-md-4">
                                         <h5 id="bookId">
@@ -148,6 +158,9 @@
                                         </h5>
                                     </div>
                                     <div class="col-md-4">
+                                            <h5 id="bookCondition">
+                                                    Estado
+                                                </h5>
                                     </div>
                                     <div class="col-md-4">
                                          
@@ -175,15 +188,23 @@
                                         <textarea  class="form-control" maxlength="800" rows="8" id="inputComment" placeholder="Comentário aqui..." required></textarea>
                                     </div>
                                     <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                     <div class="form-group">
-                                                            <label for="inputScore">Pontuação</label>
-                                                            <input class="form-control" type="number" step="5" max="100">
+                                                            <input id="inputScore" class="form-control" type="number" step="5" max="100" placeholder="Pontuar"> 
                                                         </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div id="previewScore" class="col-md-2">
+                                                    <!-- <span class='fa fa-star'></span>
+                                                    <span class='fa fa-star'></span>
+                                                    <span class='fa fa-star'></span>
+                                                    <span class='fa fa-star'></span>
+                                                    <span class='fa fa-star'></span> -->
+                                            </div>
+                                            <div class="col-md-2">
                                             </div>
                                             <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-2">
                                                     <button id="commentButton" type="submit" class="btn">
                                                             Comentar
                                                         </button>
@@ -193,7 +214,7 @@
                                 </form>
                             </div>
                         </div>
-                    <div class="row row-fluid mt-5">
+                    <!-- <div class="row row-fluid mt-5">
                         <div class="col-md-12">
                             <div class="row row-fluid">
                                 <div class="col-md-2">
@@ -204,7 +225,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
             </div>
 
