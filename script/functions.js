@@ -938,7 +938,7 @@ function feedBooks() {
     for (var i = 0; i < arrayLivros.length; i++) {
 
         if (count == 0) {
-            strHtmlCard += `<div class="row row-fluid">`   
+            strHtmlCard += `<div class="row row-fluid mb-5">`   
         }
 
             strHtmlCard += "<div class='col-md-2'>" +

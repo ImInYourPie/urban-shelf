@@ -20,55 +20,42 @@
     <!-- SCRIPT reference -->
     <script src="script/functions.js"></script>
     <script src="script/index.js"></script>
-    <script src="script/home.js"></script>
+    <script src="script/operador.js"></script>
 
 </head>
   <body>
 
     <!-- NAVBAR -->
-      <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
-            <a class="navbar-brand" href="catalog.html"><img src="images/urbanShelf200x40white.png" alt="urban shelf"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline">
-              <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
-              <button id="searchBtn" class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-           </form>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Catálogo</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Bibliotecas</a>
-              </li>
-              <li class="nav-item">
-                  <a id="navRegister" class="nav-link" data-toggle="modal" data-target="#registerModal" href="#">Registar</a>
-                </li>
-              <li class="nav-item">
-                    <a id="navLogin" class="nav-link" data-toggle="modal" data-target="#loginModal" href="#">Log In</a>
-                  </li>
-                  <li id="navDropdownUser" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i id="userIcon" class="fas fa-user-circle"></i>Username
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                       <a id="dropdownUserPage" class="dropdown-item" href="profilePage.html">Perfil</a>
-                       <a id="adminDropdownPanel" class="dropdown-item" href="admin.html">Painel de Administrador</a>
-                       <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
-                       <a id="homeDropdwonPanel" class="dropdown-item" href="home.html">Ínicio</a>
-                       <div class="dropdown-divider"></div>
-                       <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
-                    </div>
-                 </li>
-              
-              
-              
-            </ul>
-          </div>
-        </nav>
+    <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
+      <a id="desktop" class="navbar-brand" href="operador.html"><img src="images/urbanShelf200x40white.png" alt=""></a>
+      <a id="mobile" class="navbar-brand" href="home.html"><img src="images/logo_alternate(white).png" alt="urban shelf"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#operadorNavCollapse" aria-controls="operadorNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="operadorNavCollapse">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="operadorDoar.html">Doar Livro</a>
+            </li>
+            <li class="nav-item active">
+               <a class="nav-link" href="operador.html">Gestão</a>
+            </li>
+            <li id="navDropdownUser" class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <i id="userIcon" class="fas fa-user-circle"></i>Username
+               </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
+                  <a id="adminDropdownPanel" class="dropdown-item" href="admin.html">Painel de Administrador</a>
+                    <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
+                    <a id="homeDropdwonPanel" class="dropdown-item" href="home.html">Ínicio</a>
+                  <div class="dropdown-divider"></div>
+                  <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </nav>
 
       <!-- FOOTER -->
         <footer id="myFooter">
