@@ -50,7 +50,12 @@ ul{
 
 /* ICONS CSS */
 #userIcon{
-    margin-right: 8px;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 8px;
+        margin-bottom: 0px;
+        margin-top: 0px;
 }
 
 #profileImage{
@@ -63,8 +68,7 @@ ul{
 
 /* SEARCHBAR CSS */
 #searchBar{
-    width: 400px;
-    height: 30px;
+    width: 85%;
     border-bottom-right-radius: 0px;
     border-top-right-radius: 0px;
     margin-right: 0px;
@@ -79,8 +83,8 @@ ul{
 #searchBtn{
     background-color: rgb(0, 84, 255);
     border-color: rgb(0, 84, 255);
-    height: 30px;
-    width: 50px;
+    height: 38px;
+    width: 15%;
     margin-left: 0px;
     align-content: center;
     display: block;
@@ -88,6 +92,12 @@ ul{
     color: white;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
+}
+
+#clearBtn{
+    width: 50%;
+    background-color: rgb(0, 21, 100) !important;
+
 }
 
 #glass{
@@ -335,3 +345,25 @@ footer{
       display: none;
     }
   }
+
+
+
+
+#paginationButtons{
+    text-align: center;
+}
+
+.fa-arrow-circle-left, .fa-arrow-circle-right{
+    font-size: 30px;
+    color: rgb(0, 84, 255);
+}
+
+
+#catalogHeader{
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px;
+    border-color: rgb(0, 21, 64);
+    border-style: solid;
+}

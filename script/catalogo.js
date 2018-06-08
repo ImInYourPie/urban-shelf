@@ -1,61 +1,55 @@
 window.onload = function () {
+    // INITIATE FUNCTIONS 
     loginUser();
     allowLogout();
-    getStoredBooks();
-    feedBooks();
+    // getStoredBooks();
     
+    // VARS
+    let startingCount = 0;
+    let finishCount = 11;
+    let arrayFilteredBooks = [];
+    let filteredStartingCount = 0;
+    let filteredFinishCount = arrayFilteredBooks.length;
+    let paginationDiv = document.getElementById("paginationDiv");
+    let clearBtn = document.getElementById("clearBtn");
 
+    // CALL FEED BOOKS
+    feedBooks(startingCount, finishCount, arrayLivros);
 
+    // EVENT LISTENER FOR SEARCH BAR
+    let searchForm = document.getElementById("searchForm");
+    searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    // // FEED SIDENAV FILTER MENU WITH OPTIONS
-    // let dropdownCategory = document.getElementById("dropdownCategory");
-    // for (var i = 0; i < arrayCategorias.length; i++) {
-       
-    //     dropdownCategory.innerHTML += "<a href='#'>" + arrayCategorias[i]._nameCategory + "</a>";
+        // VARS
+        let searchBar = document.getElementById("searchBar");
         
-    // }
+        // FUNCTIONS
+        searchBookItems(searchBar.value);
+        feedBooks(filteredStartingCount, filteredFinishCount, arrayFilteredBooks);
+        console.log(paginationDiv)
+        paginationDiv.style.display = "none";
+        searchForm.style.display = "none";
+        clearBtn.style.display = "block";
 
-    // let dropdownBiblioteca = document.getElementById("dropdownBiblioteca");
-    // for (var i = 0; i < arrayBibliotecas.length; i++) {
-       
-    //     dropdownBiblioteca.innerHTML += "<a href='#'>" + arrayBibliotecas[i]._adress + "</a>";
-        
-    // }
+    })
+   
 
-    // // EVENT FOR DROPWDOWN FILTER MENU ITEMS
-    // let dropdown = document.getElementsByClassName("dropdown-btn");
+    // CLEAR BTN EVENT
+    clearBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location = "catalog.html";
+    })
 
-    // for (let i = 0; i < dropdown.length; i++) {
-    //     dropdown[i].addEventListener("click", function() {
-    //         this.classList.toggle("active");
-            
-    //         let dropdownContent = this.nextElementSibling;
-            
-    //         if (dropdownContent.style.display === "block") {
-    //             dropdownContent.style.display = "none";
-    //         } else {
-    //             dropdownContent.style.display = "block";
-            
-    //         }
-    //     });
-    // }
 
-    // // BUTTON SHOW FILTER MENU
-    // let openFilterMenuBtn = document.getElementById("openFilterMenuBtn");
-    // openFilterMenuBtn.addEventListener("click", function (event) {
-    //     event.preventDefault();
-    //     // document.getElementById("contentDiv").style.marginLeft = "25%";
-    //     // document.getElementById("sidenav").style.width = "25%";
-    //     document.getElementById("sidenav").style.display = "block";
-    //     document.getElementById("openFilterMenuBtn").style.display = 'none';
-    //   })
-
-    // // BUTTON HIDE FILTER MENU
-    // let closeFilterBtn = document.getElementById("closeFilterBtn");
-    // closeFilterBtn.addEventListener("click", function (event){
-    //     event.preventDefault();
-    //     document.getElementById("contentDiv").style.marginLeft = "0%";
-    //     document.getElementById("sidenav").style.display = "none";
-    //     document.getElementById("openFilterMenuBtn").style.display = "block";
-    //   })
+    // SEARCH BAR
+    function searchBookItems(input) {
+        input = searchBar.value.toUpperCase();
+        // LOOP TO CHECK 
+        for (i = 0; i < arrayLivros.length; i++) {
+            if ((arrayLivros[i]._title.toUpperCase().indexOf(input) > -1) || (arrayLivros[i]._autor.toUpperCase().indexOf(input) > -1)) {
+                    arrayFilteredBooks.push(arrayLivros[i]);
+            }
+        }
+    }
 }

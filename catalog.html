@@ -43,7 +43,7 @@
               </li>
               <li id="navDropdownUser" class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i id="userIcon" class="fas fa-user-circle"></i>Username
+                    <img id="userPhoto" src="images/userIcon(white).png" alt="">User
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a id="dropdownUserPage" class="dropdown-item" href="profilePage.html">Perfil</a>
@@ -65,10 +65,69 @@
         
           
           <!-- CONTENT -->
-          <div id="contentBooks" class="container mt-5 mb-5">
+          <div class="container mt-5 mb-5">
+              <div id="catalogHeader" class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h2>
+                          Catálogo
+                        </h2>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="row">
+                          <div class="col-md-6 form-group">
+                            <form action="">
+                            <select class="form-control" name="" id="categoryFilter">
+                              
+                            </select>
+                          </form>
+                          </div>
+                          <div class="col-md-6">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 form-group">
+                        <!-- SEARCHBAR -->
+                            <form id="searchForm" class="form-inline">
+                                <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
+                                <button id="searchBtn" class="btn btn-outline-primary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                            <button id="clearBtn" class="btn btn-danger btn-outline-primary my-2 my-sm-0" type="" style="display:none" ><i class="far fa-times-circle"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            <br>
+            <div id="contentBooks" class="">
             
-        
-            </div>      
+            
+            </div>  
+            <div id="paginationDiv" class="row row-fluid">
+              <div class="col-md-4">
+              </div>
+              <div class="col-md-4">
+                <div id="paginationButtons" class="row">
+                  <div class="col-md-4">
+                      <i class="fas fa-arrow-circle-left"></i>
+                  </div>
+                  <div class="col-md-4 align-center">
+                    <h4 id="displayNumberOfPages"></h4>
+                  </div>
+                  <div class="col-md-4">
+                      <i class="fas fa-arrow-circle-right"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+              </div>
+            </div>
+          </div>
+              
         
 
             

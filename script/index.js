@@ -233,7 +233,7 @@ class Tag{
 
 // CLASS BOOK
 class Book{
-    constructor(title, cover, autor, synopsis, releaseDate, category, tags, publisher, numberPages, condition, donerName, donationDate, libraryId, score, comment){
+    constructor(title, cover, autor, synopsis, releaseDate, category, tags, publisher, numberPages, condition, donerName, donationDate, libraryId, scores, comment){
     this.title = title;
     this.cover = cover;
     this.autor = autor;
@@ -250,7 +250,8 @@ class Book{
     this._bookId = Book.getLastId() + 1;
     this.scores = scores;
     this.comment = comment;
-    this.fullScore = Book.calculateFullScore();
+    
+    // this._fullScore = calculateFullScore();
     }
 
     
@@ -358,7 +359,7 @@ class Book{
         return this._libraryId;
     }
 
-    // AUTOR PROPERTY
+    // SCORES PROPERTY
     set scores(newScore){
         this._scores = newScore;
     }
@@ -366,7 +367,7 @@ class Book{
         return this._scores;
     }
 
-    // AUTOR PROPERTY
+    // COMMENT PROPERTY
     set comment(newComment){
         this._comment = newComment;
     }
@@ -388,14 +389,13 @@ class Book{
         return lastId;
     }
 
-    // CALCULATE SCORE
-    static calculateFullScore(){
-        let summedScore = 0;
-        for (let i = 0; i < this.scores.length; i++) {
-            summedScore += this.scores[i];
-        }
-        return summedScore / this.scores.length;
+
+    calculateFullScore(){
+        let total = this.scores.reduce(total, num => total + num);
+        return (total / this.scores.length);
     }
+
+    
 }
 
 
@@ -508,9 +508,9 @@ class Comment{
         return lastId;
     }
 
-
     
 }
+
 
 // // HARD CODED ADMIN
 // let firstAdmin = new User("adminMiguel","mutts30", "d.miguel.melo@gmail.com", 0 );
@@ -526,6 +526,7 @@ getStoredBibliotecas();
 getStoredBooks();
 
 window.onload = function () {
+
 
 
 }

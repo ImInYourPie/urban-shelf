@@ -27,7 +27,7 @@ window.onload = function () {
      
     
     bookPageBookCover.src = pageBookValues._cover;
-    bookScore.innerHTML = starRating(pageBookValues._score);
+    bookScore.innerHTML = starRating(pageBookValues._scores);
     bookTitle.innerHTML = pageBookValues._title;
     bookCondition.innerHTML = "Estado: " + pageBookValues._condition;
     bookAuthors.innerHTML = "de " + pageBookValues._autor;

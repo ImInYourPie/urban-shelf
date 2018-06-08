@@ -1,3 +1,49 @@
+// // TEST SCRIPT
+// function testBooks() {
+    
+//     let newBook1 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+//     30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
+    
+// let newBook2 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
+
+// let newBook3 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+//     30, 1, "MELO", "2018-01-30", 2, [20, 30], "");
+    
+// let newBook4 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
+
+// let newBook5 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+//     30, 1, "MELO", "2018-01-30", 2, [10, 60], "");
+    
+// let newBook6 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
+
+// let newBook7 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
+//     30, 1, "MELO", "2018-01-30", 2, [15, 5], "");
+
+
+// arrayLivros.push(newBook1, newBook2, newBook3, newBook4, newBook5, newBook6, newBook7)
+// localStorage.bookStorage = JSON.stringify(arrayLivros);
+// getStoredBooks();
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // GET STORED BOOKS
 function refreshStoredBooks() {
     getStoredBooks();
@@ -671,7 +717,7 @@ function loadUserPage() {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+        navbarDropdown.innerHTML = "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -726,7 +772,7 @@ if (navBibliotecas) {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+        navbarDropdown.innerHTML =  "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -782,7 +828,7 @@ function loadOperatorPage() {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML = "<i id='userIcon' class='fas fa-user-circle'></i>" + login.userName;
+        navbarDropdown.innerHTML = "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -807,15 +853,19 @@ function loadTopBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
-            strHtmlCard += "<div class='col-sm-2'>" +
-                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
-                    "<br>" +
-                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
-                    "<div class='bookItemText'>" +
-                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
-                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
-                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
-                        "</div>" +
+        strHtmlCard += "<div class='col-md-2'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>";
+                
+                if (arrayLivros[i]._cover) {
+                    strHtmlCard += "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+                }
+                else{
+                    strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+                }
+
+                strHtmlCard += "<h5 class=''>" + arrayLivros[i]._title + "</h5>" +
+                "<p class=''>" + arrayLivros[i]._autor + "</p>" +
+                "<p class=''>" + starRating(arrayLivros[i]._scores) + "</p>" +
                 "</div>" +      
             "</div>" 
 
@@ -838,19 +888,21 @@ function loadRecentBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
+        strHtmlCard += "<div class='col-md-2'>" +
+        "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>";
         
+        if (arrayLivros[i]._cover) {
+            strHtmlCard += "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+        }
+        else{
+            strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+        }
 
-            strHtmlCard += "<div class='col-sm-2'>" +
-                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
-                    "<br>" +
-                    "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
-                    "<div class='bookItemText'>" +
-                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
-                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
-                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
-                        "</div>" +
-                "</div>" +      
-            "</div>" 
+        strHtmlCard += "<h5 class=''>" + arrayLivros[i]._title + "</h5>" +
+        "<p class=''>" + arrayLivros[i]._autor + "</p>" +
+        "<p class=''>" + starRating(arrayLivros[i]._scores) + "</p>" +
+        "</div>" +      
+    "</div>" 
 
     }
     strHtmlCard += "</div>"
@@ -931,43 +983,79 @@ function sortByDonationDateUp(){
 
 
 // FEED BOOKS TO CATALOG CONTAINER
-function feedBooks() {
+function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
     let strHtmlCard = "";
     let count = 0;
+    
+    for (var i = startArrayLivros; i < endArrayLivros + 1; i++) {
+        if (i < someArrayLivros.length) {
+            if (count == 0) {
+                strHtmlCard += `<div class="row row-fluid mb-5">`   
+            }
+            
+                strHtmlCard += "<div class='col-md-2'>" +
+                    "<div id='" + someArrayLivros[i]._bookId + "' class='bookItem'>";
+                    
+                    if (someArrayLivros[i]._cover) {
+                        strHtmlCard += "<img class='img img-fluid' src='" + someArrayLivros[i]._cover + "' alt='image cap'>";
+                    }
+                    else{
+                        strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+                    }
+                    console.log(someArrayLivros[i])
+                    strHtmlCard += "<h6 class='titles'>" + someArrayLivros[i]._title + "</h6>" +
+                    "<p class='authors'>" + someArrayLivros[i]._autor + "</p>" +
+                    "<p class='ratings'>" + starRating(someArrayLivros[i]._scores) + "</p>" +
+                    "</div>"+      
+                "</div>" 
+    
+                count++;
+                console.log(i, count, someArrayLivros.length);
 
-    for (var i = 0; i < arrayLivros.length; i++) {
-
-        if (count == 0) {
-            strHtmlCard += `<div class="row row-fluid mb-5">`   
+                
+                if (count == 6 || i == someArrayLivros.length - 1 ) {
+                    strHtmlCard += "</div>";
+                    count = 0;
+                    console.log("xxx")
+                } 
+                console.log(someArrayLivros[i]._fullScore)
         }
 
-            strHtmlCard += "<div class='col-md-2'>" +
-                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>" +
-                    "<br>" +
-                    "<img id='bookCoverCatalog' class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>" +
-                    "<div class='bookItemText'>" +
-                        "<h5 class='card-title'>" + arrayLivros[i]._title + "</h5>" +
-                        "<p class='card-text'>" + arrayLivros[i]._autor + "</p>" +
-                        "<p class='card-text'>" + starRating(arrayLivros[i]._score) + "</p>" +
-                        "</div>" +
-                "</div>" +      
-            "</div>" 
-
-            count++;
-            if (count == 6 ) {
-                strHtmlCard += "</div>";
-                count = 0;
-            }
+    
     }
            
 
     let contentBooks = document.getElementById("contentBooks");
     contentBooks.innerHTML = strHtmlCard;
+
+    // ADD EVENT LISTENER TO TRIGGER BOOK PAGE WITH TARGET BOOK CONTENT
+    let bookItem = document.getElementsByClassName("bookItem");
+    for (let i = 0; i < bookItem.length; i++) {
+        bookItem[i].addEventListener("click", function() {
+            // GET ID VALUE
+            let bookItemId = bookItem[i].getAttribute("id");
+            
+            setStorageValuesBook(bookItemId);
+            getBookPageValues();
+            window.location = "bookPage.html"
+            
+        })        
+    }
 }
 
 
 // STAR RATING
-function starRating(score) {
+function starRating(givenScores) {
+
+    // CALCULATE SCORE(){
+    console.log(givenScores)
+    let total = givenScores.length;
+    let summedScore = givenScores.reduce((total, add) => total + add);
+    let score = summedScore / total;
+
+
+    
+    console.log(score)
     let strScore = "";
     if(score >= 85){
         strScore = "<span class='fa fa-star checked'></span>" +
@@ -1014,5 +1102,7 @@ function starRating(score) {
 
     return strScore;
 }
+
+
 
 
