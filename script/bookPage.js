@@ -37,7 +37,7 @@ window.onload = function () {
     bookDonationDate.innerHTML = "Doado em: " + pageBookValues._donationDate;
     for (let i = 0; i < arrayCategorias.length; i++) {
         if (arrayCategorias[i]._categoryId == pageBookValues._category) {
-            bookCategory.innerHTML = arrayCategorias[i]._nameCategory;
+            bookCategory.innerHTML = "Categoria: " + arrayCategorias[i]._nameCategory;
         }
     }
     bookTags.innerHTML = "Tags: " + getTagNames();
@@ -58,13 +58,13 @@ let previewScore = document.getElementById("previewScore");
 
 // KEYUP EVENT
 inputScore.addEventListener("keyup",function(event) {
-    changePreviewRating();
+    previewScore.innerHTML = changePreviewRating(inputScore.value);
     event.preventDefault();
 })
 
 //FOCUSOUT EVENT
 inputScore.addEventListener("focusout",function(event) {
-    changePreviewRating();
+    previewScore.innerHTML = changePreviewRating(inputScore.value);
     event.preventDefault();
 })
 
@@ -74,10 +74,58 @@ inputScore.addEventListener("focusout",function(event) {
 
 
 // FUNCTION CHANGE PREVIEW SCORE FROM INPUT VALUE
-function changePreviewRating() {
-    previewScore.innerHTML = starRating(inputScore.value);
+function changePreviewRating(score) {
+
+        console.log(score)
+        let strScore = "";
+        if(score >= 85){
+            strScore = "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>"
+        }
+        if((score >= 70) && (score < 85)){
+            strScore = "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star'></span>"
+        }
+        if((score >= 40) && (score < 70)){
+            strScore = "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>"
+        }
+        if((score >= 20) && (score < 40)){
+            strScore = "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>"
+        }
+        if((score < 20) && (score != 0)){
+            strScore = "<span class='fa fa-star checked'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>"
+        }
+        if(score == 0){
+            strScore = "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>" +
+            "<span class='fa fa-star'></span>"
+        }
+    
+        return strScore;
+    }
     console.log("iGetToHere")
 }
+
 
 
 // GET TAG NAMES FROM ID
@@ -86,11 +134,14 @@ function getTagNames() {
     for (let i = 0; i < arrayTags.length; i++) {
         for (let j = 0; j < pageBookValues._tags.length; j++) {
             if (arrayTags[i]._tagId == pageBookValues._tags[j]) {
-                strHtml += arrayTags[i]._nameTag;
+                strHtml += " " + arrayTags[i]._nameTag ;
             }
             
         }
     }
     return strHtml;
 }
-}
+
+
+
+

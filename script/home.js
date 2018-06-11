@@ -134,12 +134,20 @@ window.onload = function (){
 
             // STORE USER
             localStorage.userStorage = JSON.stringify(arrayUsers);
-            $("#sucessModal").modal("show");
             $("#registerModal").modal("hide");
-            $("#loginModal").modal("show");
+            $("#sucessModal").modal("show");
         }
 
 
+    })
+
+
+    // CLOSE SUCCESS MODAL EVENT
+    let closeSuccessModal = document.getElementById("closeSuccessModal");
+    closeSuccessModal.addEventListener("click", function (event) {
+        event.preventDefault();
+        $("#sucessModal").modal("hide");
+        $("#loginModal").modal("show");
     })
 
 

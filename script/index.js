@@ -389,12 +389,6 @@ class Book{
         return lastId;
     }
 
-
-    calculateFullScore(){
-        let total = this.scores.reduce(total, num => total + num);
-        return (total / this.scores.length);
-    }
-
     
 }
 

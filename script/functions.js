@@ -411,7 +411,7 @@ function refreshTableCategorias() {
             let categoryId = editBtn[i].getAttribute("id");
             document.getElementById("editCategoriaName").value = arrayCategorias[i]._nameCategory;
             document.getElementById("editCategoriaName").focus();
-            editCategory(categoryId);
+            editCategoria(categoryId);
             refreshStoredCategorias();
         })        
     }
@@ -717,7 +717,7 @@ function loadUserPage() {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML = "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+        navbarDropdown.innerHTML = "<img src='images/userIcon(white).png' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -772,7 +772,7 @@ if (navBibliotecas) {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML =  "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+        navbarDropdown.innerHTML =  "<img src='images/userIcon(white).png' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -828,7 +828,7 @@ function loadOperatorPage() {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     else{
-        navbarDropdown.innerHTML = "<img src='images/userIcon(white).jpg' id='userPhoto' class='img img-fluid'></img>" + login.userName;
+        navbarDropdown.innerHTML = "<img src='images/userIcon(white).png' id='userPhoto' class='img img-fluid'></img>" + login.userName;
     }
     if(welcomeJumbotron){
         welcomeJumbotron.style.display = "none";
@@ -853,20 +853,23 @@ function loadTopBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
-        strHtmlCard += "<div class='col-md-2'>" +
-                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>";
+        strHtmlCard += "<div class='col-md-2 mb-5'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem card'>";
                 
                 if (arrayLivros[i]._cover) {
-                    strHtmlCard += "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+                    strHtmlCard += "<img class='card-img-top' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
                 }
                 else{
-                    strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+                    strHtmlCard += "<img class='card-img-top' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
                 }
 
-                strHtmlCard += "<h5 class=''>" + arrayLivros[i]._title + "</h5>" +
-                "<p class=''>" + arrayLivros[i]._autor + "</p>" +
-                "<p class=''>" + starRating(arrayLivros[i]._scores) + "</p>" +
-                "</div>" +      
+                strHtmlCard += "<div class='card-body flex-column'>" +
+                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
+                "</div>" +
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
+                "</div>" +     
+                "</div>" +  
             "</div>" 
 
     }
@@ -888,21 +891,24 @@ function loadRecentBooks() {
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
-        strHtmlCard += "<div class='col-md-2'>" +
-        "<div id='" + arrayLivros[i]._bookId + "' class='bookItem'>";
-        
-        if (arrayLivros[i]._cover) {
-            strHtmlCard += "<img class='img img-fluid' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
-        }
-        else{
-            strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
-        }
+        strHtmlCard += "<div class='col-md-2 mb-5'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem card'>";
+                
+                if (arrayLivros[i]._cover) {
+                    strHtmlCard += "<img class='card-img-top' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+                }
+                else{
+                    strHtmlCard += "<img class='card-img-top' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+                }
 
-        strHtmlCard += "<h5 class=''>" + arrayLivros[i]._title + "</h5>" +
-        "<p class=''>" + arrayLivros[i]._autor + "</p>" +
-        "<p class=''>" + starRating(arrayLivros[i]._scores) + "</p>" +
-        "</div>" +      
-    "</div>" 
+                strHtmlCard += "<div class='card-body flex-column'>" +
+                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
+                "</div>" +
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
+                "</div>" +     
+                "</div>" +  
+            "</div>" 
 
     }
     strHtmlCard += "</div>"
@@ -993,20 +999,23 @@ function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
                 strHtmlCard += `<div class="row row-fluid mb-5">`   
             }
             
-                strHtmlCard += "<div class='col-md-2'>" +
-                    "<div id='" + someArrayLivros[i]._bookId + "' class='bookItem'>";
-                    
-                    if (someArrayLivros[i]._cover) {
-                        strHtmlCard += "<img class='img img-fluid' src='" + someArrayLivros[i]._cover + "' alt='image cap'>";
-                    }
-                    else{
-                        strHtmlCard += "<img class='img img-fluid' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
-                    }
-                    console.log(someArrayLivros[i])
-                    strHtmlCard += "<h6 class='titles'>" + someArrayLivros[i]._title + "</h6>" +
-                    "<p class='authors'>" + someArrayLivros[i]._autor + "</p>" +
-                    "<p class='ratings'>" + starRating(someArrayLivros[i]._scores) + "</p>" +
-                    "</div>"+      
+                 strHtmlCard += "<div class='col-md-2 mb-5'>" +
+                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem card'>";
+                
+                if (arrayLivros[i]._cover) {
+                    strHtmlCard += "<img class='card-img-top' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+                }
+                else{
+                    strHtmlCard += "<img class='card-img-top' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
+                }
+
+                strHtmlCard += "<div class='card-body flex-column'>" +
+                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
+                "</div>" +
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
+                "</div>" +     
+                "</div>" +      
                 "</div>" 
     
                 count++;

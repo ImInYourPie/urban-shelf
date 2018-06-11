@@ -19,11 +19,11 @@
 
 .navbar-nav li a:hover,
 .navbar-nav li a:focus{
-    color: rgb(47, 152, 242);
+    color: rgb(0, 84, 255);
 }
 
 .navbar-nav>.active>a, .navbar-nav>.active>a:hover, .navbar-nav>.active>a:focus {
-    color: rgb(47, 152, 242);
+    color: rgb(0, 84, 255);
     display: block;
 }
 
@@ -42,7 +42,7 @@ ul{
 
 
 #searchBtn{
-    background-color: rgb(47, 152, 242);
+    background-color: rgb(0, 84, 255);
     height: 30px;
     width: 50px;
     align-content: center;
@@ -73,7 +73,7 @@ ul{
 }
 
 .btn{
-    background-color: rgb(47, 152, 242);
+    background-color: rgb(0, 84, 255);
     color: white;
     width: 200px;
 }
@@ -92,4 +92,11 @@ footer{
 #ippLogo{
     width: 200px;
     height: 50px;
+}
+
+#userPhoto{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-left: 10px;
 }
