@@ -2,7 +2,7 @@ window.onload = function () {
     // INITIATE FUNCTIONS 
     loginUser();
     allowLogout();
-    // getStoredBooks();
+    getStoredBooks();
     
     // VARS
     let startingCount = 0;
@@ -52,4 +52,9 @@ window.onload = function () {
             }
         }
     }
+
+
+
+    // ADD COMMENT
+
 }

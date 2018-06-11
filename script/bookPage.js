@@ -123,8 +123,7 @@ function changePreviewRating(score) {
     
         return strScore;
     }
-    console.log("iGetToHere")
-}
+
 
 
 
@@ -144,4 +143,16 @@ function getTagNames() {
 
 
 
+
+
+// ADD COMMENT
+let commentForm = document.getElementById("commentForm");
+commentForm.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    // VARS
+    let inputComment 
+})
+
+}
 
