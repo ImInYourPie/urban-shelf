@@ -3,15 +3,18 @@ window.onload = function(){
     let requisitionsHeader = document.getElementById("requisitionsHeader")
     let navbarDropdown = document.getElementById("navbarDropdown")
 
-    requisitionsHeader.innerHTML = navbarDropdown.innerText+requisitionsHeader.innerHTML
+    requisitionsHeader.innerHTML = navbarDropdown.innerText+requisitionsHeader.innerHTML //ATUALIZAR TITULO DA TABELA COM O NOME DO UTILIZADOR
 
     //2. ALIMENTAR TABELA COM OS LIVROS ATUALMENTE REQUISITADOS PELO USER
 
     //3. ATUALIZAR CONTADOR DE LIVROS REQUISITADOS
     let tblRequisitions = document.getElementById("tblRequisitions")
     let currentRequisitions = document.getElementById("currentRequisitions")
+    let tblRequisitionsBookCount = tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length
+    console.log(tblRequisitionsBookCount)
+   
 
-    currentRequisitions.innerText.replace("X", tblRequisitions.getAttribute("rowspan") )//INCOMPLETO
+    currentRequisitions.innerHTML = currentRequisitions.innerHTML.replace('X', tblRequisitionsBookCount)
 
     //4. BOTÃO ENTREGA DE LIVRO
 
