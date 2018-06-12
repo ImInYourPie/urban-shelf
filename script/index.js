@@ -443,12 +443,11 @@ class Requisition{
 
 
 class Comment{
-    constructor(txtComment, userId, bookId, score){
+    constructor(txtComment, userId, bookId){
         this.txtComment = txtComment;
         this.userId = userId;
         this.bookId = bookId;
-        this.score = score;
-        this.user = Comment.getLastId() + 1;
+        this._commentId = Comment.getLastId() + 1;
 
     }
 
@@ -470,7 +469,7 @@ class Comment{
         return this._userId;
     }
 
-    // USER PROPERTY
+    // BOOKID PROPERTY
     set bookId(newBookId){
         this._bookId = newBookId;
     }
@@ -479,14 +478,6 @@ class Comment{
         return this._bookId;
     }
 
-    // USER PROPERTY
-    set score(newScore){
-        this._score = newScore;
-    }
-
-    get score(){
-        return this._score;
-    }
 
     // COMMENTID PROPERTY
     get commentId(){

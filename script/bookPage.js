@@ -4,6 +4,7 @@ window.onload = function () {
     loginUser();
     allowLogout();
     feedBookInfo();
+    getStoredComments();
 
     // FUNCTION TO REPLACE VALUES IN BOOK PAGE
     function feedBookInfo() {
@@ -151,7 +152,25 @@ commentForm.addEventListener("submit", function(event){
     event.preventDefault();
 
     // VARS
-    let inputComment 
+    let inputComment = document.getElementById("inputComment");
+    
+    // CREATE NEW COMMENT
+    let newComment = new Comment(inputComment.value, login._id, pageBookValues._bookId);
+    arrayComments.push(newComment);
+    localStorage.commentStorage = JSON.stringify(arrayComments);
+    getStoredComments();
+
+    // PUSH SCORE TO SCORES PROPERTY
+    for (let i = 0; i < arrayLivros.length; i++) {
+        if (pageBookValues._bookId == arrayLivros[i]._bookId) {
+            arrayLivros[i]._scores.push(parseInt(inputScore.value));
+            localStorage.bookStorage = JSON.stringify(arrayLivros);
+            getStoredBooks();
+        }
+        
+    }
+
+    window.location.replace = "bookPage.html";
 })
 
 }

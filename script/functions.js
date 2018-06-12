@@ -61,6 +61,19 @@ function getStoredBooks() {
 
 
 
+
+
+
+// GET STORED COMMENTS
+function getStoredComments() {
+    if(localStorage.commentStorage){
+        arrayComments = JSON.parse(localStorage.commentStorage);
+    }
+}
+
+
+
+
 // ARRAYTAGS GET LOCAL STORAGE
 function refreshStoredTags() {
     getStoredTags();
@@ -864,7 +877,7 @@ function loadTopBooks() {
                 }
 
                 strHtmlCard += "<div class='card-body flex-column'>" +
-                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
                 "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
                 "</div>" +
                 "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
@@ -902,7 +915,7 @@ function loadRecentBooks() {
                 }
 
                 strHtmlCard += "<div class='card-body flex-column'>" +
-                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
                 "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
                 "</div>" +
                 "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
@@ -954,8 +967,13 @@ function getBookPageValues() {
 // SORT BOOKS
 // SORT BY SCORE BY MOST SCORED
 function sortByScoreDown() {
-    arrayLivros.sort((a, b) => b._score - a._score);
+    arrayLivros.sort((a, b) => fullscoreForSort(b._scores) - fullscoreForSort(a._scores));
     console.log(arrayLivros);
+}
+
+// SORT BY SCORE BY LEAST SCORED
+function sortByScoreUp() {
+    arrayLivros.sort((a, b) => fullscoreForSort(a._scores) - fullscoreForSort(b._scores));
 }
 
 // SORT BY RELEASE DATE BY MOST RECENT
@@ -963,17 +981,12 @@ function sortByReleaseDateDown(){
     arrayLivros.sort((a, b) => b._releaseDate - a._releaseDate);
 }
 
-// SORT BY SCORE BY LEAST SCORED
-function sortByScoreUp() {
-    arrayLivros.sort((a, b) => a._score - b._score);
-}
-
 // SORT BY RELEASE DATE BY OLDEST
 function sortByReleaseDateUp(){
     arrayLivros.sort((a, b) => a._releaseDate - b._releaseDate);
 }
 
-// SORT BY DONATION DATE BY MOST RECENT
+// SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED
 function sortByDonationDateDown(){
     arrayLivros.sort((a, b) => b._donationDate > a._donationDate);
 }
@@ -983,7 +996,13 @@ function sortByDonationDateUp(){
     arrayLivros.sort((a, b) => a._donationDate > b._donationDate);
 }
 
-
+// CALCULATE FULLSCORE
+function fullscoreForSort(givenScores) {
+    let total = givenScores.length;
+    let summedScore = givenScores.reduce((total, add) => total + add);
+    let score = summedScore / total;
+    return score;
+}
 
 
 
@@ -1010,7 +1029,7 @@ function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
                 }
 
                 strHtmlCard += "<div class='card-body flex-column'>" +
-                "<h5 class='titles card-title'>" + arrayLivros[i]._title + "</h5>" +
+                "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
                 "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
                 "</div>" +
                 "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
@@ -1059,8 +1078,7 @@ function starRating(givenScores) {
     // CALCULATE SCORE(){
     console.log(givenScores)
     let total = givenScores.length;
-    let summedScore = givenScores.reduce((total, add) => total + add);
-    let score = summedScore / total;
+    let score = givenScores.reduce((total, add) => total + add) / total;
 
 
     

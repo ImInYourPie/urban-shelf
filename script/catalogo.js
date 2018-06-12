@@ -4,6 +4,7 @@ window.onload = function () {
     allowLogout();
     getStoredBooks();
     
+    
     // VARS
     let startingCount = 0;
     let finishCount = 11;
@@ -55,6 +56,5 @@ window.onload = function () {
 
 
 
-    // ADD COMMENT
 
 }
