@@ -504,6 +504,7 @@ class Comment{
 // if(localStorage.userStorage){
 //     arrayUsers = JSON.parse(localStorage.userStorage);
 // }
+
 getStoredTags();
 getStoredCategorias();
 getStoredUsers();
@@ -511,7 +512,5 @@ getStoredBibliotecas();
 getStoredBooks();
 
 window.onload = function () {
-
-
-
+   
 }

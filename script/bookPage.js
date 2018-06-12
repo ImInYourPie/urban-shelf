@@ -6,9 +6,13 @@ window.onload = function () {
     feedBookInfo();
     getStoredComments();
 
+    let commentSection = document.getElementById("commentSection");
+    commentSection = feedCommentSection();
+
     // FUNCTION TO REPLACE VALUES IN BOOK PAGE
     function feedBookInfo() {
     getBookPageValues();
+    
 
     // BOOK VALUES VARS
     let bookPageBookCover = document.getElementById("bookPageBookCover");
@@ -28,7 +32,16 @@ window.onload = function () {
      
     
     bookPageBookCover.src = pageBookValues._cover;
-    bookScore.innerHTML = starRating(pageBookValues._scores);
+    if (pageBookValues._scores.length != 1) {
+        bookScore.innerHTML = starRating(pageBookValues._scores);
+    }
+    else{
+        bookScore.innerHTML = "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>"
+    }
     bookTitle.innerHTML = pageBookValues._title;
     bookCondition.innerHTML = "Estado: " + pageBookValues._condition;
     bookAuthors.innerHTML = "de " + pageBookValues._autor;
@@ -143,6 +156,37 @@ function getTagNames() {
 }
 
 
+// DISPLAY COMMENTS FUNCTION
+function feedCommentSection() {
+    let strHtml = "";
+    for (let i = 0; i < arrayComments.length; i++) {
+        if (pageBookValues._bookId == arrayComments[i]._bookId) {
+            strHtml += "<div class='row row-fluid'>" +
+                    "<div class='col-md-2'>";
+        
+        for (let j = 0; j < arrayUsers.length; j++) {
+            if (arrayUsers[j]._userId == arrayComments[i]._userId) {
+                if (arrayUsers[j]._photo = ""){
+                    strHtml += "<img class='userCommentImg img img-fluid' alt='' src='" + arrayUsers[j]._photo + "'/><p>" + arrayUsers[j]._username + "</p>";
+                }
+                else{
+                    strHtml += "<img class='userCommentImg img img-fluid' alt='' src='images/userIcon(white).png'/><p>" + arrayUsers[j]._username + "</p>";
+                }
+            }
+        }
+
+        strHtml += "</div>" +
+                "<div class='col-md-10'>"
+                "<p>" + arrayComments[i]._txtComment + "</p>" +
+                "</div>" +
+                "</div>";
+
+        
+        }
+    }
+
+    return strHtml;
+}
 
 
 
@@ -172,6 +216,8 @@ commentForm.addEventListener("submit", function(event){
 
     window.location.replace = "bookPage.html";
 })
+
+
 
 }
 

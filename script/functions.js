@@ -718,13 +718,17 @@ function loadUserPage() {
     navDropdownUser.style.display = "block";
     operadorDropdownPanel.style.display = "none";
     adminDropdownPanel.style.display = "none";
-    if (navCatalog.hasAttribute("data-toggle")) {
-        navCatalog.removeAttribute("data-toggle", "data-target");
-        navCatalog.setAttribute("href",  "catalog.html");
+    if (navCatalog) {
+        if (navCatalog.hasAttribute("data-toggle")) {
+            navCatalog.removeAttribute("data-toggle", "data-target");
+            navCatalog.setAttribute("href",  "catalog.html");
+        }
     }
-    if (navBibliotecas.hasAttribute("data-toggle")) {
-        navBibliotecas.removeAttribute("data-toggle", "data-target");
-        navBibliotecas.setAttribute("href",  "bibliotecas.html");
+    if (navBibliotecas) {
+        if (navBibliotecas.hasAttribute("data-toggle")){
+            navBibliotecas.removeAttribute("data-toggle", "data-target");
+            navBibliotecas.setAttribute("href",  "bibliotecas.html");
+        }
     }
     if (login.photo) {
         navbarDropdown.innerHTML = "<img src='" + login.photo + "' id='userPhoto' class='img img-fluid'></img>" + login.userName;
@@ -880,10 +884,21 @@ function loadTopBooks() {
                 "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
                 "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
                 "</div>" +
-                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
-                "</div>" +     
-                "</div>" +  
-            "</div>" 
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>";
+                if (arrayLivros[i]._scores.length != 1) {
+                    strHtmlCard += starRating(arrayLivros[i]._scores);
+                }
+                else{
+                    strHtmlCard += "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>";
+                }
+                strHtmlCard += "</p>" + 
+                            "</div>" +     
+                            "</div>" +      
+                            "</div>" 
 
     }
     strHtmlCard += "</div>"
@@ -918,10 +933,21 @@ function loadRecentBooks() {
                 "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
                 "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
                 "</div>" +
-                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
-                "</div>" +     
-                "</div>" +  
-            "</div>" 
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>";
+                if (arrayLivros[i]._scores.length != 1) {
+                    strHtmlCard += starRating(arrayLivros[i]._scores);
+                }
+                else{
+                    strHtmlCard += "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>";
+                }
+                strHtmlCard += "</p>" + 
+                            "</div>" +     
+                            "</div>" +      
+                            "</div>" 
 
     }
     strHtmlCard += "</div>"
@@ -998,7 +1024,7 @@ function sortByDonationDateUp(){
 
 // CALCULATE FULLSCORE
 function fullscoreForSort(givenScores) {
-    let total = givenScores.length;
+    let total = givenScores.length - 1; // -1 BECAUSE BOOK._SCORES STARTS WITH AN ARRAY WITH 0 AS FIRST VALUE FOR SIMPLIFICATION
     let summedScore = givenScores.reduce((total, add) => total + add);
     let score = summedScore / total;
     return score;
@@ -1019,23 +1045,35 @@ function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
             }
             
                  strHtmlCard += "<div class='col-md-2 mb-5'>" +
-                "<div id='" + arrayLivros[i]._bookId + "' class='bookItem card'>";
+                "<div id='" + someArrayLivros[i]._bookId + "' class='bookItem card'>";
                 
-                if (arrayLivros[i]._cover) {
-                    strHtmlCard += "<img class='card-img-top' src='" + arrayLivros[i]._cover + "' alt='image cap'>";
+                if (someArrayLivros[i]._cover) {
+                    strHtmlCard += "<img class='card-img-top' src='" + someArrayLivros[i]._cover + "' alt='image cap'>";
                 }
                 else{
                     strHtmlCard += "<img class='card-img-top' src='images/bookCoverNotAvailable.jpg' alt='image cap'>";
                 }
 
                 strHtmlCard += "<div class='card-body flex-column'>" +
-                "<h6 class='titles card-title'>" + arrayLivros[i]._title + "</h6>" +
-                "<p class='authors card-text'>" + arrayLivros[i]._autor + "</p>" +
+                "<h6 class='titles card-title'>" + someArrayLivros[i]._title + "</h6>" +
+                "<p class='authors card-text'>" + someArrayLivros[i]._autor + "</p>" +
                 "</div>" +
-                "<div class='card-footer align-center'>" + "<p class='score card-text'>" + starRating(arrayLivros[i]._scores) + "</p>" + 
-                "</div>" +     
-                "</div>" +      
-                "</div>" 
+                "<div class='card-footer align-center'>" + "<p class='score card-text'>";
+                
+                if (someArrayLivros[i]._scores.length != 1) {
+                    strHtmlCard += starRating(someArrayLivros[i]._scores);
+                }
+                else{
+                    strHtmlCard += "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>" +
+                    "<span class='fa fa-star'></span>";
+                }
+                strHtmlCard += "</p>" + 
+                            "</div>" +     
+                            "</div>" +      
+                            "</div>" 
     
                 count++;
                 console.log(i, count, someArrayLivros.length);
@@ -1077,7 +1115,8 @@ function starRating(givenScores) {
 
     // CALCULATE SCORE(){
     console.log(givenScores)
-    let total = givenScores.length;
+    console.log(givenScores.reduce((total, add) => total + add))
+    let total = givenScores.length - 1; // -1 BECAUSE BOOK._SCORES STARTS WITH AN ARRAY WITH 0 AS FIRST VALUE FOR SIMPLIFICATION
     let score = givenScores.reduce((total, add) => total + add) / total;
 
 
