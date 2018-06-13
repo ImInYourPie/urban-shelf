@@ -8,14 +8,30 @@ window.onload = function(){
     //2. ALIMENTAR TABELA COM OS LIVROS ATUALMENTE REQUISITADOS PELO USER
     let tblRequisitions = document.getElementById("tblRequisitions")
     
+    let daysLeft = ""
 
     for(let i=0; i<arrayRequisitions.length;i++){
         if(arrayRequisitions[i]._userId == checkLoginStorage()){ //REFERENCIAR USER ATUAL
+            //2.1 CALCULAR DIAS ATÉ A ENTREGA/ PASSADOS DESDE A DATA ESTABLECIDA PARA ENTREGA
+            if(new Date().getTime()< arrayRequisitions[i]._requisitionDateFull.getTime()+(1000*3600*24*30)){
+                daysLeft = +" dias até entrega"
+            }
+            else{
+                daysLeft = +"dias em atraso"
+            }
+            //2.2 CALCULAR MULTAS
+            if((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull.getTime())/(1000*3600*24)>= 30){
+                arrayRequisitions[i]._fine = ((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull.getTime())/(1000*3600*24)).toFixed(2)+"€"
+            }
+            else{
+                arrayRequisitions[i]._fine = "-"
+            }
+
             tblRequisitions.getElementsByTagName("tbody")[0].innerHTML +=  "<tr>" +
             "<td>" + arrayRequisitions[i]._requisitionId + "</td>" +
             "<td>" + arrayLivros[arrayLivros.indexOf(arrayRequisitions[i]._bookId)]._title + "</td>" + //RETORNAR TITULO DO LIVRO COM O ID CORRESPONDENTE
             "<td>" + arrayRequisitions[i]._requisitionDate + "</td>" + 
-            "<td>" + arrayRequisitions[i]._maxReturnDate + "</td>" + 
+            "<td>" + arrayRequisitions[i]._maxReturnDate + "</td>" +  //NECESSÁRIO ALTERAR PARA MOSTRAR DIAS ATÉ A ENTREGA / DIAS PASSADOS DA ENTREGA
             "<td>" + arrayRequisitions[i]._fine + "</td>" + 
             '<td><button id="'+arrayRequisitions[i]._requisitionId+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
             +"</tr>"
