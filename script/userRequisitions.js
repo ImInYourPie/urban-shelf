@@ -21,7 +21,7 @@ window.onload = function(){
             +"</tr>"
         } 
     }
-
+    
     //3. ATUALIZAR CONTADOR DE LIVROS REQUISITADOS
     let currentRequisitions = document.getElementById("currentRequisitions")
     let tblRequisitionsBookCount = tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length
