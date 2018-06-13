@@ -45,6 +45,8 @@ window.onload = function(){
         doarLivroTags.innerHTML += "<option value='"+arrayTags[i]._tagId+"'>"+arrayTags[i]._nameTag+"</option>"
         
     }
+    
+    
 
     // ALIMENTAR OPÇÔES BIBLIOTECA
     for (var i = 0; i < arrayBibliotecas.length; i++) {
@@ -100,7 +102,13 @@ window.onload = function(){
         }
            
         
-        
+        //AGRUPAR TODAS AS TAGS DO SELECT
+    let selectTags = []
+    for (let i = 0; i<doarLivroTags.getElementsByTagName("option").length;i++){
+        if(doarLivroTags.getElementsByTagName("option")[i].selected){
+            selectTags.push(doarLivroTags.getElementsByTagName("option")[i].value)
+        }
+    }
 
 
         //7. CRIAR NOVO OBJETO "LIVRO" E ADICIONAR AO ARRAY
@@ -111,22 +119,22 @@ window.onload = function(){
                     doarLivroDescription.value,
                     doarLivroDataLançamento.value,
                     doarLivroGenero.value,
-                    doarLivroTags.value,
+                    selectTags,
                     doarLivroEditora.value,
                     doarLivroPaginas.value,
                     doarLivroEstado.value,
                     donerName,
                     doarLivroDataDonation,
                     doarLivroBiblioteca.value,
-                    [0],
+                    [],
                     [])
 
             arrayLivros.push(newBook);
-
             // STORE IN LOCAL STORAGE
             localStorage.bookStorage = JSON.stringify(arrayLivros);
             refreshStoredBooks();
             event.preventDefault();
+            formDoarLivro.reset()
         }
         else{
             alert(errorMsg);

@@ -7,16 +7,17 @@ window.onload = function(){
 
     //2. ALIMENTAR TABELA COM OS LIVROS ATUALMENTE REQUISITADOS PELO USER
     let tblRequisitions = document.getElementById("tblRequisitions")
+    
 
     for(let i=0; i<arrayRequisitions.length;i++){
-        if(arrayRequisitions[i]._userId == ){ //FALTA REFERENCIAR USER ATUAL //////////////////////////////////////
+        if(arrayRequisitions[i]._userId == checkLoginStorage()){ //REFERENCIAR USER ATUAL
             tblRequisitions.getElementsByTagName("tbody")[0].innerHTML +=  "<tr>" +
             "<td>" + arrayRequisitions[i]._requisitionId + "</td>" +
-            "<td>" + arrayRequisitions[i]._books + "</td>" +
-            "<td>" + arrayRequisitions[i]._requisitiondDate + "</td>" + //POR DEFINIR NA CLASSE REQUISITION /////////////////////////////////////////
-            "<td>" + arrayRequisitions[i]._returnDate + "</td>" + //POR DEFINIR //////////////////////////////////////////////
-            "<td>" + arrayRequisitions[i]._multa + "</td>" + //POR DEFINIR ///////////////////////////////////////////////
-            '<td><button id="tblBtn'+i+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
+            "<td>" + arrayLivros[arrayLivros.indexOf(arrayRequisitions[i]._bookId)]._title + "</td>" + //RETORNAR TITULO DO LIVRO COM O ID CORRESPONDENTE
+            "<td>" + arrayRequisitions[i]._requisitionDate + "</td>" + 
+            "<td>" + arrayRequisitions[i]._maxReturnDate + "</td>" + 
+            "<td>" + arrayRequisitions[i]._fine + "</td>" + 
+            '<td><button id="'+arrayRequisitions[i]._requisitionId+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
             +"</tr>"
         } 
     }

@@ -395,27 +395,42 @@ class Book{
 
 // CLASS REQUISITION
 class Requisition{
-    constructor(quantity, books, userId, requisitionId){
-        this.quantity = quantity;
-        this.books = books;
+    constructor(bookId, userId, requisitionId, requisitionDate, maxReturnDate, fine){
+        this.bookId = bookId;
         this.userId = userId;
         this.requisitionId = Requisition.getLastId() + 1;
     }
+    
+    // FINE PROPERTY
+    set fine(newFine){
+        this._fine = newFine;
+    }
+    get fine(){
+        return this._fine;
+    }
 
-    // QUANTITY PROPERTY
-    set quantity(newQuantity){
-        this._quantity = newQuantity;
+    // REQUISITIONDATE PROPERTY
+    set requisitionDate(newRequisitionDate){
+        this._requisitionDate = newRequisitionDate;
     }
-    get quantity(){
-        return this._quantity;
+    get requisitionDate(){
+        return this._requisitionDate;
     }
 
-    // BOOKS PROPERTY
-    set books(newBooks){
-        this._books = newBooks;
+    // MAXRETURNDATE PROPERTY
+     set maxReturnDate(newMaxReturnDate){
+        this._maxReturnDate = newMaxReturnDate;
     }
-    get books(){
-        return this._books;
+    get maxReturnDate(){
+        return this._maxReturnDate;
+    }
+
+    // BOOKID PROPERTY
+    set bookId(newBookId){
+        this._bookId = newBookId;
+    }
+    get bookId(){
+        return this._bookId;
     }
 
     // USERID PROPERTY
@@ -504,7 +519,6 @@ class Comment{
 // if(localStorage.userStorage){
 //     arrayUsers = JSON.parse(localStorage.userStorage);
 // }
-
 getStoredTags();
 getStoredCategorias();
 getStoredUsers();
@@ -512,5 +526,7 @@ getStoredBibliotecas();
 getStoredBooks();
 
 window.onload = function () {
-   
+
+
+
 }
