@@ -395,10 +395,19 @@ class Book{
 
 // CLASS REQUISITION
 class Requisition{
-    constructor(bookId, userId, requisitionId, requisitionDate, maxReturnDate, fine){
+    constructor(bookId, userId){
         this.bookId = bookId;
         this.userId = userId;
-        this.requisitionId = Requisition.getLastId() + 1;
+        this._requisitionId = Requisition.getLastId() + 1;
+        this._requisitionDate = Requisition.getRequisitionDate();
+        this._fine = 0;
+        this._requisitionDateFull = new Date();
+        
+    
+    }
+     // REQUISITIONDATEFULL PROPERTY
+    get requisitionDateFull(){
+        return this._requisitionDateFull;
     }
     
     // FINE PROPERTY
@@ -410,19 +419,8 @@ class Requisition{
     }
 
     // REQUISITIONDATE PROPERTY
-    set requisitionDate(newRequisitionDate){
-        this._requisitionDate = newRequisitionDate;
-    }
     get requisitionDate(){
         return this._requisitionDate;
-    }
-
-    // MAXRETURNDATE PROPERTY
-     set maxReturnDate(newMaxReturnDate){
-        this._maxReturnDate = newMaxReturnDate;
-    }
-    get maxReturnDate(){
-        return this._maxReturnDate;
     }
 
     // BOOKID PROPERTY
@@ -453,6 +451,28 @@ class Requisition{
             lastId = arrayRequisitions[arrayRequisitions.length - 1]._requistionId;
         }        
         return lastId;
+    }
+    //DETERMINAR DATA DE REQUISIÇÃO
+    static getRequisitionDate(){
+        let dataAtual = new Date()
+        let dd = dataAtual.getDate()
+        let mm = dataAtual.getMonth()+1
+        let yyyy= dataAtual.getFullYear()
+
+        let new_dataAtual=""
+        if(mm >=10 && dd>=10){  
+            new_dataAtual = yyyy.toString()+"-"+mm.toString()+"-"+dd.toString()
+    
+        }
+        else if(mm <10 && dd>=10){
+            new_dataAtual = yyyy.toString()+"-0"+mm.toString()+"-"+dd.toString()
+    
+        }
+        else if(mm <10 && dd<10){
+            new_dataAtual = yyyy.toString()+"-0"+mm.toString()+"-0"+dd.toString()
+    
+        }
+        return new_dataAtual;
     }
 }
 
