@@ -994,7 +994,7 @@ function getBookPageValues() {
 // SORT BY SCORE BY MOST SCORED
 function sortByScoreDown() {
     arrayLivros.sort((a, b) => fullscoreForSort(b._scores) - fullscoreForSort(a._scores));
-    console.log(arrayLivros);
+    console.log(arrayLivros)
 }
 
 // SORT BY SCORE BY LEAST SCORED
@@ -1024,9 +1024,9 @@ function sortByDonationDateUp(){
 
 // CALCULATE FULLSCORE
 function fullscoreForSort(givenScores) {
+   // CALCULATE SCORE(){
     let total = givenScores.length - 1; // -1 BECAUSE BOOK._SCORES STARTS WITH AN ARRAY WITH 0 AS FIRST VALUE FOR SIMPLIFICATION
-    let summedScore = givenScores.reduce((total, add) => total + add);
-    let score = summedScore / total;
+    let score = givenScores.reduce((total, add) => total + add) / total;
     return score;
 }
 
@@ -1076,15 +1076,14 @@ function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
                             "</div>" 
     
                 count++;
-                console.log(i, count, someArrayLivros.length);
 
                 
                 if (count == 6 || i == someArrayLivros.length - 1 ) {
                     strHtmlCard += "</div>";
                     count = 0;
-                    console.log("xxx")
+                    
                 } 
-                console.log(someArrayLivros[i]._fullScore)
+                
         }
 
     
@@ -1114,14 +1113,11 @@ function feedBooks(startArrayLivros, endArrayLivros, someArrayLivros) {
 function starRating(givenScores) {
 
     // CALCULATE SCORE(){
-    console.log(givenScores)
-    console.log(givenScores.reduce((total, add) => total + add))
     let total = givenScores.length - 1; // -1 BECAUSE BOOK._SCORES STARTS WITH AN ARRAY WITH 0 AS FIRST VALUE FOR SIMPLIFICATION
     let score = givenScores.reduce((total, add) => total + add) / total;
 
 
     
-    console.log(score)
     let strScore = "";
     if(score >= 85){
         strScore = "<span class='fa fa-star checked'></span>" +

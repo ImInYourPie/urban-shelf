@@ -6,13 +6,18 @@ window.onload = function () {
     
     
     // VARS
-    let fullBooksCount = parseInt(arrayLivros.length / 12);
+    let fullBooksCount;
+    if (parseInt(arrayLivros.length % 12) == 0) {
+        fullBooksCount = parseInt(arrayLivros.length / 12);
+    }
+    else{
+        fullBooksCount = parseInt(arrayLivros.length / 12) + 1;
+    }
     let currentBooksCount = 1;
     let startingCount = 0;
-    let finishCount = 12;
+    let finishCount = 11;
     let arrayFilteredBooks = [];
     let filteredStartingCount = 0;
-    let filteredFinishCount = arrayFilteredBooks.length;
     let paginationDiv = document.getElementById("paginationDiv");
     let clearBtn = document.getElementById("clearBtn");
     let displayNumberOfPages = document.getElementById("displayNumberOfPages");
@@ -31,7 +36,7 @@ window.onload = function () {
         
         // FUNCTIONS
         searchBookItems(searchBar.value);
-        feedBooks(filteredStartingCount, filteredFinishCount, arrayFilteredBooks);
+        feedBooks(filteredStartingCount, arrayFilteredBooks.length, arrayFilteredBooks);
         console.log(paginationDiv)
         paginationDiv.style.display = "none";
         searchForm.style.display = "none";
@@ -52,7 +57,7 @@ window.onload = function () {
         input = searchBar.value.toUpperCase();
         // LOOP TO CHECK 
         for (i = 0; i < arrayLivros.length; i++) {
-            if ((arrayLivros[i]._title.toUpperCase().indexOf(input) != -1) || (arrayLivros[i]._autor.toUpperCase().indexOf(input) != -1)) {
+            if ((arrayLivros[i]._title.toUpperCase().indexOf(input) > -1) || (arrayLivros[i]._autor.toUpperCase().indexOf(input) > -1)) {
                     arrayFilteredBooks.push(arrayLivros[i]);
             }
         }
@@ -74,7 +79,7 @@ window.onload = function () {
             finishCount -= 12;
             currentBooksCount--;
             feedBooks(startingCount, finishCount, arrayLivros);
-
+            displayNumberOfPages.innerHTML = currentBooksCount + " de " + fullBooksCount;
         }
         else{
             feedBooks(startingCount, finishCount, arrayLivros);
@@ -93,7 +98,9 @@ window.onload = function () {
             finishCount += 12;
             currentBooksCount++;
             feedBooks(startingCount, finishCount, arrayLivros);
+            displayNumberOfPages.innerHTML = currentBooksCount + " de " + fullBooksCount;
         }
+
     })
 
 

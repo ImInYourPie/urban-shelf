@@ -126,7 +126,7 @@ window.onload = function(){
                     donerName,
                     doarLivroDataDonation,
                     doarLivroBiblioteca.value,
-                    [],
+                    [0],
                     [])
 
             arrayLivros.push(newBook);

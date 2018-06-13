@@ -392,3 +392,32 @@ footer{
 #nextPageBtn:hover{
     cursor: pointer;
 }
+
+
+
+.userCommentImg{
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+body{
+    background-color: rgb(247, 245, 245);
+}
+
+
+
+
+.containersBookPage{
+    background-color: white;
+}
+
+
+/* .userCommentsPhoto{
+    background-color: white;
+} */
+
+.userCommentsTxt{
+    background-color: white;
+    border-radius: 10px; 
+}

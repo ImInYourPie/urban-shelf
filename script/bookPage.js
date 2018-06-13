@@ -6,8 +6,10 @@ window.onload = function () {
     feedBookInfo();
     getStoredComments();
 
+    console.log(login)
+
     let commentSection = document.getElementById("commentSection");
-    commentSection = feedCommentSection();
+    commentSection.innerHTML = feedCommentSection();
 
     // FUNCTION TO REPLACE VALUES IN BOOK PAGE
     function feedBookInfo() {
@@ -161,13 +163,13 @@ function feedCommentSection() {
     let strHtml = "";
     for (let i = 0; i < arrayComments.length; i++) {
         if (pageBookValues._bookId == arrayComments[i]._bookId) {
-            strHtml += "<div class='row row-fluid'>" +
-                    "<div class='col-md-2'>";
+            strHtml += "<div class='row row-fluid mb-5'>" +
+                    "<div class='userCommentsPhoto col-md-2 mb-3'>";
         
         for (let j = 0; j < arrayUsers.length; j++) {
             if (arrayUsers[j]._userId == arrayComments[i]._userId) {
-                if (arrayUsers[j]._photo = ""){
-                    strHtml += "<img class='userCommentImg img img-fluid' alt='' src='" + arrayUsers[j]._photo + "'/><p>" + arrayUsers[j]._username + "</p>";
+                if (arrayUsers[j]._photo){
+                    strHtml += "<img class='userCommentImg img img-fluid mr-2' alt='' src='" + arrayUsers[j]._photo + "'/><span>" + arrayUsers[j]._username + "</span>";
                 }
                 else{
                     strHtml += "<img class='userCommentImg img img-fluid' alt='' src='images/userIcon(white).png'/><p>" + arrayUsers[j]._username + "</p>";
@@ -176,10 +178,11 @@ function feedCommentSection() {
         }
 
         strHtml += "</div>" +
-                "<div class='col-md-10'>"
+                "<div class='userCommentsTxt col-md-12'>" +
                 "<p>" + arrayComments[i]._txtComment + "</p>" +
                 "</div>" +
                 "</div>";
+
 
         
         }
@@ -197,9 +200,22 @@ commentForm.addEventListener("submit", function(event){
 
     // VARS
     let inputComment = document.getElementById("inputComment");
+    let commentExists = false;
+
+    // CHECK IF COMMENT EXISTS
+    for (let i = 0; i < arrayComments.length; i++) {
+        if (login.id == arrayComments[i]._userId && arrayComments[i]._bookId == pageBookValues._bookId) {
+           commentExists = true;
+        }
+        
+    }
     
-    // CREATE NEW COMMENT
-    let newComment = new Comment(inputComment.value, login._id, pageBookValues._bookId);
+    // CREATE NEW COMMENT IF COMMENTEXISTS == FALSE
+    if (commentExists) {
+        alert("Já comentou este livro!");
+    }
+    else{
+        let newComment = new Comment(inputComment.value, login.id, pageBookValues._bookId);
     arrayComments.push(newComment);
     localStorage.commentStorage = JSON.stringify(arrayComments);
     getStoredComments();
@@ -213,11 +229,45 @@ commentForm.addEventListener("submit", function(event){
         }
         
     }
+    }
+    
 
     window.location.replace = "bookPage.html";
 })
 
 
+
+// REQUISITION
+let requisitionButton = document.getElementById("requisitionButton");
+requisitionButton.addEventListener("click", function (event) {
+    // VARS
+    let requisitionCount = 0;
+    let erroMsg = "";
+
+    // VALIDATIONS
+    // CHECK ALL ACTIVE REQUISITIONS OF LOGGED USER
+    for (let i = 0; i < arrayUsers.length; i++) {
+        if (login.id == arrayUsers[i]._userId ) {
+            for (let j = 0; j < arrayRequisitions.length; j++) {
+                if (arrayUsers[i]._userId == arrayRequisitions[j]._userId) {
+                    requisitionCount++;
+                }
+            }
+        }
+    }
+
+    if (requisitionCount >= 2) {
+        erroMsg += "Já tem 2 livros requisitados!" 
+    }
+
+    // CHECK IF USER HAS FINES
+    
+
+
+
+
+
+})
 
 }
 
