@@ -401,7 +401,7 @@ class Requisition{
         this._requisitionId = Requisition.getLastId() + 1;
         this._requisitionDate = Requisition.getRequisitionDate();
         this._fine = 0;
-        this._requisitionDateFull = new Date();
+        this._requisitionDateFull = new Date().getTime();
         
     
     }

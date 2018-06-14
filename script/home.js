@@ -4,7 +4,7 @@ window.onload = function (){
 
     // TEST
     if (arrayLivros.length == 0) {
-        for (let i = 0; i < 12; i++) {
+        for (let i = 0; i < 25; i++) {
             testBooks();
         }
     }

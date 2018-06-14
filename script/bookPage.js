@@ -14,16 +14,15 @@ window.onload = function () {
     let notificationRequestBtn = document.getElementById("notificationRequestBtn");
 
     // CHECK IF BOOK IS ALREADY REQUESTED
-    function checkForRequistion() {
-        for (let i = 0; i < arrayRequisitions.length; i++) {
-            if (arrayRequisitions[i]._bookId == pageBookValues._bookId) {
-                alreadyRequestedHeader.style.display = "block";
-                requisitionButton.style.display = "none";
-                notificationRequestBtn.style.display = "block";
-            }
-            
+    for (let i = 0; i < arrayRequisitions.length; i++) {
+        if (arrayRequisitions[i]._bookId == pageBookValues._bookId) {
+            alreadyRequestedHeader.style.display = "block";
+            requisitionButton.style.display = "none";
+            notificationRequestBtn.style.display = "block";
         }
+        
     }
+
 
 
     let commentSection = document.getElementById("commentSection");
@@ -214,7 +213,7 @@ function feedCommentSection() {
 // ADD COMMENT
 let commentForm = document.getElementById("commentForm");
 commentForm.addEventListener("submit", function(event){
-    event.preventDefault();
+    
 
     // VARS
     let inputComment = document.getElementById("inputComment");
@@ -244,7 +243,6 @@ commentForm.addEventListener("submit", function(event){
             arrayLivros[i]._scores.push(parseInt(inputScore.value));
             localStorage.bookStorage = JSON.stringify(arrayLivros);
             getStoredBooks();
-            window.location.replace = "bookPage.html";
         }
         
     }
@@ -295,7 +293,7 @@ requisitionButton.addEventListener("click", function (event) {
         let newRequisiton = new Requisition(pageBookValues._bookId, login.id);
         arrayRequisitions.push(newRequisiton);
         localStorage.requisitionStorage = JSON.stringify(arrayRequisitions);
-        window.location.replace = "userRequisitions.html";
+        window.location = "userRequisitions.html";
     }   
 
 

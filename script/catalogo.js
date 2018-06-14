@@ -90,7 +90,7 @@ window.onload = function () {
     nextPageBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
-        if (finishCount <= arrayLivros.length) {
+        if (finishCount < arrayLivros.length -1) {
             startingCount += 12;
             finishCount += 12;
             currentBooksCount++;
