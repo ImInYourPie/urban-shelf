@@ -1,4 +1,7 @@
 window.onload = function(){
+    
+    loginUser(); //EFETUAR LOGIN SE ESTE ESTIVER EM MEMÓRIA
+
     //1. INSERIR NOME DO UTILIZADOR NA NAVBAR E NO CABEÇALHO
     let requisitionsHeader = document.getElementById("requisitionsHeader")
     let navbarDropdown = document.getElementById("navbarDropdown")
@@ -11,13 +14,15 @@ window.onload = function(){
     let daysLeft = ""
 
     for(let i=0; i<arrayRequisitions.length;i++){
-        if(arrayRequisitions[i]._userId == checkLoginStorage()){ //REFERENCIAR USER ATUAL
+        if(arrayRequisitions[i]._userId == login.id){ //REFERENCIAR USER ATUAL
             //2.1 CALCULAR DIAS ATÉ A ENTREGA/ PASSADOS DESDE A DATA ESTABLECIDA PARA ENTREGA
             if(new Date().getTime()< arrayRequisitions[i]._requisitionDateFull.getTime()+(1000*3600*24*30)){
-                daysLeft = +" dias até entrega"
+                dateDifference = arrayRequisitions[i]._requisitionDateFull.getTime()+(1000*3600*24*30) - new Date().getTime()
+                daysLeft = parseInt(dateDifference/(1000*3600*24)) +" dias até entrega"
             }
             else{
-                daysLeft = +"dias em atraso"
+                dateDifference = new Date().getTime() - arrayRequisitions[i]._requisitionDateFull.getTime()+(1000*3600*24*30)
+                daysLeft = parseInt(dateDifference/(1000*3600*24)) +" dias em atraso"
             }
             //2.2 CALCULAR MULTAS
             if((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull.getTime())/(1000*3600*24)>= 30){
