@@ -1,7 +1,13 @@
 window.onload = function (){
+    getStoredBooks();
     
-    
-    
+
+    // TEST
+    if (arrayLivros.length == 0) {
+        for (let i = 0; i < 12; i++) {
+            testBooks();
+        }
+    }
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
     if(localStorage.loginStorage != true){

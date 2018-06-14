@@ -5,8 +5,26 @@ window.onload = function () {
     allowLogout();
     feedBookInfo();
     getStoredComments();
+    getStoredRequisitions();
 
-    console.log(login)
+
+    // VARS
+    let requisitionButton = document.getElementById("requisitionButton");
+    let alreadyRequestedHeader = document.getElementById("alreadyRequestedHeader");
+    let notificationRequestBtn = document.getElementById("notificationRequestBtn");
+
+    // CHECK IF BOOK IS ALREADY REQUESTED
+    function checkForRequistion() {
+        for (let i = 0; i < arrayRequisitions.length; i++) {
+            if (arrayRequisitions[i]._bookId == pageBookValues._bookId) {
+                alreadyRequestedHeader.style.display = "block";
+                requisitionButton.style.display = "none";
+                notificationRequestBtn.style.display = "block";
+            }
+            
+        }
+    }
+
 
     let commentSection = document.getElementById("commentSection");
     commentSection.innerHTML = feedCommentSection();
@@ -30,7 +48,7 @@ window.onload = function () {
     let bookTags = document.getElementById("bookTags");
     let bookSynopsis = document.getElementById("bookSynopsis");
     let bookId = document.getElementById("bookId");
-    let requisitionButton = document.getElementById("requisitionButton");
+    
      
     
     bookPageBookCover.src = pageBookValues._cover;
@@ -60,7 +78,7 @@ window.onload = function () {
 
 
     bookSynopsis.innerHTML = pageBookValues._synopsis;
-    bookId.innerHTML = "ID do Livro: " + pageBookValues._bookId;
+    bookId.innerHTML = "ID: " + pageBookValues._bookId;
     
          
 }
@@ -216,9 +234,9 @@ commentForm.addEventListener("submit", function(event){
     }
     else{
         let newComment = new Comment(inputComment.value, login.id, pageBookValues._bookId);
-    arrayComments.push(newComment);
-    localStorage.commentStorage = JSON.stringify(arrayComments);
-    getStoredComments();
+        arrayComments.push(newComment);
+        localStorage.commentStorage = JSON.stringify(arrayComments);
+        getStoredComments();
 
     // PUSH SCORE TO SCORES PROPERTY
     for (let i = 0; i < arrayLivros.length; i++) {
@@ -226,42 +244,62 @@ commentForm.addEventListener("submit", function(event){
             arrayLivros[i]._scores.push(parseInt(inputScore.value));
             localStorage.bookStorage = JSON.stringify(arrayLivros);
             getStoredBooks();
+            window.location.replace = "bookPage.html";
         }
         
     }
     }
     
 
-    window.location.replace = "bookPage.html";
 })
 
 
 
 // REQUISITION
-let requisitionButton = document.getElementById("requisitionButton");
 requisitionButton.addEventListener("click", function (event) {
     // VARS
     let requisitionCount = 0;
-    let erroMsg = "";
+    let errorMsg = "";
+    let hasFine = false;
 
     // VALIDATIONS
     // CHECK ALL ACTIVE REQUISITIONS OF LOGGED USER
     for (let i = 0; i < arrayUsers.length; i++) {
         if (login.id == arrayUsers[i]._userId ) {
             for (let j = 0; j < arrayRequisitions.length; j++) {
+                // INCREMENT REQUISITIONCOUNT || MAX == 2
                 if (arrayUsers[i]._userId == arrayRequisitions[j]._userId) {
+                    // CHECK FOR FINES
+                    if (arrayRequisitions[i]._fine != 0) {
+                        hasFine = true;
+                    }
                     requisitionCount++;
                 }
             }
         }
     }
 
+    // CHECK REQUISITIONCOUNT || MAX == 2
     if (requisitionCount >= 2) {
-        erroMsg += "Já tem 2 livros requisitados!" 
+        errorMsg += "Já tem 2 livros requisitados!";
+    }
+    if (hasFine){
+        errorMsg += "\n Tem multas por pagar! Por favor pague antes de requesitar outro livro."
     }
 
-    // CHECK IF USER HAS FINES
-    
+    // CHECK FOR ERRORS
+    if (errorMsg) {
+        alert(errorMsg);
+    }
+    else{
+        let newRequisiton = new Requisition(pageBookValues._bookId, login.id);
+        arrayRequisitions.push(newRequisiton);
+        localStorage.requisitionStorage = JSON.stringify(arrayRequisitions);
+        window.location.replace = "userRequisitions.html";
+    }   
+
+
+
 
 
 

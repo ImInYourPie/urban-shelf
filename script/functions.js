@@ -1,32 +1,15 @@
 // // TEST SCRIPT
-// function testBooks() {
+function testBooks() {
     
-//     let newBook1 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-//     30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
+    let newBook1 = new Book("Eu, Robô","https://img.wook.pt/images/eu-robo-isaac-asimov/MXwxODIyNjMzN3wxNDAxMjE4NXwxNTEyMDg2NDAwMDAw/502x", "Isaac Asimov", "Sensíveis, divertidos e instigantes, os contos de Eu, robô são um marco na história da ficção científica, seja pela introdução das célebres Leis da Robótica, pelos personagens inesquecíveis ou por seu olhar completamente novo a respeito das máquinas. Vivam eles na Terra ou no espaço sideral; sejam domésticos ou especializados, submissos ou rebeldes, meramente mecânicos ou humanizados, os robôs de Asimov conquistaram a cabeça e a alma de gerações de escritores, cineastas e cientistas, sendo até hoje fonte de inspiração de tudo o que lemos e assistimos sobre essas criaturas mecânicas.Verdadeiro marco na história da ficção científica, 'Eu, robô' reúne os primeiros textos de Isaac Asimov sobre robôs, publicados entre 1940 e 1950. São nove contos que relatam a evolução dos autômatos através do tempo, e que contêm em suas páginas, pela primeira vez, as célebres Três Leis da Robótica.",
+     "2015-09-08", 1, [1], "Editora Aleph",
+     320, 1, "Miguel", "2018-06-14", 2, [0], "");
     
-// let newBook2 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
 
-// let newBook3 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-//     30, 1, "MELO", "2018-01-30", 2, [20, 30], "");
-    
-// let newBook4 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
-
-// let newBook5 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-//     30, 1, "MELO", "2018-01-30", 2, [10, 60], "");
-    
-// let newBook6 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-// 30, 1, "MELO", "2018-01-30", 2, [15, 75], "");
-
-// let newBook7 = new Book("EU SOU MELO","images/bookCoverNotAvailable.jpg", "El Melo", "FALA SOBRE O MELO", "2018-01-08", 7, [2,3], "EU MESMO",
-//     30, 1, "MELO", "2018-01-30", 2, [15, 5], "");
-
-
-// arrayLivros.push(newBook1, newBook2, newBook3, newBook4, newBook5, newBook6, newBook7)
-// localStorage.bookStorage = JSON.stringify(arrayLivros);
-// getStoredBooks();
-// }
+arrayLivros.push(newBook1)
+localStorage.bookStorage = JSON.stringify(arrayLivros);
+getStoredBooks();
+}
 
 
 
@@ -55,6 +38,15 @@ function refreshStoredBooks() {
 function getStoredBooks() {
     if(localStorage.bookStorage){
         arrayLivros = JSON.parse(localStorage.bookStorage);
+    }
+}
+
+
+
+// GET STORED REQUISITIONS
+function getStoredRequisitions() {
+    if(localStorage.requisitionStorage){
+        arrayRequisitions = JSON.parse(localStorage.requisitionStorage);
     }
 }
 
@@ -994,7 +986,6 @@ function getBookPageValues() {
 // SORT BY SCORE BY MOST SCORED
 function sortByScoreDown() {
     arrayLivros.sort((a, b) => fullscoreForSort(b._scores) - fullscoreForSort(a._scores));
-    console.log(arrayLivros)
 }
 
 // SORT BY SCORE BY LEAST SCORED
@@ -1024,10 +1015,14 @@ function sortByDonationDateUp(){
 
 // CALCULATE FULLSCORE
 function fullscoreForSort(givenScores) {
-   // CALCULATE SCORE(){
     let total = givenScores.length - 1; // -1 BECAUSE BOOK._SCORES STARTS WITH AN ARRAY WITH 0 AS FIRST VALUE FOR SIMPLIFICATION
-    let score = givenScores.reduce((total, add) => total + add) / total;
-    return score;
+    let score = givenScores.reduce((total, add) => total + add);
+    if (total == 0) {
+        return 0;
+    }
+    else{
+        return score / total;
+    }
 }
 
 

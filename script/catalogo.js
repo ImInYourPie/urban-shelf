@@ -90,15 +90,15 @@ window.onload = function () {
     nextPageBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
-        if (finishCount >= arrayLivros.length) {
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-        else{
+        if (finishCount <= arrayLivros.length) {
             startingCount += 12;
             finishCount += 12;
             currentBooksCount++;
             feedBooks(startingCount, finishCount, arrayLivros);
             displayNumberOfPages.innerHTML = currentBooksCount + " de " + fullBooksCount;
+        }
+        else{
+            feedBooks(startingCount, finishCount, arrayLivros);
         }
 
     })
