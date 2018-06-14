@@ -5,6 +5,13 @@ window.onload = function () {
     allowLogout();
     feedBookInfo();
     getStoredComments();
+    let requisitionTest = new Requisition(1, 3)
+    requisitionTest._requisitionDateFull = new Date().getTime()-(1000*3600*24*40)
+    requisitionTest._fine = 10
+
+    arrayRequisitions.push(requisitionTest)
+    localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+
     getStoredRequisitions();
 
 
@@ -268,7 +275,7 @@ requisitionButton.addEventListener("click", function (event) {
                 // INCREMENT REQUISITIONCOUNT || MAX == 2
                 if (arrayUsers[i]._userId == arrayRequisitions[j]._userId) {
                     // CHECK FOR FINES
-                    if (arrayRequisitions[i]._fine != 0) {
+                    if (arrayRequisitions[j]._fine != 0) {
                         hasFine = true;
                     }
                     requisitionCount++;

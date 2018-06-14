@@ -448,7 +448,7 @@ class Requisition{
     static getLastId() {
         let lastId = 0
         if (arrayRequisitions.length > 0) {
-            lastId = arrayRequisitions[arrayRequisitions.length - 1]._requistionId;
+            lastId = arrayRequisitions[arrayRequisitions.length - 1]._requisitionId;
         }        
         return lastId;
     }

@@ -1,5 +1,9 @@
 window.onload = function(){
     
+   
+       
+    
+
     loginUser(); //EFETUAR LOGIN SE ESTE ESTIVER EM MEMÓRIA
     getStoredRequisitions();
 
@@ -13,6 +17,7 @@ window.onload = function(){
     let tblRequisitions = document.getElementById("tblRequisitions")
     
     let daysLeft = ""
+    let displayFine
 
     for(let i=0; i<arrayRequisitions.length;i++){
         if(arrayRequisitions[i]._userId == login.id){ //REFERENCIAR USER ATUAL
@@ -23,24 +28,28 @@ window.onload = function(){
                 daysLeft = (dateDifference/(1000*3600*24)).toFixed() +" dias até entrega"
             }
             else{
-                dateDifference = new Date().getTime() - arrayRequisitions[i]._requisitionDateFull+(1000*3600*24*30)
+                dateDifference = new Date().getTime() - arrayRequisitions[i]._requisitionDateFull-(1000*3600*24*30)
                 daysLeft = (dateDifference/(1000*3600*24)).toFixed()  +" dias em atraso"
             }
             //2.2 CALCULAR MULTAS
             if((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull)/(1000*3600*24)>= 30){
-                arrayRequisitions[i]._fine = ((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull)/(1000*3600*24)).toFixed(2)+"€"
+                arrayRequisitions[i]._fine = ((new Date().getTime() - arrayRequisitions[i]._requisitionDateFull-(1000*3600*24*30))/(1000*3600*24)).toFixed(2)+"€"
+                displayFine = arrayRequisitions[i]._fine
+                localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+                getStoredRequisitions()
             }
             else{
-                arrayRequisitions[i]._fine = "-"
+                displayFine = "-"
             }
+            console.log(arrayRequisitions[i]._requisitionId)
 
             tblRequisitions.getElementsByTagName("tbody")[0].innerHTML +=  "<tr>" +
             "<td>" + arrayRequisitions[i]._requisitionId + "</td>" +
             "<td>" + arrayLivros[arrayLivros.indexOf(arrayLivros[i])]._title + "</td>" + //RETORNAR TITULO DO LIVRO COM O ID CORRESPONDENTE
             "<td>" + arrayRequisitions[i]._requisitionDate + "</td>" + 
             "<td>" + daysLeft + "</td>" +  //NECESSÁRIO ALTERAR PARA MOSTRAR DIAS ATÉ A ENTREGA / DIAS PASSADOS DA ENTREGA
-            "<td>" + arrayRequisitions[i]._fine + "</td>" + 
-            '<td><button id="'+arrayRequisitions[i]._requisitionId+'" type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
+            "<td>" + displayFine + "</td>" + 
+            '<td><button id="'+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length+'" type="button" class="btn btn-primary" style="width: 140px;" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
             +"</tr>"
         } 
     }
@@ -53,8 +62,16 @@ window.onload = function(){
 
     currentRequisitions.innerHTML = currentRequisitions.innerHTML.replace('X', tblRequisitionsBookCount)
 
-    //4. BOTÃO ENTREGA DE LIVRO
-
+    //4. BOTÃO ENTREGA DE LIVRO/ PAGAMENTO DE MULTA
+        //ADICIONAR EVENT LISTENER A TDS OS BOTÕES
+        for(let i=0; i>tblRequisitionsBookCount;i++){
+            document.getElementById(i).addEventListener("click", function(){
+                document.getElementById("modalTitle").innerHTML += ""
+                document.getElementById("modalRequisitionDate").innerHTML += ""
+                document.getElementById("modalDaysLeft").innerHTML += ""
+                document.getElementById("modalFine").innerHTML += ""
+            })
+        }
     //5. ESCOLHER BIBLIOTECA ONDE ENTREGAR O LIVRO
 
     //6. ATUALIZAR INFO DO LIVRO DEVOLVIDO
