@@ -74,6 +74,7 @@
                 <th scope="col">Data de Requisição</th>
                 <th scope="col">Dias até entrega</th>
                 <th scope="col">Multa atual</th>
+                <th scope="col">  </th>
               </tr>
               
             </thead>
@@ -97,7 +98,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
+              <h5 class="modal-title" id="modalTitle">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -106,14 +107,14 @@
               
             </div>
             <div class="modal-body">
-              <p>Data de requisição: </p>
-              <p>Data limite de entrega: </p>
+              <p id="modalRequisitionDate">Data de requisição: </p>
+              <p id="modalDaysLeft">Dias até entrega : </p>
               <br></br>
-              <p>Multa a pagar: </p>
+              <p id="modalFine">Multa a pagar: </p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-              <button type="submit" class="btn btn-primary">Finalizar Devolução/Pagamento</button>
+              <button type="submit" class="btn btn-primary" style="width: 280px;">Finalizar Devolução/Pagamento</button>
             </div>
           </div>
         </div>
