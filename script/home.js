@@ -1,12 +1,21 @@
 window.onload = function (){
     getStoredBooks();
-    
+    getStoredTags();
+    getStoredCategorias();
+
+
 
     // TEST
+    if (arrayTags.length == 0) {
+        testTags();
+}
+
+if (arrayCategorias.length == 0) {
+    testCategorias();
+}
+
     if (arrayLivros.length == 0) {
-        for (let i = 0; i < 25; i++) {
             testBooks();
-        }
     }
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");

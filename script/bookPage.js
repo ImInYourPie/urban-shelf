@@ -6,6 +6,8 @@ window.onload = function () {
     feedBookInfo();
     getStoredComments();
     getStoredRequisitions();
+    getStoredBibliotecas();
+    addCurrentMarkers();
 
 
     // VARS
@@ -47,6 +49,7 @@ window.onload = function () {
     let bookTags = document.getElementById("bookTags");
     let bookSynopsis = document.getElementById("bookSynopsis");
     let bookId = document.getElementById("bookId");
+    
     
      
     
@@ -166,7 +169,7 @@ function getTagNames() {
     for (let i = 0; i < arrayTags.length; i++) {
         for (let j = 0; j < pageBookValues._tags.length; j++) {
             if (arrayTags[i]._tagId == pageBookValues._tags[j]) {
-                strHtml += " " + arrayTags[i]._nameTag ;
+                strHtml += ", " + arrayTags[i]._nameTag ;
             }
             
         }
@@ -268,7 +271,7 @@ requisitionButton.addEventListener("click", function (event) {
                 // INCREMENT REQUISITIONCOUNT || MAX == 2
                 if (arrayUsers[i]._userId == arrayRequisitions[j]._userId) {
                     // CHECK FOR FINES
-                    if (arrayRequisitions[i]._fine != 0) {
+                    if (arrayRequisitions[j]._fine != 0) {
                         hasFine = true;
                     }
                     requisitionCount++;
@@ -305,5 +308,12 @@ requisitionButton.addEventListener("click", function (event) {
 
 })
 
+
+
+
+
+
+
 }
+
 
