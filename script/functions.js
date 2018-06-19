@@ -49,87 +49,87 @@ function testBooks() {
     
     let newBook1 = new Book("Eu, Robô","https://img.wook.pt/images/eu-robo-isaac-asimov/MXwxODIyNjMzN3wxNDAxMjE4NXwxNTEyMDg2NDAwMDAw/502x", "Isaac Asimov", "Sensíveis, divertidos e instigantes, os contos de Eu, robô são um marco na história da ficção científica, seja pela introdução das célebres Leis da Robótica, pelos personagens inesquecíveis ou por seu olhar completamente novo a respeito das máquinas. Vivam eles na Terra ou no espaço sideral; sejam domésticos ou especializados, submissos ou rebeldes, meramente mecânicos ou humanizados, os robôs de Asimov conquistaram a cabeça e a alma de gerações de escritores, cineastas e cientistas, sendo até hoje fonte de inspiração de tudo o que lemos e assistimos sobre essas criaturas mecânicas.Verdadeiro marco na história da ficção científica, 'Eu, robô' reúne os primeiros textos de Isaac Asimov sobre robôs, publicados entre 1940 e 1950. São nove contos que relatam a evolução dos autômatos através do tempo, e que contêm em suas páginas, pela primeira vez, as célebres Três Leis da Robótica.",
      "2015-09-08", 10, [15], "Editora Aleph",
-     320, 1, "Miguel", "2018-03-14", 2, [0, 100, 90, 80], "");
+     320, "Bom", "Miguel", "2018-03-14", 2, [0, 100, 90, 80], "");
      arrayLivros.push(newBook1);
 
      let newBook2 = new Book("A Arte Subtil de Saber Dizer Que Se F*da","https://img.wook.pt/images/a-arte-subtil-de-saber-dizer-que-se-fda-mark-manson/MXwyMTI2MDIxNXwxNzEzMDkyNnwxNTEzNTU1MjAwMDAw/502x", "Mark Manson", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2018-01-08", 12, [2, 3], "Desassossego",
-     208, 1, "", "2018-06-15", 1, [0, 60, 80], "");
+     208, "Bom", "", "2018-06-15", 1, [0, 60, 80], "");
      arrayLivros.push(newBook2);
 
      let newBook3 = new Book("A Arte Subtil de Saber Dizer Que Se F*da","https://img.wook.pt/images/a-arte-subtil-de-saber-dizer-que-se-fda-mark-manson/MXwyMTI2MDIxNXwxNzEzMDkyNnwxNTEzNTU1MjAwMDAw/502x", "Mark Manson", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2018-01-08", 12, [2, 3], "Desassossego",
-     208, 2, "Miguel", "2018-05-14", 2, [0], "");
+     208, "Bom", "Miguel", "2018-05-14", 2, [0], "");
      arrayLivros.push(newBook3);
 
      let newBook4 = new Book("As Crónicas de Gelo e Fogo - Livro Um","https://img.wook.pt/images/a-guerra-dos-tronos-george-r-r-martin/MXwxOTY1MTF8MjQ3OTIzfDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     400, 2, "", "2018-06-01", 1, [0, 80, 100, 75], "");
+     400, "Bom", "", "2018-06-01", 1, [0, 80, 100, 75], "");
      arrayLivros.push(newBook4);
 
      let newBook5 = new Book("As Crónicas de Gelo e Fogo - Livro Um","https://img.wook.pt/images/a-guerra-dos-tronos-george-r-r-martin/MXwxOTY1MTF8MjQ3OTIzfDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     400, 2, "", "2018-06-01", 3, [0, 80, 100, 75], "");
+     400, "Bom", "", "2018-06-01", 3, [0, 80, 100, 75], "");
      arrayLivros.push(newBook5);
 
      let newBook6 = new Book("As Crónicas de Gelo e Fogo - Livro Um","https://img.wook.pt/images/a-guerra-dos-tronos-george-r-r-martin/MXwxOTY1MTF8MjQ3OTIzfDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     400, 2, "", "2018-06-01", 1, [0, 80, 100], "");
+     400, "Médio", "", "2018-06-01", 1, [0, 80, 100], "");
      arrayLivros.push(newBook6);
 
      let newBook7 = new Book("As Crónicas de Gelo e Fogo - Livro Um","https://img.wook.pt/images/a-guerra-dos-tronos-george-r-r-martin/MXwxOTY1MTF8MjQ3OTIzfDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     400, 2, "", "2018-06-01", 1, [0, 80, 100], "");
+     400, "Médio", "", "2018-06-01", 1, [0, 80, 100], "");
      arrayLivros.push(newBook7);
      
      let newBook8 = new Book("As Crónicas de Gelo e Fogo - Livro Dois","https://img.wook.pt/images/a-muralha-de-gelo-george-r-r-martin/MXwxOTc5Mjl8MjUwNzk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     416, 2, "", "2018-03-01", 1, [0, 40, 100], "");
+     416, "Fraco", "", "2018-03-01", 1, [0, 40, 100], "");
      arrayLivros.push(newBook8);
 
      let newBook9 = new Book("As Crónicas de Gelo e Fogo - Livro Dois","https://img.wook.pt/images/a-muralha-de-gelo-george-r-r-martin/MXwxOTc5Mjl8MjUwNzk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     416, 2, "", "2018-03-01", 4, [0, 40, 100], "");
+     416, "Fraco", "", "2018-03-01", 4, [0, 40, 100], "");
      arrayLivros.push(newBook9);
 
      let newBook10 = new Book("As Crónicas de Gelo e Fogo - Livro Dois","https://img.wook.pt/images/a-muralha-de-gelo-george-r-r-martin/MXwxOTc5Mjl8MjUwNzk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     416, 3, "", "2018-03-11", 3, [0, 40, 80], "");
+     416, "Fraco", "", "2018-03-11", 3, [0, 40, 80], "");
      arrayLivros.push(newBook10);
 
      let newBook11 = new Book("As Crónicas de Gelo e Fogo - Livro Três","https://img.wook.pt/images/a-furia-dos-reis-george-r-r-martin/MXwyMDAyOTN8MjU3ODk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     702, 1, "", "2018-05-01", 2, [0, 40], "");
+     702, "Médio", "", "2018-05-01", 2, [0, 40], "");
      arrayLivros.push(newBook11);
 
      let newBook12 = new Book("As Crónicas de Gelo e Fogo - Livro Três","https://img.wook.pt/images/a-furia-dos-reis-george-r-r-martin/MXwyMDAyOTN8MjU3ODk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     702, 1, "", "2018-03-18", 2, [0, 40, 100, 60, 55], "");
+     702, "Médio", "", "2018-03-18", 2, [0, 40, 100, 60, 55], "");
      arrayLivros.push(newBook12);
 
      let newBook13 = new Book("As Crónicas de Gelo e Fogo - Livro Três","https://img.wook.pt/images/a-furia-dos-reis-george-r-r-martin/MXwyMDAyOTN8MjU3ODk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
      "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-     702, 1, "", "2018-02-01", 2, [0, 75], "");
+     702, "Médio", "", "2018-02-01", 2, [0, 75], "");
      arrayLivros.push(newBook13);
 
      let newBook14 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
-     208, 1, "", "2018-03-01", 2, [0, 40], "");
+     208, "Bom", "", "2018-03-01", 2, [0, 40], "");
      arrayLivros.push(newBook14);
 
      let newBook15 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
-     208, 3, "", "2018-03-01", 4, [0, 30], "");
+     208, "Médio", "", "2018-03-01", 4, [0, 30], "");
      arrayLivros.push(newBook15);
 
      let newBook16 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
-     208, 1, "", "2018-03-01", 2, [0, 30], "");
+     208, "Médio", "", "2018-03-01", 2, [0, 30], "");
      arrayLivros.push(newBook16);
 
      let newBook17 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
-     208, 2, "", "2018-03-01", 1, [0, 70], "");
+     208, "Médio", "", "2018-03-01", 1, [0, 70], "");
      arrayLivros.push(newBook17);
 
 
@@ -286,11 +286,7 @@ function addMapMarkers() {
 }
 
 
-
-// MAP MARKER
-// ADDMAPMARKERS FUNCTION
 function addCurrentMarkers() {
-
     var icon = {
         url: "images/map-marker-alt.png", // url
         scaledSize: new google.maps.Size(70, 55), // scaled size
@@ -302,12 +298,15 @@ function addCurrentMarkers() {
                 map: map,
                 title: arrayBibliotecas[i]._adress,
                 icon: icon
-        })
-        
-        
+             })
+             
+        }
     }
 }
-}
+
+
+
+
 
 
 
@@ -1014,7 +1013,7 @@ function loadOperatorPage() {
 function loadTopBooks() {
     sortByScoreDown();
     let strHtmlCard = "";
-    strHtmlCard += `<div class="row row-fluid">` 
+    strHtmlCard += `<div class="row row-fluid">`; 
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
@@ -1046,10 +1045,10 @@ function loadTopBooks() {
                 strHtmlCard += "</p>" + 
                             "</div>" +     
                             "</div>" +      
-                            "</div>" 
+                            "</div>"; 
 
     }
-    strHtmlCard += "</div>"
+    strHtmlCard += "</div>";
     let topBooksDiv = document.getElementById("topBooksDiv");
     topBooksDiv.innerHTML = strHtmlCard;
 
@@ -1063,7 +1062,7 @@ function loadTopBooks() {
 function loadRecentBooks() {
     sortByDonationDateDown();
     let strHtmlCard = "";
-    strHtmlCard += `<div class="row row-fluid">` 
+    strHtmlCard += `<div class="row row-fluid">`; 
     let count = 0;
     for (var i = 0; i < 6; i++) {
 
@@ -1095,10 +1094,10 @@ function loadRecentBooks() {
                 strHtmlCard += "</p>" + 
                             "</div>" +     
                             "</div>" +      
-                            "</div>" 
+                            "</div>"; 
 
     }
-    strHtmlCard += "</div>"
+    strHtmlCard += "</div>";
     let recentBooksDiv = document.getElementById("recentBooksDiv");
     recentBooksDiv.innerHTML = strHtmlCard;
 
@@ -1111,7 +1110,7 @@ function loadRecentBooks() {
             
             setStorageValuesBook(bookItemId);
             getBookPageValues();
-            window.location = "bookPage.html"
+            window.location = "bookPage.html";
             
         })        
     }

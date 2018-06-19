@@ -3,6 +3,8 @@ window.onload = function () {
     loginUser();
     allowLogout();
     getStoredBooks();
+    getStoredBibliotecas();
+    getStoredCategorias();
     
     
     // VARS
@@ -25,6 +27,35 @@ window.onload = function () {
 
     // CALL FEED BOOKS
     feedBooks(startingCount, finishCount, arrayLivros);
+
+
+    // FILTER FUNCTIONS
+    let categoryFilterForm = document.getElementById("categoryFilterForm");
+    let categoryFilter = document.getElementById("categoryFilter");
+    let lirbraryFilterForm = document.getElementById("libraryFilterForm");
+    let libraryFilter = document.getElementById("libraryFilter");
+    let sortingFilter = document.getElementById("sortingFilter");
+    let sortingForm = document.getElementById("sortingForm");
+
+    // ADD OPTIONS TO SELECTS
+    // CATEGORY SELECT
+    categoryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
+    for (let i = 0; i < arrayCategorias.length; i++) {
+        categoryFilter.innerHTML += "<option value='" + arrayCategorias[i]._categoryId + "'>" + arrayCategorias[i]._nameCategory + "</option>";
+        
+    }
+
+    // LIBRARY SELECT
+    libraryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
+    for (let i = 0; i < arrayBibliotecas.length; i++) {
+        libraryFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
+        
+    }
+
+    // LIBRARY SELECT
+    sortingFilter.innerHTML += "<option value='' disabled selected>Ordenar por</option>";
+    sortingFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
+        
 
     // EVENT LISTENER FOR SEARCH BAR
     let searchForm = document.getElementById("searchForm");

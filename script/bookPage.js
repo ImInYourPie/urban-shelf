@@ -5,16 +5,17 @@ window.onload = function () {
     allowLogout();
     feedBookInfo();
     getStoredComments();
-    let requisitionTest = new Requisition(1, 3)
-    requisitionTest._requisitionDateFull = new Date().getTime()-(1000*3600*24*40)
-    requisitionTest._fine = 10
+    // TEST
+    // let requisitionTest = new Requisition(1, 3)
+    // requisitionTest._requisitionDateFull = new Date().getTime()-(1000*3600*24*40)
+    // requisitionTest._fine = 10
 
-    arrayRequisitions.push(requisitionTest)
-    localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+    // arrayRequisitions.push(requisitionTest)
+    // localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
 
     getStoredRequisitions();
     getStoredBibliotecas();
-    addCurrentMarkers();
+    
 
 
     // VARS
@@ -55,7 +56,6 @@ window.onload = function () {
     let bookCategory = document.getElementById("bookCategory");
     let bookTags = document.getElementById("bookTags");
     let bookSynopsis = document.getElementById("bookSynopsis");
-    let bookId = document.getElementById("bookId");
     
     
      
@@ -87,7 +87,6 @@ window.onload = function () {
 
 
     bookSynopsis.innerHTML = pageBookValues._synopsis;
-    bookId.innerHTML = "ID: " + pageBookValues._bookId;
     
          
 }
@@ -176,7 +175,13 @@ function getTagNames() {
     for (let i = 0; i < arrayTags.length; i++) {
         for (let j = 0; j < pageBookValues._tags.length; j++) {
             if (arrayTags[i]._tagId == pageBookValues._tags[j]) {
-                strHtml += ", " + arrayTags[i]._nameTag ;
+                if (strHtml.length == 0) {
+                    strHtml += arrayTags[i]._nameTag ;  
+                }
+                else{
+                    strHtml += ", " + arrayTags[i]._nameTag ;
+                }
+
             }
             
         }
