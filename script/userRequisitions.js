@@ -86,20 +86,51 @@ window.onload = function(){
             })
         }
     //5. ESCOLHER BIBLIOTECA ONDE ENTREGAR O LIVRO
-     //5.1 ALIMENTAR O SELECT DA MODAL COM AS BIBLIOTECAS QUE NÃO SE ENCONTRAM CHEIAS
+     //5.1 ALIMENTAR O SELECT DA MODAL COM AS BIBLIOTECAS EXISTENTES
      let tblBibliotecaSelect = document.getElementById("tblBibliotecaSelect")
 
-     //INCOMPLETO /////////////////////////////
+      
+
      for(let i=0; i<arrayBibliotecas.length;i++){
-         if(arrayBibliotecas[i].length < arrayBibliotecas[i]._capacity){
             tblBibliotecaSelect.innerHTML += "<option value='"+arrayBibliotecas[i]._libraryId+"'>"+arrayBibliotecas[i]._adress+"</option>"
-         }
      }
 
-    //6. ATUALIZAR INFO DO LIVRO DEVOLVIDO
+     //5.2 REMOVER BIBLIOTECAS SOBRELOTADAS
+     let btnReturn = document.getElementById("btnReturn")
+     let count
+     
+     btnReturn.addEventListener("click", function(){
+         
+        
+        count=0
 
-    //7. ATUALIZAR TABELA DE REQUISIÇÕES
+        for (let i = 0; i < arrayLivros.length; i++) {
+            if (arrayLivros[i]._libraryId == tblBibliotecaSelect.value){
+                count++;
+            }
+        }
+        
 
-    //8. ATUALIZAR CONTADOR DE LIVROS REQUISITADOS
+         for (let i = 0; i < arrayBibliotecas.length; i++) {
+            if (tblBibliotecaSelect.value == arrayBibliotecas[i]._libraryId) {
+                if (count >= arrayBibliotecas[i]._capacity) {
+                    alert("A biblioteca já se encontra na sua capacidade máxima!")
+                }
+                else{
+                    //ALTERAR PROPRIEDADES DO LIVRO EM QUESTÃO
+                    
+                    //FECHAR MODAL
+
+                    //ATUALIZAR REQUISIÇÕES
+
+                    //ATUALIZAR TABELA DE REQUISIÇÕES
+
+                    //ATUALIZAR CONTADOR DE LIVROS ATUALMENTE REQUISITADOS PELO USER
+
+                }
+            }
+        }
+    
+     })
     
 }
