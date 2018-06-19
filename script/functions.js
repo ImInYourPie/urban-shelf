@@ -16,7 +16,14 @@ function testUsers() {
 
 function testBibliotecas() {
 
-    let newBib1 = new Library("Vila do Conde", "Rua do Cais das Lavandeiras", )
+    let newBib1 = new Library("Vila do Conde", "Rua do Cais das Lavandeiras", "41.350558", " -8.743255", 100);
+    arrayBibliotecas.push(newBib1);
+
+    let newBib2 = new Library("Azurara", "Praia da Azurara", "41.339626", "-8.744147", 200);
+    arrayBibliotecas.push(newBib2);
+
+    let newBib3 = new Library("Árvore", "Praia da Árvore", "41.329989", "-8.738786", 180);
+    arrayBibliotecas.push(newBib3);
 
     localStorage.bibliotecaStorage = JSON.stringify(arrayBibliotecas);
     getStoredBibliotecas();

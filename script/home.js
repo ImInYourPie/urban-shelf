@@ -8,15 +8,21 @@ window.onload = function (){
     // TEST
     if (arrayTags.length == 0) {
         testTags();
-}
+    }
 
-if (arrayCategorias.length == 0) {
-    testCategorias();
-}
+    if (arrayCategorias.length == 0) {
+        testCategorias();
+    }
+
+    if (arrayBibliotecas.length == 0) {
+        testBibliotecas();
+    }
 
     if (arrayLivros.length == 0) {
             testBooks();
     }
+
+    
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
     if(localStorage.loginStorage != true){
