@@ -5,6 +5,13 @@ window.onload = function () {
     allowLogout();
     feedBookInfo();
     getStoredComments();
+    let requisitionTest = new Requisition(1, 3)
+    requisitionTest._requisitionDateFull = new Date().getTime()-(1000*3600*24*40)
+    requisitionTest._fine = 10
+
+    arrayRequisitions.push(requisitionTest)
+    localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+
     getStoredRequisitions();
     getStoredBibliotecas();
     addCurrentMarkers();
