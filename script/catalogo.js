@@ -45,21 +45,21 @@ window.onload = function () {
     // TODO FILTERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // ADD OPTIONS TO SELECTS
     // CATEGORY SELECT
-    // categoryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
-    // for (let i = 0; i < arrayCategorias.length; i++) {
-    //     categoryFilter.innerHTML += "<option value='" + arrayCategorias[i]._categoryId + "'>" + arrayCategorias[i]._nameCategory + "</option>";
+    categoryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
+    for (let i = 0; i < arrayCategorias.length; i++) {
+        categoryFilter.innerHTML += "<option value='" + arrayCategorias[i]._categoryId + "'>" + arrayCategorias[i]._nameCategory + "</option>";
         
-    // }
+    }
 
-    // // LIBRARY SELECT
-    // libraryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
-    // for (let i = 0; i < arrayBibliotecas.length; i++) {
-    //     libraryFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
+    // LIBRARY SELECT
+    libraryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
+    for (let i = 0; i < arrayBibliotecas.length; i++) {
+        libraryFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
         
-    // }
+    }
 
-    // // LIBRARY SELECT
-    // sortingFilter.innerHTML += "<option value='' disabled selected>Ordenar por</option>";
+    // LIBRARY SELECT
+    sortingFilter.innerHTML += "<option value='' disabled selected>Ordenar por</option>";
     
         
 
