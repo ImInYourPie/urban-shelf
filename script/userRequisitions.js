@@ -6,6 +6,7 @@ window.onload = function(){
 
     loginUser(); //EFETUAR LOGIN SE ESTE ESTIVER EM MEMÓRIA
     getStoredRequisitions();
+    getStoredBooks();
 
     //1. INSERIR NOME DO UTILIZADOR NA NAVBAR E NO CABEÇALHO
     let requisitionsHeader = document.getElementById("requisitionsHeader")
@@ -15,6 +16,7 @@ window.onload = function(){
 
     //2. ALIMENTAR TABELA COM OS LIVROS ATUALMENTE REQUISITADOS PELO USER
     let tblRequisitions = document.getElementById("tblRequisitions")
+
     
     let daysLeft = ""
     let displayFine
@@ -52,7 +54,7 @@ window.onload = function(){
             }
 
             tblRequisitions.getElementsByTagName("tbody")[0].innerHTML +=  "<tr>" +
-            "<td>" + arrayRequisitions[i]._requisitionId + "</td>" +
+            "<td class='id'>" + arrayRequisitions[i]._requisitionId + "</td>" +
             "<td class='title'>" + tblBookTitle + "</td>" + //RETORNAR TITULO DO LIVRO COM O ID CORRESPONDENTE
             "<td class='reqDate'>" + arrayRequisitions[i]._requisitionDate + "</td>" + 
             "<td class='daysLeft'>" + daysLeft + "</td>" +  //NECESSÁRIO ALTERAR PARA MOSTRAR DIAS ATÉ A ENTREGA / DIAS PASSADOS DA ENTREGA
@@ -78,11 +80,13 @@ window.onload = function(){
                 document.getElementById("modalRequisitionDate").innerHTML = "Data de requisição: "
                 document.getElementById("modalDaysLeft").innerHTML = "Dias até entrega: "
                 document.getElementById("modalFine").innerHTML = "Multa a pagar: "
+                document.getElementById("modalRequisitionId").innerHTML = "ID da requisição: "
 
                 document.getElementById("modalTitle").innerHTML = tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByClassName("title")[0].innerHTML
                 document.getElementById("modalRequisitionDate").innerHTML += ""+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByClassName("reqDate")[0].innerHTML
                 document.getElementById("modalDaysLeft").innerHTML += ""+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByClassName("daysLeft")[0].innerHTML
                 document.getElementById("modalFine").innerHTML += ""+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByClassName("fine")[0].innerHTML
+                document.getElementById("modalRequisitionId").innerHTML += ""+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByClassName("id")[0].innerHTML
             })
         }
     //5. ESCOLHER BIBLIOTECA ONDE ENTREGAR O LIVRO
@@ -95,7 +99,7 @@ window.onload = function(){
             tblBibliotecaSelect.innerHTML += "<option value='"+arrayBibliotecas[i]._libraryId+"'>"+arrayBibliotecas[i]._adress+"</option>"
      }
 
-     //5.2 REMOVER BIBLIOTECAS SOBRELOTADAS
+     //5.2 IMPEDIR SELEÇÃO DE BIBLIOTECAS SOBRELOTADAS
      let btnReturn = document.getElementById("btnReturn")
      let count
      
@@ -117,15 +121,32 @@ window.onload = function(){
                     alert("A biblioteca já se encontra na sua capacidade máxima!")
                 }
                 else{
-                    //ALTERAR PROPRIEDADES DO LIVRO EM QUESTÃO
+                     //ALTERAR PROPRIEDADES DO LIVRO EM QUESTÃO
+                        //ID DO LIVRO EM QUESTÃO
+                        let currentRequisitionId = document.getElementById("modalRequisitionId").innerHTML.replace("ID da requisição: ","")
+                        console.log(currentRequisitionId)
+                        for(let i=0; i<arrayRequisitions.length;i++){
+                            if (arrayRequisitions[i]._requisitionId == currentRequisitionId){
+                                for(let j=0; j<arrayLivros.length; j++){
+                                    if(arrayLivros[j]._bookId == arrayRequisitions[i]._bookId){
+                                        arrayLivros[j]._libraryId = tblBibliotecaSelect.value
+                                        //COMETER LIVRO À LOCALSTORAGE
+                                        localStorage.bookStorage = JSON.stringify(arrayLivros)
+                                    }
+                                }
+                            }
+                         //REMOVER REQUISIÇÂO
+                            arrayRequisitions.splice(i,1)
+                            console.log("abc")
+                            //REMOVER REQUISIÇÃO DA LOCALSTORAGE
+                            localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+
+                        }
+                        
                     
-                    //FECHAR MODAL
+                    //DAR REFRESH À PÁGINA
+                    location.reload()
 
-                    //ATUALIZAR REQUISIÇÕES
-
-                    //ATUALIZAR TABELA DE REQUISIÇÕES
-
-                    //ATUALIZAR CONTADOR DE LIVROS ATUALMENTE REQUISITADOS PELO USER
 
                 }
             }
