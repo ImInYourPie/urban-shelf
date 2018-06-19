@@ -37,6 +37,12 @@ window.onload = function () {
     let sortingFilter = document.getElementById("sortingFilter");
     let sortingForm = document.getElementById("sortingForm");
 
+
+
+
+
+
+    // TODO FILTERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // ADD OPTIONS TO SELECTS
     // CATEGORY SELECT
     categoryFilter.innerHTML += "<option value='' disabled selected>Filtrar</option>";
