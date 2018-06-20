@@ -119,17 +119,17 @@ function testBooks() {
      702, "Médio", "", "2018-02-01", 2, [0, 75], "");
      arrayLivros.push(newBook13);
 
-     let newBook14 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook14 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Bom", "", "2018-03-01", 2, [0, 40], "");
      arrayLivros.push(newBook14);
 
-     let newBook15 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook15 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Médio", "", "2018-03-01", 4, [0, 30], "");
      arrayLivros.push(newBook15);
 
-     let newBook16 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook16 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Médio", "", "2018-03-01", 2, [0, 30], "");
      arrayLivros.push(newBook16);
@@ -1157,22 +1157,22 @@ function sortByScoreUp() {
 
 // SORT BY RELEASE DATE BY MOST RECENT
 function sortByReleaseDateDown(){
-    arrayLivros.sort((a, b) => b._releaseDate - a._releaseDate);
+    arrayLivros.sort((a, b) => Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
 }
 
 // SORT BY RELEASE DATE BY OLDEST
 function sortByReleaseDateUp(){
-    arrayLivros.sort((a, b) => a._releaseDate - b._releaseDate);
+    arrayLivros.sort((a, b) => Date.parse(a._releaseDate) - Date.parse(b._releaseDate));
 }
 
 // SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED
 function sortByDonationDateDown(){
-    arrayLivros.sort((a, b) => b._donationDate > a._donationDate);
+    arrayLivros.sort((a, b) => b._donationDate - a._donationDate);
 }
 
 // SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
 function sortByDonationDateUp(){
-    arrayLivros.sort((a, b) => a._donationDate > b._donationDate);
+    arrayLivros.sort((a, b) => a._donationDate - b._donationDate);
 }
 
 // CALCULATE FULLSCORE
