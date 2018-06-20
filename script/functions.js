@@ -1020,7 +1020,10 @@ if (navBibliotecas) {
     if(whereDiv){
         whereDiv.style.display = "none";
     }
-    navNotifications.style.display = "block";
+    if (navNotifications) {
+        navNotifications.style.display = "block"; 
+    }
+    
 }
 
 function loadOperatorPage() {
@@ -1077,7 +1080,10 @@ function loadOperatorPage() {
     if(whereDiv){
         whereDiv.style.display = "none";
     }
-    navNotifications.style.display = "block";
+    if (navNotifications) {
+        navNotifications.style.display = "block"; 
+    }
+    
 
 }
 
