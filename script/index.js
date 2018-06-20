@@ -532,11 +532,11 @@ class Comment{
     
 }
 
-class Notification{
+class BookNotification{
     constructor(userId, bookTitle){
         this.userId = userId;
         this.bookTitle = bookTitle;
-        this._notificationId = Notification.getLastId() + 1;
+        this._notificationId = BookNotification.getLastId() + 1;
 
     }
     // USERID PROPERTY

@@ -15,6 +15,7 @@ window.onload = function () {
 
     getStoredRequisitions();
     getStoredBibliotecas();
+    getStoredNotifications();
     
 
 
@@ -42,23 +43,7 @@ window.onload = function () {
     function feedBookInfo() {
     getBookPageValues();
 
-    //EVENT LISTENER FOR "REQUISITAR" BUTTON
-    let notificationRequestBtn = document.getElementById("notificationRequestBtn")
-
-    notificationRequestBtn.addEventListener("click", function(){
-        //VERIFICAR SE ESTE USER JÁ TEM NOTIFICAÇÃO PARA ESTE TÍTULO
-        let hasBookNotification = false
-
-        for(let i=0; i<arrayNotifications.length;i++){
-            if(arrayNotifications[i]._bookTitle == bookTitle){
-                hasBookNotification = true
-            }
-        }
-        //CRIAR NOTIFICAÇÃO
-            //PUSHAR PARA ARRAY DE NOTIFICAÇÕES
-
-            //COMETER PRA LOCAL STORAGE
-    })
+    
     
 
     // BOOK VALUES VARS
@@ -74,8 +59,9 @@ window.onload = function () {
     let bookCategory = document.getElementById("bookCategory");
     let bookTags = document.getElementById("bookTags");
     let bookSynopsis = document.getElementById("bookSynopsis");
-    
-    
+
+   
+  
      
     
     bookPageBookCover.src = pageBookValues._cover;
@@ -106,9 +92,74 @@ window.onload = function () {
 
     bookSynopsis.innerHTML = pageBookValues._synopsis;
     
-         
 }
 
+
+// let notificationRequestBtn = document.getElementById("notificationRequestBtn")
+//FUNÇÃO PRA VERIFICAR SE O USER JÁ TENS NOTIFICAÇÕES PRA ESTE TITULO
+    function checkNotification(){
+        let hasBookNotification = false
+        
+                for(let i=0; i<arrayNotifications.length;i++){
+                    if(arrayNotifications[i]._bookTitle == bookTitle.innerHTML && arrayNotifications[i]._userId == login.id){ 
+                        hasBookNotification = true
+                    }
+                }
+    
+                if(hasBookNotification){
+                    notificationRequestBtn.innerHTML = "Remover notificação"
+                    document.getElementById("alreadyRequestedHeader").innerText = "Será notificado quando este título estiver disponível para requisição."
+
+                        //REMOVER EVENT LISTENER PRA CRIAR NOTIFICAÇÃO
+                        notificationRequestBtn.removeEventListener("click", function(){
+                            let newNotification = new BookNotification(login.id,bookTitle.innerHTML)
+                            
+                             arrayNotifications.push(newNotification)
+                             localStorage.notificationStorage = JSON.stringify(arrayNotifications)
+                             checkNotification();
+                         })
+                         //ADICIONAR EVENT LISTENER PRA REMOVER NOTIFICAÇÃO
+                         notificationRequestBtn.addEventListener("click", function(){
+                            for(let i= 0; i< arrayNotifications.length; i++ ){
+                                if(arrayNotifications[i]._bookTitle == bookTitle.innerHTML && arrayNotifications[i]._userId == login.id){
+                                    arrayNotifications.splice(i,1)
+
+                                    localStorage.notificationStorage =JSON.stringify(arrayNotifications)
+                                    checkNotification();
+                                }
+                            }
+                         })
+
+                    
+                }
+
+                else{
+                    notificationRequestBtn.innerHTML = "Notificar"
+                    document.getElementById("alreadyRequestedHeader").innerText = "Este livro já se encontra requisitado."
+
+                    //REMOVER EVENT LISTENER PRA REMOVER NOTIFICAÇÃO
+                    notificationRequestBtn.removeEventListener("click", function(){
+                        for(let i= 0; i< arrayNotifications.length; i++ ){
+                            if(arrayNotifications[i]._bookTitle == bookTitle.innerHTML && arrayNotifications[i]._userId == login.id){
+                                arrayNotifications.splice(i,1)
+
+                                localStorage.notificationStorage =JSON.stringify(arrayNotifications)
+                                checkNotification();
+                            }
+                        }
+                     })
+                     //ADICIONAR EVENT LISTENER PRA CRIAR NOTIFICAÇÃO
+                     notificationRequestBtn.addEventListener("click", function(){
+                        let newNotification = new BookNotification(login.id,bookTitle.innerHTML)
+
+                        arrayNotifications.push(newNotification)
+                        localStorage.notificationStorage = JSON.stringify(arrayNotifications)
+                        checkNotification();
+                     })
+                }
+    }
+
+    checkNotification()
 
 
 // SCORE INPUT EVENTS

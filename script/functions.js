@@ -208,6 +208,16 @@ function getStoredNotifications() {
     }
 }
 
+// DISPLAY CURRENT USER NOTIFICATIONS
+function showUserNotifications(){ //INCOMPLETO////////////////////////////
+    getStoredNotifications();
+    for(let i=0; i<arrayNotifications.length;i++){
+        if(arrayNotifications[i]._userId == login.id){
+            document.getElementById("notificationDropDown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
+        }
+    }
+}
+
 
 
 
