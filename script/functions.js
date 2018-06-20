@@ -223,6 +223,8 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
                         catalogBookCount++
                         for(let k=0; k<arrayRequisitions.length;k++){
                             if(arrayRequisitions[k]._bookId == arrayLivros[j]._bookId){
+                                console.log("arrayRequisitions[k]._bookId"+ arrayRequisitions[k]._bookId)
+                                console.log("arrayLivros[j]._bookId"+arrayLivros[j]._bookId)
                                 requisitionedBookCount++
                                 
                             }

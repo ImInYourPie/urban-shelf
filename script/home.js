@@ -2,7 +2,9 @@ window.onload = function (){
     getStoredBooks();
     getStoredTags();
     getStoredCategorias();
-
+    getStoredRequisitions();
+   
+    
 
 
     // TEST
@@ -31,6 +33,9 @@ window.onload = function (){
 
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
+   
+    
+    
 
     // CALL LOGOUT FUNCTION
     allowLogout();
@@ -88,6 +93,7 @@ window.onload = function (){
             loginUser(); 
             // checkLogginStorage();
             $('#loginModal').modal('hide');
+            showUserNotifications();
 
         } else{
             inputEmailLogin.setAttribute("class", "form-control col-md-12 is-invalid");

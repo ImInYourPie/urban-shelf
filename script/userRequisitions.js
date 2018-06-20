@@ -7,6 +7,7 @@ window.onload = function(){
     loginUser(); //EFETUAR LOGIN SE ESTE ESTIVER EM MEMÓRIA
     getStoredRequisitions();
     getStoredBooks();
+    showUserNotifications();
 
     //1. INSERIR NOME DO UTILIZADOR NA NAVBAR E NO CABEÇALHO
     let requisitionsHeader = document.getElementById("requisitionsHeader")
@@ -132,15 +133,16 @@ window.onload = function(){
                                         arrayLivros[j]._libraryId = tblBibliotecaSelect.value
                                         //COMETER LIVRO À LOCALSTORAGE
                                         localStorage.bookStorage = JSON.stringify(arrayLivros)
-                                         //REMOVER REQUISIÇÂO
-                                        arrayRequisitions.splice(i,1)
-                                        console.log("abc")
-                                         //REMOVER REQUISIÇÃO DA LOCALSTORAGE
-                                        localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
-                                         //DAR REFRESH À PÁGINA
-                                        location.reload()
                                     }
                                 }
+                                 //REMOVER REQUISIÇÂO
+                                 arrayRequisitions.splice(i,1);
+                                 console.log(currentRequisitionId)
+                                 console.log("abc")
+                                  //REMOVER REQUISIÇÃO DA LOCALSTORAGE
+                                 localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+                                  //DAR REFRESH À PÁGINA
+                                 location.reload()
                             }
                            
 

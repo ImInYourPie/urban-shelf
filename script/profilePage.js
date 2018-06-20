@@ -3,4 +3,5 @@ window.onload = function(){
     loginUser();
     allowLogout();
     changeDefaultPhoto();
+    showUserNotifications();
 }

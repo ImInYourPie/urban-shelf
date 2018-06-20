@@ -5,6 +5,8 @@ window.onload = function () {
     getStoredBooks();
     getStoredBibliotecas();
     getStoredCategorias();
+    getStoredRequisitions();
+    showUserNotifications();
     
     
     // VARS
