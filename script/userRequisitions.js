@@ -137,6 +137,8 @@ window.onload = function(){
                                         console.log("abc")
                                          //REMOVER REQUISIÇÃO DA LOCALSTORAGE
                                         localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+                                         //DAR REFRESH À PÁGINA
+                                        location.reload()
                                     }
                                 }
                             }
@@ -145,8 +147,7 @@ window.onload = function(){
                         }
                         
                     
-                    //DAR REFRESH À PÁGINA
-                    location.reload()
+                   
 
 
                 }
