@@ -20,60 +20,42 @@
     <!-- SCRIPT reference -->
     <script src="script/functions.js"></script>
     <script src="script/index.js"></script>
-    <script src="script/bibliotecas.js"></script>
-
+    <script src="script/operador.js"></script>
 
 </head>
   <body>
 
     <!-- NAVBAR -->
-      <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
-        <a id="desktop" class="navbar-brand" href="home.html"><img src="images/urbanShelf200x40white.png" alt="urban shelf"></a>
-        <a id="mobile" class="navbar-brand" href="home.html"><img src="images/logo_alternate(white).png" alt="urban shelf"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-        
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li id="navNotifications" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdownCounter" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right"  id="notificationsDropdown" aria-labelledby="navbarDropdown">
-                      
-                    </div>
-                 </li>
-              <li class="nav-item">
-                <a id="navCatalog" class="nav-link" href="catalog.html">Catálogo</a>
-              </li>
-              <li class="nav-item">
-                <a id="navBibliotecas" class="nav-link" href="bibliotecas.html">Bibliotecas</a>
-              </li>
-              
-                  <li id="navDropdownUser" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <img id="userPhoto" src="images/userIcon(white).png" alt="">User
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                       <a id="dropdownUserPage" class="dropdown-item" href="profilePage.html">Perfil</a>
-                       <a id="adminDropdownPanel" class="dropdown-item" href="adminUsers.html">Painel de Administrador</a>
-                       <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
-                       <div class="dropdown-divider"></div>
-                       <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
-                    </div>
-                 </li>
-              
-              
-              
-            </ul>
-          </div>
-        </nav>
-
-        <!-- MAP -->
-        <div class="ml-0 mr-0">
-            <div id="myMap" style="height: 650px; width: 100%"></div>
-         </div>
+    <nav id="userNavbar" class="navbar navbar-expand-lg sticky-top">
+      <a id="desktop" class="navbar-brand" href="operador.html"><img src="images/urbanShelf200x40white.png" alt=""></a>
+      <a id="mobile" class="navbar-brand" href="home.html"><img src="images/logo_alternate(white).png" alt="urban shelf"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#operadorNavCollapse" aria-controls="operadorNavCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="operadorNavCollapse">
+         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="operadorDoar.html">Doar Livro</a>
+            </li>
+            <li class="nav-item active">
+               <a class="nav-link" href="operador.html">Gestão</a>
+            </li>
+            <li id="navDropdownUser" class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img id="userPhoto" src="images/userIcon(white).png" alt="">User
+               </a>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="userProfilePage.html">Perfil</a>
+                  <a id="adminDropdownPanel" class="dropdown-item" href="admin.html">Painel de Administrador</a>
+                    <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
+                    <a id="homeDropdwonPanel" class="dropdown-item" href="home.html">Ínicio</a>
+                  <div class="dropdown-divider"></div>
+                  <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </nav>
 
       <!-- FOOTER -->
         <footer id="myFooter">
@@ -103,20 +85,6 @@
           </div>
         </footer>
 
-
-        <!-- MAP SCRIPT -->
-      <script>
-        let map;
-        let myMap = document.getElementById("myMap");
-        function initMap() {
-            let mapProp= {
-                center:new google.maps.LatLng(41.350607,-8.743372),
-                zoom:12,
-            }
-            map = new google.maps.Map(myMap, mapProp);
-        }        
-     </script>
-
       
 
     <!-- Optional JavaScript -->
@@ -124,8 +92,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- MAP SCRIPT -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcYng9pBfj_LmDthyiydpfyy3bftchOmg&callback=initMap" async></script> 
     <!-- FONT -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </body>
