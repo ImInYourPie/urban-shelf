@@ -6,6 +6,7 @@ let arrayLivros = [];
 let arrayBibliotecas = [];
 let arrayRequisitions = [];
 let arrayComments = [];
+let arrayNotifications = [];
 let pageBookValues;
 let login;
 
@@ -529,6 +530,39 @@ class Comment{
     }
 
     
+}
+
+class Notification{
+    constructor(userId, bookTitle){
+        this.userId = userId;
+        this.bookTitle = bookTitle;
+        this._notificationId = Notification.getLastId() + 1;
+
+    }
+    // USERID PROPERTY
+    get userId(){
+        return this._userId;
+    }
+    set userId(newUserId){
+        this._userId = newUserId;
+    }
+
+    // BOOKTITLE PROPERTY
+    get bookTitle(){
+        return this._bookTitle;
+    }
+    set bookTitle(newBookTitle){
+        this._bookTitle = newBookTitle;
+    }
+
+    // ID GENERATOR
+    static getLastId() {
+        let lastId = 0
+        if (arrayNotifications.length > 0) {
+            lastId = arrayNotifications[arrayNotifications.length - 1]._notificationId;
+        }        
+        return lastId;
+    }
 }
 
 

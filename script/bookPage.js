@@ -41,6 +41,24 @@ window.onload = function () {
     // FUNCTION TO REPLACE VALUES IN BOOK PAGE
     function feedBookInfo() {
     getBookPageValues();
+
+    //EVENT LISTENER FOR "REQUISITAR" BUTTON
+    let notificationRequestBtn = document.getElementById("notificationRequestBtn")
+
+    notificationRequestBtn.addEventListener("click", function(){
+        //VERIFICAR SE ESTE USER JÁ TEM NOTIFICAÇÃO PARA ESTE TÍTULO
+        let hasBookNotification = false
+
+        for(let i=0; i<arrayNotifications.length;i++){
+            if(arrayNotifications[i]._bookTitle == bookTitle){
+                hasBookNotification = true
+            }
+        }
+        //CRIAR NOTIFICAÇÃO
+            //PUSHAR PARA ARRAY DE NOTIFICAÇÕES
+
+            //COMETER PRA LOCAL STORAGE
+    })
     
 
     // BOOK VALUES VARS

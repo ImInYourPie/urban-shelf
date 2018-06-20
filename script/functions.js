@@ -201,6 +201,14 @@ function getStoredComments() {
 }
 
 
+// GET STORED NOTIFICATIONS
+function getStoredNotifications() {
+    if(localStorage.notificationStorage){
+        arrayNotifications = JSON.parse(localStorage.notificationStorage);
+    }
+}
+
+
 
 
 // ARRAYTAGS GET LOCAL STORAGE
