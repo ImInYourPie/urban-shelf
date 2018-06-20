@@ -1235,20 +1235,12 @@ function sortByReleaseDateUp(){
 
 // SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED
 function sortByDonationDateDown(){
-<<<<<<< HEAD
     arrayLivros.sort((a, b) =>  Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
-=======
-    arrayLivros.sort((a, b) => b._donationDate > a._donationDate);
->>>>>>> 4e618e79b96ebbdbdabc09b3f8cbcd7fe428e624
 }
 
 // SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
 function sortByDonationDateUp(){
-<<<<<<< HEAD
     arrayLivros.sort((a, b) =>  Date.parse(a._releaseDate) - Date.parse(b._releaseDate));
-=======
-    arrayLivros.sort((a, b) => a._donationDate > b._donationDate);
->>>>>>> 4e618e79b96ebbdbdabc09b3f8cbcd7fe428e624
 }
 
 // CALCULATE FULLSCORE
