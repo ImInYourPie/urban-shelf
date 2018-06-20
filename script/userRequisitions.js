@@ -132,14 +132,15 @@ window.onload = function(){
                                         arrayLivros[j]._libraryId = tblBibliotecaSelect.value
                                         //COMETER LIVRO À LOCALSTORAGE
                                         localStorage.bookStorage = JSON.stringify(arrayLivros)
+                                         //REMOVER REQUISIÇÂO
+                                        arrayRequisitions.splice(i,1)
+                                        console.log("abc")
+                                         //REMOVER REQUISIÇÃO DA LOCALSTORAGE
+                                        localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
                                     }
                                 }
                             }
-                         //REMOVER REQUISIÇÂO
-                            arrayRequisitions.splice(i,1)
-                            console.log("abc")
-                            //REMOVER REQUISIÇÃO DA LOCALSTORAGE
-                            localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+                           
 
                         }
                         
