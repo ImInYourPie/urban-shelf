@@ -16,6 +16,7 @@ window.onload = function () {
     getStoredRequisitions();
     getStoredBibliotecas();
     getStoredNotifications();
+    showUserNotifications();
     
 
 
@@ -374,9 +375,19 @@ requisitionButton.addEventListener("click", function (event) {
         alert(errorMsg);
     }
     else{
+        //REGISTAR NOVA REQUISITION
         let newRequisiton = new Requisition(pageBookValues._bookId, login.id);
         arrayRequisitions.push(newRequisiton);
         localStorage.requisitionStorage = JSON.stringify(arrayRequisitions);
+
+        //APAGAR NOTIFICAÇÃO DESTE TITULO CASO EXISTA
+        for(let i=0; i<arrayNotifications.length; i++){
+            if(arrayNotifications[i]._userId == login.id && bookTitle.innerHTML == arrayNotifications[i]._bookTitle){
+                arrayNotifications.splice(i,1)
+                localStorage.notificationStorage = JSON.stringify(arrayNotifications)
+            }
+        }
+        //IR PARA A PAGINA DAS REQUISIÇÕES
         window.location = "userRequisitions.html";
     }   
 

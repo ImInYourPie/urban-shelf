@@ -213,7 +213,42 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
     getStoredNotifications();
     for(let i=0; i<arrayNotifications.length;i++){
         if(arrayNotifications[i]._userId == login.id){
-            document.getElementById("notificationDropDown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
+            //VERIFICAR SE O TÍTULO ESTÁ DISPONÍVEL
+            	let bookIsAvailable = false
+                let catalogBookCount=0
+                let requisitionedBookCount=0
+
+                for(let j = 0; j<arrayLivros.length; j++){
+                    if(arrayLivros[j]._title == arrayNotifications[i]._bookTitle){
+                        catalogBookCount++
+                        for(let k=0; k<arrayRequisitions.length;k++){
+                            if(arrayRequisitions[k]._bookId == arrayLivros[j]._bookId){
+                                requisitionedBookCount++
+                                
+                            }
+                        }
+                    }
+                }
+                //DIFERENÇA ENTRE LIVROS COM O MESMO TITULO DISPONIVEIS NO CATALOGO, E OS QUE ESTÃO REQUISITADOS
+                console.log("catalogBookCount = "+catalogBookCount)
+                console.log("requisitionedBookCount = "+requisitionedBookCount)
+                console.log("catalogBookCount - requisitionedBookCount = "+(catalogBookCount - requisitionedBookCount))
+                
+                if(catalogBookCount - requisitionedBookCount > 0){
+                    bookIsAvailable = true
+                }
+
+        //DAR DISPLAY ÁS NOTIFICAÇÕES
+                if(bookIsAvailable){
+                    document.getElementById("notificationsDropdown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
+                    document.getElementById("NotificationDropDownItem"+i).addEventListener("click",function(){
+                        arrayNotifications.splice(i, 1)
+                        getStoredNotifications()
+                    })
+                    document.getElementById("notificationsDropdownCounter").innerHTML = document.getElementById("notificationsDropdown").getElementsByTagName("a").length + '   <i class="fas fa-bell"></i>'
+                }
+                console.log(bookIsAvailable)
+            
         }
     }
 }
