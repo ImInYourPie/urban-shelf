@@ -119,17 +119,17 @@ function testBooks() {
      702, "Médio", "", "2018-02-01", 2, [0, 75], "");
      arrayLivros.push(newBook13);
 
-     let newBook14 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook14 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Bom", "", "2018-03-01", 2, [0, 40], "");
      arrayLivros.push(newBook14);
 
-     let newBook15 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook15 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Médio", "", "2018-03-01", 4, [0, 30], "");
      arrayLivros.push(newBook15);
 
-     let newBook16 = new Book("Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
+     let newBook16 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap","https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
      "2017-05-01", 9, [14], " FCA",
      208, "Médio", "", "2018-03-01", 2, [0, 30], "");
      arrayLivros.push(newBook16);
@@ -246,10 +246,13 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
                 }
 
         //DAR DISPLAY ÁS NOTIFICAÇÕES
-                if(bookIsAvailable){
+                if(bookIsAvailable){ //INCOMPLETO//////////////////////////////
                     document.getElementById("notificationsDropdown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
                     document.getElementById("NotificationDropDownItem"+i).addEventListener("click",function(){
                         arrayNotifications.splice(i, 1)
+                        setStorageValuesBook(document.getElementById("NotificationDropDownItem"+i) );
+                        getBookPageValues();
+                        window.location = "bookPage.html"
                         getStoredNotifications()
                     })
                     document.getElementById("notificationsDropdownCounter").innerHTML = document.getElementById("notificationsDropdown").getElementsByTagName("a").length + '   <i class="fas fa-bell"></i>'
@@ -1222,22 +1225,30 @@ function sortByScoreUp() {
 
 // SORT BY RELEASE DATE BY MOST RECENT
 function sortByReleaseDateDown(){
-    arrayLivros.sort((a, b) => Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
+    arrayLivros.sort((a, b) => b._releaseDate - a._releaseDate);
 }
 
 // SORT BY RELEASE DATE BY OLDEST
 function sortByReleaseDateUp(){
-    arrayLivros.sort((a, b) => Date.parse(a._releaseDate) - Date.parse(b._releaseDate));
+    arrayLivros.sort((a, b) => a._releaseDate - b._releaseDate);
 }
 
 // SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED
 function sortByDonationDateDown(){
+<<<<<<< HEAD
     arrayLivros.sort((a, b) =>  Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
+=======
+    arrayLivros.sort((a, b) => b._donationDate > a._donationDate);
+>>>>>>> 4e618e79b96ebbdbdabc09b3f8cbcd7fe428e624
 }
 
 // SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
 function sortByDonationDateUp(){
+<<<<<<< HEAD
     arrayLivros.sort((a, b) =>  Date.parse(a._releaseDate) - Date.parse(b._releaseDate));
+=======
+    arrayLivros.sort((a, b) => a._donationDate > b._donationDate);
+>>>>>>> 4e618e79b96ebbdbdabc09b3f8cbcd7fe428e624
 }
 
 // CALCULATE FULLSCORE

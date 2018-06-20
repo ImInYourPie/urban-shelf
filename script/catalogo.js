@@ -61,27 +61,7 @@ window.onload = function () {
     }
 
     // LIBRARY SELECT
-    sortingFilter.addEventListener("change", function (event) {
-        event.preventDefault();
-        if (sortingFilter.value == "rateDown") {
-            sortByScoreDown();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-        if (sortingFilter.value == "rateUp") {
-            sortByScoreUp();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-
-        if (sortingFilter.value == "dateDown") {
-            sortByReleaseDateDown();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-
-        if (sortingFilter.value == "dateUp") {
-            sortByReleaseDateUp();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-    })
+    sortingFilter.innerHTML += "<option value='' disabled selected>Ordenar por</option>";
     
         
 

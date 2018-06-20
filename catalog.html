@@ -56,7 +56,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                      <a id="dropdownUserPage" class="dropdown-item" href="profilePage.html">Perfil</a>
-                     <a id="adminDropdownPanel" class="dropdown-item" href="adminUsers.html">Painel de Administrador</a>
+                     <a id="adminDropdownPanel" class="dropdown-item" href="admin.html">Painel de Administrador</a>
                      <a id="operadorDropdownPanel" class="dropdown-item" href="operadorDoar.html">Painel de Operador</a>
                      <div class="dropdown-divider"></div>
                      <a id="logoutButton" class="dropdown-item" href="#">Log Out</a>
@@ -87,35 +87,38 @@
                     <br>
                     <div class="row">
                       <div class="col-md-6">
-                          <form id="categoryFilterForm" action="">
                         <div class="row">
-                          <div class="col-md-5 form-group">
-                            
-                          
+                          <div class="col-md-6 form-group">
+                            <form id="categoryFilterForm" action="">
+                                <label for="categoryFilter">Categoria</label>
                             <select class="form-control" name="" id="categoryFilter">
                               
                             </select>
+                          </form>
                           </div>
-                          <div class="col-md-5 form-group">
+                          <div class="col-md-6 form-group">
                             <form id="libraryFilterForm" action="">
-                              
+                              <label for="libraryFilter">Biblioteca</label>
                             <select class="form-control" name="" id="libraryFilter">
                               
                             </select>
+<<<<<<< HEAD
                           
                           </div>
                           <div class="col-md-2 pb-2">
                             
                             
                             <button type="submit" class="btn">Filtrar</button>
+=======
+                          </form>
+>>>>>>> 4e618e79b96ebbdbdabc09b3f8cbcd7fe428e624
                           </div>
                         </div>
-                      </form>
                       </div>
                       
                     </div>
                     <div class="row">
-                      <div class="col-md-8 form-group">
+                      <div class="col-md-6 form-group">
                         <!-- SEARCHBAR -->
                             <form id="searchForm" class="form-inline">
                                 <input id="searchBar" class="form-control" type="search" placeholder="Procurar..." aria-label="Search">
@@ -124,17 +127,15 @@
                             <button id="clearBtn" class="btn btn-danger btn-outline-primary my-2 my-sm-0" type="" style="display:none" ><i class="far fa-times-circle"></i></button>
                       </div>
                       
-                      
+                      <div class="col-md-2">
+                        
+                      </div>
                       <div class="col-md-2">
                         </div>
                       <div class="col-md-2 pb-2">
                           <form id="sortingForm" action="">
                             <select class="form-control" name="" id="sortingFilter">
-                              <option value="" disabled selected>Ordenar por</option>
-                              <option value="rateDown">Mais Pontuados <i class="fas fa-sort-up"></i></option>
-                              <option value="rateUp">Menos Pontuados<i class="fas fa-sort-down"></i></option>
-                              <option value="dateDown">Mais Recentes<i class="fas fa-sort-up"></i></option>
-                              <option value="dateUp">Mais Antigos</option>
+                              
                             </select>
                           </form>
                       </div>
