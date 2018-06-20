@@ -201,6 +201,11 @@ function getStoredComments() {
 }
 
 
+
+
+
+
+
 // GET STORED NOTIFICATIONS
 function getStoredNotifications() {
     if(localStorage.notificationStorage){
@@ -916,6 +921,7 @@ function loadUserPage() {
     let infoDiv = document.getElementById("infoDiv");
     let welcomeJumbotron = document.getElementById("welcomeJumbotron");
     let whereDiv = document.getElementById("whereDiv");
+    let navNotifications = document.getElementById("navNotifications");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -954,6 +960,7 @@ function loadUserPage() {
     if(whereDiv){
         whereDiv.style.display = "none";
     }
+    navNotifications.style.display = "block";
 
 
 }
@@ -972,6 +979,7 @@ function loadAdminPage() {
     let infoDiv = document.getElementById("infoDiv");
     let welcomeJumbotron = document.getElementById("welcomeJumbotron");
     let whereDiv = document.getElementById("whereDiv");
+    let navNotifications = document.getElementById("navNotifications");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -1009,7 +1017,7 @@ if (navBibliotecas) {
     if(whereDiv){
         whereDiv.style.display = "none";
     }
-
+    navNotifications.style.display = "block";
 }
 
 function loadOperatorPage() {
@@ -1026,6 +1034,7 @@ function loadOperatorPage() {
     let infoDiv = document.getElementById("infoDiv");
     let welcomeJumbotron = document.getElementById("welcomeJumbotron");
     let whereDiv = document.getElementById("whereDiv");
+    let navNotifications = document.getElementById("navNotifications");
 
     if (navLogin) {
         navLogin.style.display = "none";
@@ -1065,6 +1074,7 @@ function loadOperatorPage() {
     if(whereDiv){
         whereDiv.style.display = "none";
     }
+    navNotifications.style.display = "block";
 
 }
 
@@ -1222,12 +1232,12 @@ function sortByReleaseDateUp(){
 
 // SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED
 function sortByDonationDateDown(){
-    arrayLivros.sort((a, b) => b._donationDate - a._donationDate);
+    arrayLivros.sort((a, b) =>  Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
 }
 
 // SORT BY DONATION DATE BY OLDEST | DONT KNOW IF NEEDED
 function sortByDonationDateUp(){
-    arrayLivros.sort((a, b) => a._donationDate - b._donationDate);
+    arrayLivros.sort((a, b) =>  Date.parse(a._releaseDate) - Date.parse(b._releaseDate));
 }
 
 // CALCULATE FULLSCORE

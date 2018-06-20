@@ -95,7 +95,7 @@ ul{
 }
 
 #clearBtn{
-    width: 50%;
+    width: 29%;
     background-color: rgb(0, 21, 100) !important;
 
 }
@@ -316,6 +316,9 @@ footer{
     width: 100%;
 }
 
+#notificationRequestBtn{
+    width: 100% !important;
+}
 
 #inputComment{
     width: 100%;
@@ -365,8 +368,13 @@ footer{
     height: 100%;
 }
 
+.card-body{
+    font-size: 0.8em;
+}
+
 .card-footer{
     text-align: center;
+    
 }
 
 

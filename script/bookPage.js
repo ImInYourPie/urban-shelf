@@ -108,7 +108,7 @@ window.onload = function () {
                 }
     
                 if(hasBookNotification){
-                    notificationRequestBtn.innerHTML = "Remover notificação"
+                    notificationRequestBtn.innerHTML = "<i class='fas fa-bell-slash'></i>"
                     document.getElementById("alreadyRequestedHeader").innerText = "Será notificado quando este título estiver disponível para requisição."
 
                         //REMOVER EVENT LISTENER PRA CRIAR NOTIFICAÇÃO
@@ -135,7 +135,7 @@ window.onload = function () {
                 }
 
                 else{
-                    notificationRequestBtn.innerHTML = "Notificar"
+                    notificationRequestBtn.innerHTML = "<i class='fas fa-bell'></i>"
                     document.getElementById("alreadyRequestedHeader").innerText = "Este livro já se encontra requisitado."
 
                     //REMOVER EVENT LISTENER PRA REMOVER NOTIFICAÇÃO
@@ -344,6 +344,14 @@ requisitionButton.addEventListener("click", function (event) {
     let requisitionCount = 0;
     let errorMsg = "";
     let hasFine = false;
+
+
+    // CHECK IF USERTYPE != 2 (USER)
+    if (loginUser.typeUser != 2) {
+        errorMsg += "Apenas utilizadores podem requisitar livros!";
+    }
+
+
 
     // VALIDATIONS
     // CHECK ALL ACTIVE REQUISITIONS OF LOGGED USER
