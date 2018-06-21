@@ -1323,12 +1323,12 @@ function sortByScoreUp() {
 
 // SORT BY RELEASE DATE BY MOST RECENT
 function sortByReleaseDateDown(){
-    arrayLivros.sort((a, b) => b._releaseDate - a._releaseDate);
+    arrayLivros.sort((a, b) => Date.parse(b._releaseDate) - Date.parse(a._releaseDate));
 }
 
 // SORT BY RELEASE DATE BY OLDEST
 function sortByReleaseDateUp(){
-    arrayLivros.sort((a, b) => a._releaseDate - b._releaseDate);
+    arrayLivros.sort((a, b) => Date.parse(a._releaseDate) - Date.parse(b._releaseDate) );
 }
 
 // SORT BY DONATION DATE BY MOST RECENT | DONT KNOW IF NEEDED

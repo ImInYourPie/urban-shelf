@@ -32,9 +32,8 @@ window.onload = function () {
 
 
     // FILTER FUNCTIONS
-    let categoryFilterForm = document.getElementById("categoryFilterForm");
     let categoryFilter = document.getElementById("categoryFilter");
-    let lirbraryFilterForm = document.getElementById("libraryFilterForm");
+    let filterForm = document.getElementById("filterForm");
     let libraryFilter = document.getElementById("libraryFilter");
     let sortingFilter = document.getElementById("sortingFilter");
     let sortingForm = document.getElementById("sortingForm");
@@ -47,22 +46,40 @@ window.onload = function () {
     // TODO FILTERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // ADD OPTIONS TO SELECTS
     // CATEGORY SELECT
-    categoryFilter.innerHTML += "<option value='' selected>Todas as categorias</option>";
+    categoryFilter.innerHTML += "<option value='todas' selected>Todas as categorias</option>";
     for (let i = 0; i < arrayCategorias.length; i++) {
         categoryFilter.innerHTML += "<option value='" + arrayCategorias[i]._categoryId + "'>" + arrayCategorias[i]._nameCategory + "</option>";
         
     }
 
     // LIBRARY SELECT
-    libraryFilter.innerHTML += "<option value='' selected>Todas as bibliotecas</option>";
+    libraryFilter.innerHTML += "<option value='todas' selected>Todas as bibliotecas</option>";
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         libraryFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
         
     }
-
-    // LIBRARY SELECT
-    sortingFilter.innerHTML += "<option value='' disabled selected>Ordenar por</option>";
     
+
+    // FILTER EVENT
+    filterForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        arrayFilteredBooks.length = 0;
+
+        if ((categoryFilter.value == "todas") && (libraryFilter.value == "todas"))  {
+            feedBooks(startingCount = 0, finishCount = 11, arrayLivros);
+        }
+        else{
+            for (let i = 0; i < arrayLivros.length; i++) {
+                if ((categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == arrayLivros[i]._libraryId) || 
+                (categoryFilter.value == "todas") && (libraryFilter.value == arrayLivros[i]._libraryId) ||
+                (categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == "todas")){
+                    arrayFilteredBooks.push(arrayLivros[i]);
+                }
+                
+            }
+            feedBooks(filteredStartingCount, arrayFilteredBooks.length, arrayFilteredBooks);
+        }
+    })
         
 
     // EVENT LISTENER FOR SEARCH BAR
@@ -141,6 +158,35 @@ window.onload = function () {
         }
 
     })
+
+
+
+    // SORT SELECT
+-   sortingFilter.addEventListener("change", function (event) {
+        event.preventDefault();
+        if (sortingFilter.value == "rateDown") {
+             sortByScoreDown();
+             feedBooks(startingCount, finishCount, arrayLivros);
+        }
+        if (sortingFilter.value == "rateUp") {
+            sortByScoreUp();
+            feedBooks(startingCount, finishCount, arrayLivros);
+        }
+        if (sortingFilter.value == "dateDown") {
+           sortByReleaseDateDown();
+            feedBooks(startingCount, finishCount, arrayLivros);
+        }
+        if (sortingFilter.value == "dateUp") {
+           sortByReleaseDateUp();
+            feedBooks(startingCount, finishCount, arrayLivros);
+        }
+    })
+    
+
+
+
+
+    
 
 
 }

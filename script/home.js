@@ -3,8 +3,8 @@ window.onload = function (){
     getStoredTags();
     getStoredCategorias();
     getStoredRequisitions();
-   
-    
+    getStoredBibliotecas();
+
 
 
     // TEST
@@ -33,7 +33,9 @@ window.onload = function (){
 
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
-   
+    getStoredNotifications();
+    showUserNotifications();
+    
     
     
 

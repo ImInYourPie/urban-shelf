@@ -246,10 +246,10 @@ function getTagNames() {
         for (let j = 0; j < pageBookValues._tags.length; j++) {
             if (arrayTags[i]._tagId == pageBookValues._tags[j]) {
                 if (strHtml.length == 0) {
-                    strHtml += arrayTags[i]._nameTag ;  
+                    strHtml += arrayTags[i]._nameTag;  
                 }
                 else{
-                    strHtml += ", " + arrayTags[i]._nameTag ;
+                    strHtml += ", " + arrayTags[i]._nameTag;
                 }
 
             }
@@ -266,7 +266,7 @@ function feedCommentSection() {
     for (let i = 0; i < arrayComments.length; i++) {
         if (pageBookValues._bookId == arrayComments[i]._bookId) {
             strHtml += "<div class='row row-fluid mb-5'>" +
-                    "<div class='userCommentsPhoto col-md-2 mb-3'>";
+                    "<div class='userCommentsPhoto col-md-6 mb-3'>";
         
         for (let j = 0; j < arrayUsers.length; j++) {
             if (arrayUsers[j]._userId == arrayComments[i]._userId) {
