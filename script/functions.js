@@ -212,7 +212,7 @@ function getStoredNotifications() {
         arrayNotifications = JSON.parse(localStorage.notificationStorage);
     }
 }
-
+let a = 0
 // DISPLAY CURRENT USER NOTIFICATIONS
 function showUserNotifications(){ //INCOMPLETO////////////////////////////
     getStoredNotifications();
@@ -245,41 +245,63 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
                     bookIsAvailable = true
                 }
 
-        //DAR DISPLAY ÁS NOTIFICAÇÕES
-                let firstNotRequistionedId
+         //DAR DISPLAY ÁS NOTIFICAÇÕES
+               
+                
                 if(bookIsAvailable){ //INCOMPLETO//////////////////////////////
-                    document.getElementById("notificationsDropdown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
-                    document.getElementById("NotificationDropDownItem"+i).addEventListener("click",function(){
-                        firstNotRequistionedId = 0
-                        for(let j=arrayLivros.length-1; j>=0; j--){
-                            if(arrayNotifications[i]._bookTitle == arrayLivros[j]._title){
-                                for(let k=0; k<arrayRequisitions.length;k++){
-                                    if(arrayRequisitions[k]._bookId != arrayLivros[j]._bookId){
-                                        firstNotRequistionedId = arrayLivros[j]._bookId
-                                    }
-                                }
-                            }
-                        }
-                       
-                        // setStorageValuesBook(firstNotRequistionedId);
-                        // getBookPageValues();
-                        // feedBookInfo();
-                        // arrayNotifications.splice(i, 1)
-                        // window.location = "bookPage.html"
-                        // getStoredNotifications()
-
-                        console.log("firstNotRequistionedId= "+firstNotRequistionedId)
-                    })
-                    document.getElementById("notificationsDropdownCounter").innerHTML = document.getElementById("notificationsDropdown").getElementsByTagName("a").length + '   <i class="fas fa-bell"></i>'
+                    document.getElementById("notificationsDropdown").innerHTML+= '<a class="dropdown-item '+ arrayNotifications[i]._bookTitle+'" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
                    
+                    a = i;
+                    console.log("a: "+a)
+                   
+                    document.getElementById("notificationsDropdownCounter").innerHTML = document.getElementById("notificationsDropdown").getElementsByTagName("a").length + '   <i class="fas fa-bell"></i>'
+                    
+                    console.log(bookIsAvailable)
                 }
-                console.log(bookIsAvailable)
+                
                 
                 
         }
     }
+    for(let i=0; i<document.getElementById("notificationsDropdown").getElementsByTagName("a").length; i++){
+        
+        document.getElementById("notificationsDropdown").getElementsByTagName("a")[i].addEventListener("click", getTitle)
+    }
 }
 
+//FUNÇÃO PARA OBTER O TITULO DO LIVRO DA NOTIFICAÇÃO SELECIONADA
+function getTitle(e){
+    let firstNotRequistionedId=0
+    console.log(e.target.className)
+    console.log("hehe")
+    let q = e.target.className.indexOf(' ')
+    let titulo = e.target.className.slice(q+1, e.target.className.length)
+    console.log("titulo: "+titulo)
+    for(let j=arrayLivros.length-1; j>=0; j--){
+        if(titulo == arrayLivros[j]._title){
+            for(let k=0; k<arrayRequisitions.length;k++){
+                if(arrayRequisitions[k]._bookId == arrayLivros[j]._bookId){
+                    continue;   
+                }
+                else{
+                    firstNotRequistionedId = arrayLivros[j]._bookId
+                }
+            }   
+        }
+    }
+    
+   console.log("hehe")
+    window.location = "bookPage.html"
+    setStorageValuesBook(firstNotRequistionedId);
+    // getBookPageValues();
+    // feedBookInfo(firstNotRequistionedId);
+    
+    // arrayNotifications.splice(i, 1)
+    // getStoredNotifications()
+    // showUserNotifications()
+
+    
+}
 
 // FUNCTION TO REPLACE VALUES IN BOOK PAGE
 function feedBookInfo() {

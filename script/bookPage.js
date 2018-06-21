@@ -347,7 +347,7 @@ requisitionButton.addEventListener("click", function (event) {
 
 
     // CHECK IF USERTYPE != 2 (USER)
-    if (loginUser.typeUser != 2) {
+    if (login.typeUser != 2) {
         errorMsg += "Apenas utilizadores podem requisitar livros!";
     }
 
