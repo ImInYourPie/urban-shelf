@@ -246,25 +246,95 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
                 }
 
         //DAR DISPLAY ÁS NOTIFICAÇÕES
+                let firstNotRequistionedId
                 if(bookIsAvailable){ //INCOMPLETO//////////////////////////////
                     document.getElementById("notificationsDropdown").innerHTML+= '<a id="NotificationDropDownItem'+i+'" class="dropdown-item" href="bookPage.html">O livro "'+arrayNotifications[i]._bookTitle+'" encontra-se disponível para requisição'+'</a>'
                     document.getElementById("NotificationDropDownItem"+i).addEventListener("click",function(){
-                        arrayNotifications.splice(i, 1)
-                        setStorageValuesBook(document.getElementById("NotificationDropDownItem"+i) );
-                        getBookPageValues();
-                        window.location = "bookPage.html"
-                        getStoredNotifications()
+                        firstNotRequistionedId = 0
+                        for(let j=arrayLivros.length-1; j>=0; j--){
+                            if(arrayNotifications[i]._bookTitle == arrayLivros[j]._title){
+                                for(let k=0; k<arrayRequisitions.length;k++){
+                                    if(arrayRequisitions[k]._bookId != arrayLivros[j]._bookId){
+                                        firstNotRequistionedId = arrayLivros[j]._bookId
+                                    }
+                                }
+                            }
+                        }
+                       
+                        // setStorageValuesBook(firstNotRequistionedId);
+                        // getBookPageValues();
+                        // feedBookInfo();
+                        // arrayNotifications.splice(i, 1)
+                        // window.location = "bookPage.html"
+                        // getStoredNotifications()
+
+                        console.log("firstNotRequistionedId= "+firstNotRequistionedId)
                     })
                     document.getElementById("notificationsDropdownCounter").innerHTML = document.getElementById("notificationsDropdown").getElementsByTagName("a").length + '   <i class="fas fa-bell"></i>'
+                   
                 }
                 console.log(bookIsAvailable)
-            
+                
+                
         }
     }
 }
 
 
+// FUNCTION TO REPLACE VALUES IN BOOK PAGE
+function feedBookInfo() {
+    getBookPageValues();
 
+    
+    
+
+    // BOOK VALUES VARS
+    let bookPageBookCover = document.getElementById("bookPageBookCover");
+    let bookScore = document.getElementById("bookScore");
+    let bookTitle = document.getElementById("bookTitle");
+    let bookCondition = document.getElementById("bookCondition");
+    let bookAuthors = document.getElementById("bookAuthors");
+    let bookReleaseDate = document.getElementById("bookReleaseDate");
+    let bookPublisher = document.getElementById("bookPublisher");
+    let bookPagesNumber = document.getElementById("bookPagesNumber");
+    let bookDonationDate = document.getElementById("bookDonationDate");
+    let bookCategory = document.getElementById("bookCategory");
+    let bookTags = document.getElementById("bookTags");
+    let bookSynopsis = document.getElementById("bookSynopsis");
+
+   
+  
+     
+    
+    bookPageBookCover.src = pageBookValues._cover;
+    if (pageBookValues._scores.length != 1) {
+        bookScore.innerHTML = starRating(pageBookValues._scores);
+    }
+    else{
+        bookScore.innerHTML = "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>" +
+                "<span class='fa fa-star'></span>"
+    }
+    bookTitle.innerHTML = pageBookValues._title;
+    bookCondition.innerHTML = "Estado: " + pageBookValues._condition;
+    bookAuthors.innerHTML = "de " + pageBookValues._autor;
+    bookReleaseDate.innerHTML = "em " + pageBookValues._releaseDate;
+    bookPublisher.innerHTML = pageBookValues._publisher;
+    bookPagesNumber.innerHTML = "Nº Páginas: " + pageBookValues._numberPages;
+    bookDonationDate.innerHTML = "Doado em: " + pageBookValues._donationDate;
+    for (let i = 0; i < arrayCategorias.length; i++) {
+        if (arrayCategorias[i]._categoryId == pageBookValues._category) {
+            bookCategory.innerHTML = "Categoria: " + arrayCategorias[i]._nameCategory;
+        }
+    }
+    bookTags.innerHTML = "Tags: " + getTagNames();
+
+
+    bookSynopsis.innerHTML = pageBookValues._synopsis;
+    
+}
 
 // ARRAYTAGS GET LOCAL STORAGE
 function refreshStoredTags() {
