@@ -977,6 +977,11 @@ function loginUser() {
         if (login.typeUser == 2) {
             loadUserPage();
         }
+
+        if (document.getElementById("topBooksDiv")) {
+            document.getElementById("topBooksDiv").style.pointerEvents = "all";
+            document.getElementById("recentBooksDiv").style.pointerEvents = "all";
+        }
     }
 }
 

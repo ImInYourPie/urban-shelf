@@ -60,7 +60,7 @@ window.onload = function(){
             "<td class='reqDate'>" + arrayRequisitions[i]._requisitionDate + "</td>" + 
             "<td class='daysLeft'>" + daysLeft + "</td>" +  //NECESSÁRIO ALTERAR PARA MOSTRAR DIAS ATÉ A ENTREGA / DIAS PASSADOS DA ENTREGA
             "<td class='fine'>" + displayFine + "</td>" + 
-            '<td><button id="'+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length+'" type="button" class="btn btn-primary" style="width: 140px;" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
+            '<td><button id="'+tblRequisitions.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length+'" type="button" class="reqButton btn btn-primary" style="width: 140px;" data-toggle="modal" data-target="#bookReturnModal"> Devolver/ Pagar</button></td>' //BOTÃO PARA DEVOLVER LIVRO/ PAGAR MULTA ////////////////////////
             +"</tr>"
         } 
     }

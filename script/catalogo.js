@@ -62,11 +62,10 @@ window.onload = function () {
 
     // FILTER EVENT
     filterForm.addEventListener("submit", function (event) {
-        event.preventDefault();
         arrayFilteredBooks.length = 0;
 
         if ((categoryFilter.value == "todas") && (libraryFilter.value == "todas"))  {
-            feedBooks(startingCount = 0, finishCount = 11, arrayLivros);
+            window.location.replace = "catalog.html";
         }
         else{
             for (let i = 0; i < arrayLivros.length; i++) {
@@ -78,6 +77,8 @@ window.onload = function () {
                 
             }
             feedBooks(filteredStartingCount, arrayFilteredBooks.length, arrayFilteredBooks);
+            paginationDiv.style.display = "none";
+            event.preventDefault();
         }
     })
         

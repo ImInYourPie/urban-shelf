@@ -8,7 +8,6 @@
     background-color: white;
 }
 
-
 /* .navbar-brand{
     padding-top:4px !important; padding-bottom: 8px !important;
 } */
@@ -50,12 +49,12 @@ ul{
 
 /* ICONS CSS */
 #userIcon{
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        margin-right: 8px;
-        margin-bottom: 0px;
-        margin-top: 0px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 #profileImage{
@@ -110,7 +109,6 @@ ul{
     margin-bottom: 0px;
 }
 
-
 /* JUMBOTRONS CSS */
 .jumbotron{
     margin-bottom: 0px;
@@ -127,13 +125,13 @@ ul{
 }
 
 #whereDiv{
-        background-color: rgb(0, 21, 64);
-        background-size: cover;
-        background-position: top center;
-        height: auto;
-        width:100%;
-        color: white;
-    }
+    background-color: rgb(0, 21, 64);
+    background-size: cover;
+    background-position: top center;
+    height: auto;
+    width:100%;
+    color: white;
+}
 
 
 #infoDiv{
@@ -155,7 +153,6 @@ ul{
     background-color: white;
     color: rgb(0, 21, 64);
 }
-
 
 /* BUTTONS CSS */
 .btn{
@@ -190,9 +187,20 @@ ul{
 }
 
 /* FOOTER CSS */
-footer{
+#myFooter{
     background-color: rgb(0, 21, 64);
     color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#myFooterReqs{
+    background-color: rgb(0, 21, 64);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #ippLogo{
@@ -204,8 +212,6 @@ footer{
 #navBibliotecas{
     margin-right: 15px;
 }
-
-
 
 /* IMG USER CSS */
 #userPhoto{
@@ -222,63 +228,62 @@ footer{
     width: 80px;
 }
 
-
 /* SIDEBAR CSS */
 /* Fixed sidenav, full height */
 #sidenav {
-    height: 500px;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(0, 21, 64);
-    overflow-x: hidden;
-    padding-top: 0px;
-    width: 100%;
-  }
-  
-  /* Style the sidenav links and the dropdown button */
-  #sidenav a, .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    display: block;
-    border: none;
-    background: none;
-    width:100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  /* On mouse-over */
-  #sidenav a:hover, .dropdown-btn:hover {
+  height: 500px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0, 21, 64);
+  overflow-x: hidden;
+  padding-top: 0px;
+  width: 100%;
+}
+
+/* Style the sidenav links and the dropdown button */
+#sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+#sidenav a:hover, .dropdown-btn:hover {
+  color: rgb(0, 84, 255);
+}
+
+/* Main content */
+ .main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.active{
     color: rgb(0, 84, 255);
-  }
-  
-  /* Main content */
-   .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
-    font-size: 20px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
-  }
-  
-  .active{
-      color: rgb(0, 84, 255);
-  }
-  
-  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
-  .dropdown-container {
-    display: none;
-    background-color: rgb(0, 21, 100);
-    padding-left: 8px;
-  }
-  
-  /* Optional: Style the caret down icon */
-  .fa-caret-down {
-    float: right;
-    padding-right: 8px;
-  }
+}
+
+/* Dropdown container (hidden by default) */
+.dropdown-container {
+  display: none;
+  background-color: rgb(0, 21, 100);
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
 
 /* Close Filter button css */
 #closeFilterBtn{
@@ -286,8 +291,6 @@ footer{
     color: white;
     background-color: rgb(0, 21, 64);
 }
-
-
 
 /* #bookPageBookCover{
     height: 80%;
@@ -298,18 +301,10 @@ footer{
     text-align: center;
 }
 
-
-
-
-
-
 /* STAR COLR CSS */
 .checked{
     color: rgb(0, 84, 255);
 }
-
-
-
 
 /* REQUISITION BUTTON CSS */
 #requisitionButton{
@@ -327,8 +322,6 @@ footer{
 #commentButton{
     width: 100%;
 }
-
-
 
 /* BOOK ITEM CSS */
 .bookItem:hover, .bookItem:focus{
@@ -350,9 +343,6 @@ footer{
     }
   }
 
-
-
-
 #catalogHeader{
     border-top: 0px;
     border-left: 0px;
@@ -361,8 +351,6 @@ footer{
     border-color: rgb(0, 21, 64);
     border-style: solid;
 }
-
-
 
 .card{
     height: 100%;
@@ -373,18 +361,13 @@ footer{
 }
 
 .card-footer{
-    text-align: center;
-    
+    text-align: center;   
 }
-
 
 .score{
     width: 100%;
     height: 100%;
 }
-
-
-
 
 /* CATALOG PAGINATION BUTTONS CSS */
 #paginationButtons{
@@ -401,8 +384,6 @@ footer{
     cursor: pointer;
 }
 
-
-
 .userCommentImg{
     width: 60px;
     height: 60px;
@@ -413,13 +394,9 @@ body{
     background-color: rgb(247, 245, 245);
 }
 
-
-
-
 .containersBookPage{
     background-color: white;
 }
-
 
 /* .userCommentsPhoto{
     background-color: white;
@@ -430,14 +407,25 @@ body{
     border-radius: 10px; 
 }
 
-
-
-
 #requisitionButton{
     width: 100%;
 }
 
-
 #notificationRequestBtn{
     width: 100%;
+}
+
+/* USER REQUISITIONS CSS */
+#tblRequisitions{
+    background-color: rgb(0, 84, 255, 0.8);
+    color: white;
+}
+
+thead{
+    background-color: rgb(0, 21, 64);
+    color: white;
+}
+
+.reqButton{
+    background-color: rgb(0, 21, 64);
 }

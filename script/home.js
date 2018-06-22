@@ -31,11 +31,14 @@ window.onload = function (){
         navDropdownUser.style.display = "none";
     }
 
+    document.getElementById("topBooksDiv").style.pointerEvents = "none";
+    document.getElementById("recentBooksDiv").style.pointerEvents = "none";
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
-    getStoredNotifications();
-    showUserNotifications();
-    
+    if (loginUser()) {
+        getStoredNotifications();
+        showUserNotifications();
+    }
     
     
 
