@@ -1,4 +1,4 @@
-window.onload = function(){
+window.onload = function () {
     // CALL FUNCTIONS
     loginUser();
     allowLogout();

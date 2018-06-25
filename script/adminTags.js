@@ -1,10 +1,10 @@
 window.onload = function () {
     loginUser();
     allowLogout();
-    
+
     // INITIATE FUNCTIONS
     refreshStoredTags();
-    
+
     // VARIABLES
     let tblTags = document.getElementById("tblTags");
     let addTag = document.getElementById("addTag");
@@ -21,17 +21,17 @@ window.onload = function () {
 
         // 2. VALIDATE INPUTS
         for (let i = 0; i < arrayTags.length; i++) {
-            if(nameTag == arrayTags[i]._nameTag){
+            if (nameTag == arrayTags[i]._nameTag) {
                 errorMsg = "Tag já existe!";
             }
         }
 
-        if(inputTagName.value == ""){
+        if (inputTagName.value == "") {
             errorMsg = "Tem de inserir o nome da tag!"
         }
 
         // 3.CHECK FOR ERRORS, IF NONE,CREATE NEW TAG AND PUSH TO ARRAYTAGS
-        if(errorMsg == ""){
+        if (errorMsg == "") {
             let newTag = new Tag(nameTag);
             arrayTags.push(newTag);
             inputTagName.value = "";
@@ -40,7 +40,7 @@ window.onload = function () {
             localStorage.tagStorage = JSON.stringify(arrayTags);
             refreshStoredTags();
         }
-        else{
+        else {
             alert(errorMsg);
         }
 

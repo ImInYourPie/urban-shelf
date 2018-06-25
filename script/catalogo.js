@@ -7,14 +7,14 @@ window.onload = function () {
     getStoredCategorias();
     getStoredRequisitions();
     showUserNotifications();
-    
-    
+
+
     // VARS
     let fullBooksCount;
     if (parseInt(arrayLivros.length % 12) == 0) {
         fullBooksCount = parseInt(arrayLivros.length / 12);
     }
-    else{
+    else {
         fullBooksCount = parseInt(arrayLivros.length / 12) + 1;
     }
     let currentBooksCount = 1;
@@ -49,39 +49,39 @@ window.onload = function () {
     categoryFilter.innerHTML += "<option value='todas' selected>Todas as categorias</option>";
     for (let i = 0; i < arrayCategorias.length; i++) {
         categoryFilter.innerHTML += "<option value='" + arrayCategorias[i]._categoryId + "'>" + arrayCategorias[i]._nameCategory + "</option>";
-        
+
     }
 
     // LIBRARY SELECT
     libraryFilter.innerHTML += "<option value='todas' selected>Todas as bibliotecas</option>";
     for (let i = 0; i < arrayBibliotecas.length; i++) {
         libraryFilter.innerHTML += "<option value='" + arrayBibliotecas[i]._libraryId + "'>" + arrayBibliotecas[i]._adress + "</option>";
-        
+
     }
-    
+
 
     // FILTER EVENT
     filterForm.addEventListener("submit", function (event) {
         arrayFilteredBooks.length = 0;
 
-        if ((categoryFilter.value == "todas") && (libraryFilter.value == "todas"))  {
+        if ((categoryFilter.value == "todas") && (libraryFilter.value == "todas")) {
             window.location.replace = "catalog.html";
         }
-        else{
+        else {
             for (let i = 0; i < arrayLivros.length; i++) {
-                if ((categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == arrayLivros[i]._libraryId) || 
-                (categoryFilter.value == "todas") && (libraryFilter.value == arrayLivros[i]._libraryId) ||
-                (categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == "todas")){
+                if ((categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == arrayLivros[i]._libraryId) ||
+                    (categoryFilter.value == "todas") && (libraryFilter.value == arrayLivros[i]._libraryId) ||
+                    (categoryFilter.value == arrayLivros[i]._category) && (libraryFilter.value == "todas")) {
                     arrayFilteredBooks.push(arrayLivros[i]);
                 }
-                
+
             }
             feedBooks(filteredStartingCount, arrayFilteredBooks.length, arrayFilteredBooks);
             paginationDiv.style.display = "none";
             event.preventDefault();
         }
     })
-        
+
 
     // EVENT LISTENER FOR SEARCH BAR
     let searchForm = document.getElementById("searchForm");
@@ -90,7 +90,7 @@ window.onload = function () {
 
         // VARS
         let searchBar = document.getElementById("searchBar");
-        
+
         // FUNCTIONS
         searchBookItems(searchBar.value);
         feedBooks(filteredStartingCount, arrayFilteredBooks.length, arrayFilteredBooks);
@@ -100,7 +100,7 @@ window.onload = function () {
         clearBtn.style.display = "block";
 
     })
-   
+
 
     // CLEAR BTN EVENT
     clearBtn.addEventListener("click", function (event) {
@@ -115,7 +115,7 @@ window.onload = function () {
         // LOOP TO CHECK 
         for (i = 0; i < arrayLivros.length; i++) {
             if ((arrayLivros[i]._title.toUpperCase().indexOf(input) > -1) || (arrayLivros[i]._autor.toUpperCase().indexOf(input) > -1)) {
-                    arrayFilteredBooks.push(arrayLivros[i]);
+                arrayFilteredBooks.push(arrayLivros[i]);
             }
         }
     }
@@ -131,14 +131,14 @@ window.onload = function () {
         event.preventDefault();
 
         // CONDITION CHECK 
-        if(startingCount != 0 ){
+        if (startingCount != 0) {
             startingCount -= 12;
             finishCount -= 12;
             currentBooksCount--;
             feedBooks(startingCount, finishCount, arrayLivros);
             displayNumberOfPages.innerHTML = currentBooksCount + " de " + fullBooksCount;
         }
-        else{
+        else {
             feedBooks(startingCount, finishCount, arrayLivros);
         }
     })
@@ -147,14 +147,14 @@ window.onload = function () {
     nextPageBtn.addEventListener("click", function (event) {
         event.preventDefault();
 
-        if (finishCount < arrayLivros.length -1) {
+        if (finishCount < arrayLivros.length - 1) {
             startingCount += 12;
             finishCount += 12;
             currentBooksCount++;
             feedBooks(startingCount, finishCount, arrayLivros);
             displayNumberOfPages.innerHTML = currentBooksCount + " de " + fullBooksCount;
         }
-        else{
+        else {
             feedBooks(startingCount, finishCount, arrayLivros);
         }
 
@@ -162,32 +162,32 @@ window.onload = function () {
 
 
 
-    // SORT SELECT
--   sortingFilter.addEventListener("change", function (event) {
-        event.preventDefault();
-        if (sortingFilter.value == "rateDown") {
-             sortByScoreDown();
-             feedBooks(startingCount, finishCount, arrayLivros);
-        }
-        if (sortingFilter.value == "rateUp") {
-            sortByScoreUp();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-        if (sortingFilter.value == "dateDown") {
-           sortByReleaseDateDown();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-        if (sortingFilter.value == "dateUp") {
-           sortByReleaseDateUp();
-            feedBooks(startingCount, finishCount, arrayLivros);
-        }
-    })
-    
+        // SORT SELECT
+        - sortingFilter.addEventListener("change", function (event) {
+            event.preventDefault();
+            if (sortingFilter.value == "rateDown") {
+                sortByScoreDown();
+                feedBooks(startingCount, finishCount, arrayLivros);
+            }
+            if (sortingFilter.value == "rateUp") {
+                sortByScoreUp();
+                feedBooks(startingCount, finishCount, arrayLivros);
+            }
+            if (sortingFilter.value == "dateDown") {
+                sortByReleaseDateDown();
+                feedBooks(startingCount, finishCount, arrayLivros);
+            }
+            if (sortingFilter.value == "dateUp") {
+                sortByReleaseDateUp();
+                feedBooks(startingCount, finishCount, arrayLivros);
+            }
+        })
 
 
 
 
-    
+
+
 
 
 }

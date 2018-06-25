@@ -1,4 +1,4 @@
-window.onload = function (){
+window.onload = function () {
     getStoredBooks();
     getStoredTags();
     getStoredCategorias();
@@ -21,13 +21,13 @@ window.onload = function (){
     }
 
     if (arrayLivros.length == 0) {
-            testBooks();
+        testBooks();
     }
 
-    
+
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
-    if(localStorage.loginStorage != true){
+    if (localStorage.loginStorage != true) {
         navDropdownUser.style.display = "none";
     }
 
@@ -35,12 +35,12 @@ window.onload = function (){
     document.getElementById("recentBooksDiv").style.pointerEvents = "none";
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
-    if (login == true){
+    if (login == true) {
         getStoredNotifications();
         showUserNotifications();
     }
-    
-    
+
+
 
     // CALL LOGOUT FUNCTION
     allowLogout();
@@ -49,23 +49,23 @@ window.onload = function (){
     // ADD BOOKS TO TOP AND RECENT
     loadTopBooks();
     loadRecentBooks();
-    
+
 
     // VARIABLES
     let formLogin = document.getElementById("formLogin");
     let formRegister = document.getElementById("formRegister");
-    
-    
+
+
     // TEST
 
     // let newBook1 = ()
 
-    
-    
+
+
     // LOGIN SUBMIT
-    formLogin.addEventListener("submit", function(event){
+    formLogin.addEventListener("submit", function (event) {
         event.preventDefault();
-    
+
         // 1.VARIABLES
         let inputEmailLogin = document.getElementById("loginEmail");
         let inputPasswordLogin = document.getElementById("loginPassword");
@@ -86,27 +86,28 @@ window.onload = function (){
             }
         }
 
-        let logedUser = {id: id,
-                        userName: userName,
-                        typeUser: typeUser,
-                        photo: photo
+        let logedUser = {
+            id: id,
+            userName: userName,
+            typeUser: typeUser,
+            photo: photo
         }
 
         // 3.SE EXISTE; AUTENTICAR UTILIZADOR
-        if(userExists){
+        if (userExists) {
             localStorage.loginStorage = JSON.stringify(logedUser);
-            loginUser(); 
+            loginUser();
             // checkLogginStorage();
             $('#loginModal').modal('hide');
             showUserNotifications();
 
-        } else{
+        } else {
             inputEmailLogin.setAttribute("class", "form-control col-md-12 is-invalid");
             inputPasswordLogin.setAttribute("class", "form-control col-md-12 is-invalid");
             let loginError = document.getElementById("loginError");
             loginError.style.color = "red";
             loginError.innerHTML = "Credenciais incorretas! Verifique o e-mail ou password.";
-        } 
+        }
     })
 
 
@@ -134,34 +135,34 @@ window.onload = function (){
         }
 
         // 3. CHECK IF PASSWORDS MATCH
-        if(inputPassConfirm.value != inputPassword.value){
+        if (inputPassConfirm.value != inputPassword.value) {
             errorPassword = true;
         }
-        
+
         // 4. CHECK FOR ERRORS, IF NONE; CREATE NEW USER AND PUSH TO ARRAYUSERS, THEN SAVE IN LOCAL STORAGE
-        if(emailExists){
+        if (emailExists) {
             document.getElementById("messageEmail").style.color = "red";
             document.getElementById("messageEmail").innerHTML = messageEmail;
-            inputEmail.setAttribute("class", "form-control is-invalid");inputEmail.setAttribute("class", "form-control is-invalid");
+            inputEmail.setAttribute("class", "form-control is-invalid"); inputEmail.setAttribute("class", "form-control is-invalid");
         }
-        else{
+        else {
             document.getElementById("messageEmail").innerHTML = "";
             inputEmail.setAttribute("class", "form-control");
         }
-        if(errorPassword){
+        if (errorPassword) {
             document.getElementById("messagePassword").style.color = "red";
             document.getElementById("messagePassword").innerHTML = messagePassword;
             inputPassword.setAttribute("class", "form-control is-invalid");
             inputPassConfirm.setAttribute("class", "form-control is-invalid");
         }
-        else{
+        else {
             document.getElementById("messagePassword").innerHTML = "";
             inputPassword.setAttribute("class", "form-control");
             inputPassConfirm.setAttribute("class", "form-control");
         }
 
         if (errorPassword == false && emailExists == false) {
-            let newUser = new User(inputUsername.value, inputPassword.value, inputEmail.value, "",inputUrlPhoto.value, 2);
+            let newUser = new User(inputUsername.value, inputPassword.value, inputEmail.value, "", inputUrlPhoto.value, 2);
             arrayUsers.push(newUser);
 
             // STORE USER
@@ -183,4 +184,4 @@ window.onload = function (){
     })
 
 
-    }
+}
