@@ -214,7 +214,7 @@ function getStoredNotifications() {
 }
 let a = 0
 // DISPLAY CURRENT USER NOTIFICATIONS
-function showUserNotifications(){ //INCOMPLETO////////////////////////////
+function showUserNotifications(){ 
     getStoredNotifications();
     for(let i=0; i<arrayNotifications.length;i++){
         if(arrayNotifications[i]._userId == login.id){
@@ -272,6 +272,7 @@ function showUserNotifications(){ //INCOMPLETO////////////////////////////
 //FUNÇÃO PARA OBTER O TITULO DO LIVRO DA NOTIFICAÇÃO SELECIONADA
 function getTitle(e){
     let firstNotRequistionedId=0
+    let arrayNotRequisitioned = [];
     console.log(e.target.className)
     console.log("hehe")
     let q = e.target.className.indexOf(' ')
@@ -281,16 +282,17 @@ function getTitle(e){
         if(titulo == arrayLivros[j]._title){
             for(let k=0; k<arrayRequisitions.length;k++){
                 if(arrayRequisitions[k]._bookId == arrayLivros[j]._bookId){
-                    continue;   
+                    continue;
                 }
                 else{
-                    firstNotRequistionedId = arrayLivros[j]._bookId
+                    arrayNotRequisitioned.push(arrayLivros[j]);
                 }
             }   
         }
     }
-    
-   console.log("hehe")
+    firstNotRequistionedId = arrayNotRequisitioned[0]._bookId
+    console.log("lala")
+   console.log(firstNotRequistionedId)
     window.location = "bookPage.html"
     setStorageValuesBook(firstNotRequistionedId);
     // getBookPageValues();
@@ -436,7 +438,7 @@ function addMapMarkers() {
         url: "images/map-marker-alt.png", // url
         scaledSize: new google.maps.Size(70, 55), // scaled size
     };
-    for (let i = 0; i < arrayBibliotecas.length; i++) {
+    for (let i = 0; i < arrayBibliotecas.length; i++){
         let marker = new google.maps.Marker({
            position: {lat: parseFloat(arrayBibliotecas[i]._coordenatesLat), lng: parseFloat(arrayBibliotecas[i]._coordenatesLong)},
            map: map,

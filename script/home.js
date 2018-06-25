@@ -35,7 +35,7 @@ window.onload = function (){
     document.getElementById("recentBooksDiv").style.pointerEvents = "none";
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
-    if (loginUser()) {
+    if (login == true){
         getStoredNotifications();
         showUserNotifications();
     }
