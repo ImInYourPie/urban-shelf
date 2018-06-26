@@ -1,10 +1,24 @@
 window.onload = function () {
 
 
+     //HARD CODE OVER-DUE REQUISITION
+     if(localStorage.requisitionStorage == false){
+        let newReq = new Requisition(1,3)
+        newReq._requisitionDateFull -= (1000 * 3600 * 24 * 40)
+        newReq._fine = ((new Date().getTime()-(1000 * 3600 * 24 * 40) - newReq._requisitionDateFull - (1000 * 3600 * 24 * 30))/ (1000 * 3600 * 24)).toFixed(2) + "€"
+        arrayRequisitions.push(newReq)
 
+        let newReq1 = new Requisition(2,3)
+        newReq1._requisitionDateFull -= (1000 * 3600 * 24 * 10)
+        newReq1._fine = ((new Date().getTime()-(1000 * 3600 * 24 * 10) - newReq._requisitionDateFull - (1000 * 3600 * 24 * 30))/ (1000 * 3600 * 24)).toFixed(2) + "€"
+        arrayRequisitions.push(newReq1)
+
+        localStorage.requisitionStorage = JSON.stringify(arrayRequisitions)
+    }
 
 
     loginUser(); //EFETUAR LOGIN SE ESTE ESTIVER EM MEMÓRIA
+    allowLogout();
     getStoredRequisitions();
     getStoredBooks();
     showUserNotifications();

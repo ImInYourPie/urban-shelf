@@ -274,13 +274,13 @@ window.onload = function () {
                             strHtml += "<img class='userCommentImg img img-fluid mr-2' alt='' src='" + arrayUsers[j]._photo + "'/><span>" + arrayUsers[j]._username + "</span>";
                         }
                         else {
-                            strHtml += "<img class='userCommentImg img img-fluid' alt='' src='images/userIcon(white).png'/><p>" + arrayUsers[j]._username + "</p>";
+                            strHtml += "<img class='userCommentImg img img-fluid mr-2' alt='' src='images/userIcon(white).png'/><span>" + arrayUsers[j]._username + "</span>";
                         }
                     }
                 }
 
                 strHtml += "</div>" +
-                    "<div class='userCommentsTxt col-md-12'>" +
+                    "<div class='userCommentsTxt col-md-10 offset-md-1'>" +
                     "<p>" + arrayComments[i]._txtComment + "</p>" +
                     "</div>" +
                     "</div>";

@@ -2,10 +2,13 @@
 function testUsers() {
 
     let newAdmin1 = new User("admin1", "123", "admin1@gmail.com", "", "", 0);
-    arrayUsers.push(newAdmin);
+    arrayUsers.push(newAdmin1);
 
-    let newOperador1 = new User("operador1", "123", "operador1@gmail.com", "", "", 0);
+    let newOperador1 = new User("operador1", "123", "operador1@gmail.com", "", "", 1);
     arrayUsers.push(newOperador1);
+
+    let newUser1 = new User("user1", "123", "user1@gmail.com", "", "", 2);
+    arrayUsers.push(newUser1);
 
 
     localStorage.userStorage = JSON.stringify(arrayUsers);

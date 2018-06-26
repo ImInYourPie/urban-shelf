@@ -4,6 +4,8 @@ window.onload = function () {
     getStoredCategorias();
     getStoredRequisitions();
     getStoredBibliotecas();
+    getStoredUsers();
+    
 
 
 
@@ -24,6 +26,11 @@ window.onload = function () {
         testBooks();
     }
 
+    if (arrayUsers.length == 0) {
+        testUsers();
+    }
+
+
 
     // HIDE DROPDOWN IF LOGINSTORAGE == FALSE
     let navDropdownUser = document.getElementById("navDropdownUser");
@@ -35,10 +42,7 @@ window.onload = function () {
     document.getElementById("recentBooksDiv").style.pointerEvents = "none";
     // LOGGIN USER IF LOCALSTORAGE.LOGGINSTORAGE == TRUE
     loginUser();
-    if (login == true) {
-        getStoredNotifications();
-        showUserNotifications();
-    }
+    
 
 
 
@@ -49,6 +53,10 @@ window.onload = function () {
     // ADD BOOKS TO TOP AND RECENT
     loadTopBooks();
     loadRecentBooks();
+
+    if (login != undefined) {
+        showUserNotifications();
+    }
 
 
     // VARIABLES
