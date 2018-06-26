@@ -99,7 +99,7 @@ function testBooks() {
 
     let newBook9 = new Book("As Crónicas de Gelo e Fogo - Livro Dois", "https://img.wook.pt/images/a-muralha-de-gelo-george-r-r-martin/MXwxOTc5Mjl8MjUwNzk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
         "2007-09-08", 3, [5, 8, 10, 11], "Saída de Emergência",
-        416, "Fraco", "", "2018-03-01", 4, [0, 40, 100], "");
+        416, "Fraco", "", "2018-03-01", 2, [0, 40, 100], "");
     arrayLivros.push(newBook9);
 
     let newBook10 = new Book("As Crónicas de Gelo e Fogo - Livro Dois", "https://img.wook.pt/images/a-muralha-de-gelo-george-r-r-martin/MXwxOTc5Mjl8MjUwNzk2fDEzODM1MjMyMDAwMDA=/502x", "George R. R. Martin", "Lorem ipsum dolor sit amet, accusata repudiandae voluptatibus sed ei. Ius choro suscipiantur consequuntur ad, facilis singulis has at. Duo ei mentitum instructior, errem viris pri cu, no pro malorum epicuri forensibus. Est no duis idque iudicabit, erat ocurreret voluptatibus est ne, agam deserunt vim id. Reque aliquip aperiam te sit, vix quas intellegat forensibus ut.",
@@ -129,7 +129,7 @@ function testBooks() {
 
     let newBook15 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap", "https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
         "2017-05-01", 9, [14], " FCA",
-        208, "Médio", "", "2018-03-01", 4, [0, 30], "");
+        208, "Médio", "", "2018-03-01", 2, [0, 30], "");
     arrayLivros.push(newBook15);
 
     let newBook16 = new Book("As Criação Rápida de Sites Responsivos com o Bootstrap", "https://img.wook.pt/images/criacao-rapida-de-sites-responsivos-com-o-bootstrap-ricardo-queiros/MXwxOTM4NjUwN3wxNTIwNDgwN3wxNDk1NDA3NjAwMDAw/502x", "Ricardo Queirós", "Bootstrap == <div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>",
