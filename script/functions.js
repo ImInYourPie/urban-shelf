@@ -997,7 +997,7 @@ function allowLogout() {
         event.preventDefault();
         if (localStorage.loginStorage) {
             localStorage.removeItem("loginStorage");
-            window.location = "home.html";
+            window.location = "index.html";
         }
     })
 }
